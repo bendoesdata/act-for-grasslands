@@ -3,28 +3,53 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <header>
+    <div class="wrapper">
+
+      <nav>
+        <div class="flex-container">
+          <div id="site-title">
+            <img id="nav-logo" src="./assets/minerva-logo-1.png" width="40" alt="minerva logo">
+            <span id="nav-title">M I N E R V A</span>
+          </div>
+          <div class="nav-links">
+            <RouterLink class="hover-highlight" to="/">Home</RouterLink>
+            <RouterLink class="hover-highlight" to="/about">About</RouterLink>
+            <RouterLink class="hover-highlight" to="/faq">FAQ</RouterLink>
+            <RouterLink class="hover-highlight" to="/resources">Resources</RouterLink>
+            <RouterLink class="hover-highlight" to="/agreement">Agreement</RouterLink>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
 </template>
+<!-- <HelloWorld msg="Vite + Vue" /> -->
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+
+#site-title {
+  display: inline;
+  color: #F06543;
+  font-size: 1.5rem;
+  margin-left: 10px
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+/* make #nav-logo and #nav-title centered vertically */
+#nav-logo {
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-top: -3px
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+/* inside of flex-container make #site-title stay on the left and nav-links stay on the right */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px
 }
+
 </style>
