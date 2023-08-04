@@ -15,10 +15,10 @@ import HelloWorld from './components/HelloWorld.vue'
           <div class="nav-links">
             <RouterLink class="hover-highlight" to="/">Home</RouterLink>
             <RouterLink class="hover-highlight" to="/about">About</RouterLink>
-            <RouterLink class="hover-highlight" to="/faq">FAQ</RouterLink>
-            <RouterLink class="hover-highlight" to="/resources">Resources</RouterLink>
-            <RouterLink class="hover-highlight" to="/agreement">Agreement</RouterLink>
           </div>
+          <v-btn>
+  Button
+</v-btn>
         </div>
       </nav>
     </div>
@@ -32,7 +32,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 #site-title {
   display: inline;
-  color: #F06543;
+  color: #475026;
   font-size: 1.5rem;
   margin-left: 10px
 }
