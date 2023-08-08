@@ -27,7 +27,7 @@ storms.
   </p>
 </div>
   <div class="section-placeholder section">
-
+    <leaflet-map :layerYear="2010" />
   </div>
   <div class="section">
     <h2>Regional collapse</h2>
@@ -81,12 +81,14 @@ restore disappearing grasslands by supporting a North American Grasslands Conser
 
   <script>
   import SpeciesHighlight from '../components/SpeciesHighlight.vue'
+  import LeafletMap from '../components/LeafletMap.vue'
   import species from '../assets/data/species.json'
   
   export default {
     name: 'HomeView',
     components: {
-      SpeciesHighlight
+      SpeciesHighlight,
+      LeafletMap
     },
     data() {
       return {

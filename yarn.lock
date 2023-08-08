@@ -22,6 +22,13 @@
   "resolved" "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-4.2.3.tgz"
   "version" "4.2.3"
 
+"@vue-leaflet/vue-leaflet@^0.10.1":
+  "integrity" "sha512-RNEDk8TbnwrJl8ujdbKgZRFygLCxd0aBcWLQ05q/pGv4+d0jamE3KXQgQBqGAteE1mbQsk3xoNcqqUgaIGfWVg=="
+  "resolved" "https://registry.npmjs.org/@vue-leaflet/vue-leaflet/-/vue-leaflet-0.10.1.tgz"
+  "version" "0.10.1"
+  dependencies:
+    "vue" "^3.2.25"
+
 "@vue/compiler-core@3.3.4":
   "integrity" "sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g=="
   "resolved" "https://registry.npmjs.org/@vue/compiler-core/-/compiler-core-3.3.4.tgz"
@@ -542,6 +549,11 @@
   "integrity" "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng=="
   "resolved" "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz"
   "version" "7.0.0"
+
+"leaflet@^1.6.0", "leaflet@^1.9.4":
+  "integrity" "sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA=="
+  "resolved" "https://registry.npmjs.org/leaflet/-/leaflet-1.9.4.tgz"
+  "version" "1.9.4"
 
 "locate-path@^5.0.0":
   "integrity" "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="
