@@ -32,6 +32,11 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: 'Rufina', serif;
+}
+
+h2 {
+  font-family: 'Rufina', serif;
 }
 
 button {
@@ -45,9 +50,38 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+
+.section-placeholder {
+  height: 600px;
+  background-color: rgb(206, 206, 206);
 }
+
+.section {
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.section > * {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.primary-btn {
+  background-color: #475026 !important;
+  color: #EFEAD4 !important;
+  border: 1px solid #EFEAD4 !important;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.secondary-btn {
+  background-color: #EFEAD4 !important;
+  color: #475026 !important;
+  border: 1px solid #475026 !important;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -58,10 +92,7 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 @media (prefers-color-scheme: light) {

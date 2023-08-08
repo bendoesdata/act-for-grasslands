@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Bobolink",
+        "id": "bobolink",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Greater Sage-Grouse",
+        "id": "greater-sage-grouse",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Scaled Quail",
+        "id": "scaled-quail",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Ring-necked Pheasant",
+        "id": "ring-necked-pheasant",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Northern Pintail",
+        "id": "northern-pintail",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Greater Prairie-Chicken",
+        "id": "greater-prairie-chicken",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Northern Bobwhite",
+        "id": "northern-bobwhite",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    },
+    {
+        "name": "Mallard",
+        "id": "mallard",
+        "photoFile": "images/monarch.jpg",
+        "description": "text here"
+    }
+]

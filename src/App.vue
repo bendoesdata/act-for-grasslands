@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -9,16 +9,13 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <div class="flex-container">
           <div id="site-title">
-            <img id="nav-logo" src="./assets/minerva-logo-1.png" width="40" alt="minerva logo">
+            
             <span id="nav-title">M I N E R V A</span>
           </div>
           <div class="nav-links">
             <RouterLink class="hover-highlight" to="/">Home</RouterLink>
             <RouterLink class="hover-highlight" to="/about">About</RouterLink>
           </div>
-          <v-btn>
-  Button
-</v-btn>
         </div>
       </nav>
     </div>
@@ -50,6 +47,10 @@ import HelloWorld from './components/HelloWorld.vue'
   justify-content: space-between;
   align-items: center;
   margin-top: 10px
+}
+
+.nav-links {
+  margin: 10px;
 }
 
 </style>
