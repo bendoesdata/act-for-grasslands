@@ -7,16 +7,16 @@
     <div class="wrapper">
 
       <nav>
-        <div class="flex-container">
+        <!-- <div class="flex-container" id="navbar">
           <div id="site-title">
             
-            <span id="nav-title">M I N E R V A</span>
+            <span id="nav-title"></span>
           </div>
           <div class="nav-links">
             <RouterLink class="hover-highlight" to="/">Home</RouterLink>
             <RouterLink class="hover-highlight" to="/about">About</RouterLink>
           </div>
-        </div>
+        </div> -->
       </nav>
     </div>
   </header>
@@ -52,5 +52,7 @@
 .nav-links {
   margin: 10px;
 }
+
+
 
 </style>
