@@ -37,6 +37,13 @@ h1 {
 
 h2 {
   font-family: 'Rufina', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 button {
@@ -59,6 +66,8 @@ button {
 .section {
   padding: 1em;
   margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .section > * {
