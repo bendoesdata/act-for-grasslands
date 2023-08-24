@@ -1,50 +1,106 @@
 [
     {
-        "name": "Bobolink",
-        "id": "bobolink",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "name": "Northern Bobwhite",
+        "id": "northern-bobwhite",
+        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "descriptionLong": "Northern Bobwhite, a small game bird with an unmistakable call, has lost extensive amounts of habitat in the central and eastern U.S., leading to an 81% population decline over the last 50 years.",
+        "descriptionShort": "This quail has lost 81% of its population."
     },
     {
-        "name": "Greater Sage-Grouse",
-        "id": "greater-sage-grouse",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "name": "Mule Deer",
+        "id": "mule-deer",
+        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "descriptionLong": "Mule Deer herds are faithful to their migratory routes and seasonal ranges, and still roam most of the western half of North America from the Yukon to Mexico. However, populations across the western U.S. began declining in the 1970s, and some of these losses continue due to disrupted migratory routes and changing environmental conditions.",
+        "descriptionShort": "Disruptions to Mule Deer migrations is one reason many populations have declined across the western U.S. since the 1970s."
     },
     {
-        "name": "Scaled Quail",
-        "id": "scaled-quail",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "name": "Monarch Butterfly",
+        "id": "monarch",
+        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "descriptionLong": "Monarch butterflies are famous for their epic migrations in the hundreds of millions between North America and Mexico. 80% of this population has been lost since the 1990s. Monarchs that overwinter on the California coast have been hit even harder, declining by over 95% since the 1980s. ",
+        "descriptionShort": "Monarch numbers have collapsed by 80-95% across the country."
     },
     {
-        "name": "Ring-necked Pheasant",
-        "id": "ring-necked-pheasant",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "name": "Southern Plains Bumble Bee",
+        "id": "southern-plains-bumble-bee",
+        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "descriptionLong": "Southern Plains Bumble Bees pollinate many plants in the southeastern coastal plain and Great Plains. Across its range, it is 85% less common than it used to be.  The endangered pollinator is facing a significant chance of disappearing. ",
+        "descriptionShort": "The Southern Plains Bumble Bee could disappear if declines continue at current rates."
     },
     {
         "name": "Northern Pintail",
         "id": "northern-pintail",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "photoFile": "/images/Northern-Pintail/pintail-1.jpg",
+        "descriptionLong": "Northern Pintail ducks breed in grasslands. They have lost habitat across the U.S., especially nesting cover but also across their wintering sites. Pintail populations fell from 10 million ducks in the 1950s to just 1.8 million by 2022.",
+        "descriptionShort": "Northern pintails have lost roughly 82% of their population in the last 70 years."
+    },{
+        "name": "Rio Grande Cutthroat Trout",
+        "id": "rio-grande-cutthroad-trout",
+        "photoFile": "/images/Northern-Pintail/pintail-1.jpg",
+        "descriptionLong": "Rio Grande Cutthroat Trout are the southernmost subspecies of cutthroat trout. Like other cutthroat trout, they live in clear, cold streams and lakes. They are threatened by non-native trout, as well as water pollution caused by the loss of grasslands and sagebrush.",
+        "descriptionShort": "The loss of grasslands and sagebrush leads to pollution of the rivers and streams that Cutthroat Trout depend on."
+    },
+    {
+        "name": "Greater Sage-Grouse",
+        "id": "greater-sage-grouse",
+        "photoFile": "/images/Greater-Sage-Grouse/sage-grouse-1.jpeg",
+        "descriptionLong": "The Greater Sage-Grouse is an iconic Western grassland bird that captivates us with its distinctive courtship dance. It has lost 60% of its population over the last 50 years.",
+        "descriptionShort": "The Greater Sage-Grouse, a bird that lives only in sagebrush, has lost 60% of its population."
+    },
+    {
+        "name": "Ring-necked Pheasant",
+        "id": "ring-necked-pheasant",
+        "photoFile": "/images/Ring-necked-Pheasant/ring-necked-1.JPG",
+        "descriptionLong": "The Ring-necked Pheasant, a popular game bird, has lost 27% of its population, especially in the Midwest. Destroying intact grasslands often means losing pollinator-friendly plants, endangering food sources for nestlings and adults. ",
+        "descriptionShort": "Ring-necked Pheasants have lost 27% of their population."
+    },
+    {
+        "name": "Bobolink",
+        "id": "bobolink",
+        "photoFile": "images/Bobolink/bobolink-1.jpg",
+        "descriptionLong": "The distinctive Bobolink, named for the male’s bubbling song, has lost 55% of its population and is on track to lose another 50% in the next 50 years if nothing changes.",
+        "descriptionShort": "This grassland bird is on track to lose 50% of its population in the next 50 years if nothing changes."
+    },
+    {
+        "name": "Scaled Quail",
+        "id": "scaled-quail",
+        "photoFile": "/images/Scaled-Quail/quail-1.jpg",
+        "descriptionLong": "The Scaled Quail, named for the scaly appearance of its feathers, lives in the dry scrublands and grasslands of the Southwest. Loss of vegetation for food and cover, and more frequent droughts, have led to a 31% decline over the last 50 years.",
+        "descriptionShort": "The population of this western quail has declined by 31%."
     },
     {
         "name": "Greater Prairie-Chicken",
         "id": "greater-prairie-chicken",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
-    },
-    {
-        "name": "Northern Bobwhite",
-        "id": "northern-bobwhite",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "photoFile": "/images/Greater-Prairie-Chicken/chicken-1.jpg",
+        "descriptionLong": "Greater Prairie-Chicken males display to females on “booming grounds,” often sharing these stages with other grouse and pheasant species. Sage-grouse and prairie chickens all require unbroken grassland and sage habitat and abandon their breeding sites when tree cover exceeds 5-10%.  ",
+        "descriptionShort": "Once found across the central U.S., this grouse now occupies a fraction of its past range."
     },
     {
         "name": "Mallard",
         "id": "mallard",
-        "photoFile": "images/monarch.jpg",
-        "description": "text here"
+        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "descriptionLong": "Mallards are widespread but show recent declines, especially in the West and Midwest’s Prairie Pothole region (also known as the continent’s “duck factory”) where the greatest numbers of North American Mallards breed. Only half this habitat remains today. ",
+        "descriptionShort": " Mallards (and other ducks) have lost over half their prairie breeding grounds."
+    },
+    {
+        "name": "Pronghorn",
+        "id": "pronghorn",
+        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "descriptionLong": "Pronghorn have been in North America for over a million years and are the second fastest land mammals in the world. Speed and stamina will not be enough to keep our antelope playing on the Great Plains unless they can continue to use their generations-old migratory routes. ",
+        "descriptionShort": "Populations of Pronghorn no longer exist in Iowa and Minnesota and are struggling in Arizona and California."
+    },
+    {
+        "name": "Elk",
+        "id": "elk",
+        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "descriptionLong": "Elk bugles are true calls of the wild. Prior to European settlement, there may have been as many as 10 million elk ranging across North America. Today, about a tenth of that population remains within a fraction of their historic range.",
+        "descriptionShort": "The Elk's current population is a tenth of its historic size."
+    },
+    {
+        "name": "Regal Fritillary",
+        "id": "regal-fritillary",
+        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "descriptionLong": "Regal Fritillary butterflies are found only in grasslands and reproduce only once a year. Once widespread, they are likely extinct from 15 states, and continue to decline in most of their remaining range in the Midwest.",
+        "descriptionShort": "This grassland butterfly is likely extinct from half its historic range and continues to decline in most of its remaining range in the Midwest."
     }
 ]
