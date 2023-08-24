@@ -5,7 +5,8 @@
       </div>
       <div class="right" :style="{ flexBasis: isMobile ? '100%' : '50%' }">
         <h2>{{ title }}</h2>
-        <p>{{ description }}</p>
+        <div class="species-description" v-html="description"></div>
+        
       </div>
     </div>
   </template>
@@ -53,6 +54,10 @@
     display: block;
     max-width: 100%;
   }
+
+  /* .species-description {
+    font-size: 21px;
+  } */
   
   /* Media query for smaller screens */
   @media (max-width: 900px) {

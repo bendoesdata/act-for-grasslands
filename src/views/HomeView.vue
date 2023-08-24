@@ -24,7 +24,7 @@
         </p>
       </div>
       <div class="flex-half">
-        <img src="images/Mule Deer/cbolt_07172017_DSC3017 © Clay Bolt.jpg" style="width: 100%" alt="">
+        <img src="images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
       </div>
     </div>
 </div>
@@ -77,7 +77,7 @@ much has been lost.
   <SpeciesHighlight class="section" v-if="selectedSpecies !=null"
       :imageUrl="selectedSpecies.photoFile"
       :title="selectedSpecies.name"
-      :description="selectedSpecies.description"
+      :description="selectedSpecies.descriptionLong"
   />
 
   <div class="map-section">
