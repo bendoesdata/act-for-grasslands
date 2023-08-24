@@ -1,5 +1,4 @@
 <template>
-    <span>To zoom, hold Cmd or Ctrl while scrolling.</span>
     <div id="mapContainer" class="leaflet-map" @mouseover="showMessage = true" @mouseleave="showMessage = false">
         <div v-if="showMessage" class="message-overlay">
         Hold Ctrl/Cmd and scroll to zoom
@@ -49,15 +48,15 @@
             subdomains: 'abcd',
             maxZoom: 20
         }).addTo(map);
-        console.log(showMessage)
+        
       let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/unmasked/${props.layerName}/${props.layerYear}/{z}/{x}/{y}.png`, {
                 maxZoom: 18,
-                opacity: 0.7
+                opacity: 1
             }).addTo(map);
 
     // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
     document.getElementById('mapContainer').addEventListener('mousewheel', (e) => {
-        console.log(e)
+        
         if (e.ctrlKey || e.metaKey) {
           // Zoom when Cmd/Ctrl key is held down
           const delta = e.wheelDeltaY || e.deltaY;
