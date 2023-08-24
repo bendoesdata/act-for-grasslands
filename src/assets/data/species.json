@@ -9,21 +9,21 @@
     {
         "name": "Mule Deer",
         "id": "mule-deer",
-        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "photoFile": "/images/Mule-Deer/NWcH4mbPRZg_unsplash_Acton_Crawford.jpg",
         "descriptionLong": "Mule Deer herds are faithful to their migratory routes and seasonal ranges, and still roam most of the western half of North America from the Yukon to Mexico. However, populations across the western U.S. began declining in the 1970s, and some of these losses continue due to disrupted migratory routes and changing environmental conditions.",
         "descriptionShort": "Disruptions to Mule Deer migrations is one reason many populations have declined across the western U.S. since the 1970s."
     },
     {
         "name": "Monarch Butterfly",
         "id": "monarch",
-        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "photoFile": "/images/Monarch-Butterfly/Ce5RO8kSH94_unsplash_rod_m.jpg",
         "descriptionLong": "Monarch butterflies are famous for their epic migrations in the hundreds of millions between North America and Mexico. 80% of this population has been lost since the 1990s. Monarchs that overwinter on the California coast have been hit even harder, declining by over 95% since the 1980s. ",
         "descriptionShort": "Monarch numbers have collapsed by 80-95% across the country."
     },
     {
         "name": "Southern Plains Bumble Bee",
         "id": "southern-plains-bumble-bee",
-        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "photoFile": "/images/Southern-Plains-Bumblebee/cbolt_09252020_DSC9304_Clay_Bolt.jpg",
         "descriptionLong": "Southern Plains Bumble Bees pollinate many plants in the southeastern coastal plain and Great Plains. Across its range, it is 85% less common than it used to be.  The endangered pollinator is facing a significant chance of disappearing. ",
         "descriptionShort": "The Southern Plains Bumble Bee could disappear if declines continue at current rates."
     },
@@ -36,7 +36,7 @@
     },{
         "name": "Rio Grande Cutthroat Trout",
         "id": "rio-grande-cutthroad-trout",
-        "photoFile": "/images/Northern-Pintail/pintail-1.jpg",
+        "photoFile": "/images/Rio-Grande-Cutthroat/Rio_Grande_Cutthroat_Trout_CT-PC193_Patrick_Clayton_Engbretson_Underwater_Photography.jpg",
         "descriptionLong": "Rio Grande Cutthroat Trout are the southernmost subspecies of cutthroat trout. Like other cutthroat trout, they live in clear, cold streams and lakes. They are threatened by non-native trout, as well as water pollution caused by the loss of grasslands and sagebrush.",
         "descriptionShort": "The loss of grasslands and sagebrush leads to pollution of the rivers and streams that Cutthroat Trout depend on."
     },
