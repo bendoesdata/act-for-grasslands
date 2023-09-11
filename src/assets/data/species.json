@@ -85,21 +85,21 @@
     {
         "name": "Pronghorn",
         "id": "pronghorn",
-        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "photoFile": "/images/Pronghorn/VSFfqlapf4c_unsplash_Cliff_Fincher.jpg",
         "descriptionLong": "Pronghorn have been in North America for over a million years and are the second fastest land mammals in the world. Speed and stamina will not be enough to keep our antelope playing on the Great Plains unless they can continue to use their generations-old migratory routes. ",
         "descriptionShort": "Populations of Pronghorn no longer exist in Iowa and Minnesota and are struggling in Arizona and California."
     },
     {
         "name": "Elk",
         "id": "elk",
-        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "photoFile": "/images/Elk/Colorado_Wildlife_Federation_FB.jpg",
         "descriptionLong": "Elk bugles are true calls of the wild. Prior to European settlement, there may have been as many as 10 million elk ranging across North America. Today, about a tenth of that population remains within a fraction of their historic range.",
         "descriptionShort": "The Elk's current population is a tenth of its historic size."
     },
     {
         "name": "Regal Fritillary",
         "id": "regal-fritillary",
-        "photoFile": "/images/Mallard/mallard-1.jpg",
+        "photoFile": "/images/Regal_Fritillary/Missouri_Prairie_Foundation_Allen_Woodliffe.jpg",
         "descriptionLong": "Regal Fritillary butterflies are found only in grasslands and reproduce only once a year. Once widespread, they are likely extinct from 15 states, and continue to decline in most of their remaining range in the Midwest.",
         "descriptionShort": "This grassland butterfly is likely extinct from half its historic range and continues to decline in most of its remaining range in the Midwest."
     }

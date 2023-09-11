@@ -1,5 +1,5 @@
 <template>
-    <div id="mapContainer" class="leaflet-map" @mouseover="showMessage = true" @mouseleave="showMessage = false">
+    <div :id="mapId" class="leaflet-map" @mouseover="showMessage = true" @mouseleave="showMessage = false">
         <div v-if="showMessage" class="message-overlay">
         Hold Ctrl/Cmd and scroll to zoom
         </div>
@@ -33,6 +33,11 @@
       required: false,
       default: 2020
     },
+    mapId: {
+      type: String,
+      required: false,
+      default: 'mapContainer'
+    }
   },
   setup(props) {
     const mapRef = ref(null);
@@ -41,7 +46,7 @@
     const showMessage = true;
 
     onMounted(() => {
-      map = L.map('mapContainer',{scrollWheelZoom: false}).setView(props.center, props.zoom);
+      map = L.map(props.mapId,{scrollWheelZoom: false}).setView(props.center, props.zoom);
 
       let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -55,7 +60,7 @@
             }).addTo(map);
 
     // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
-    document.getElementById('mapContainer').addEventListener('mousewheel', (e) => {
+    document.getElementById(props.mapId).addEventListener('mousewheel', (e) => {
         
         if (e.ctrlKey || e.metaKey) {
           // Zoom when Cmd/Ctrl key is held down
@@ -96,7 +101,7 @@
   <style>
   /* Add any additional styles for your Leaflet map container here */
   .leaflet-map {
-    height: 500px;
+    height: 550px;
   }
 
   .message-overlay {

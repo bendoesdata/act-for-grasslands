@@ -1,14 +1,17 @@
 <template>
   <div id="banner">
+    <div id="mobile-header-image" v-if="isMobile">
+      <img src="images/Northern-Bobwhite/489539801_ML_Andrew Simon.jpeg" alt="">
+    </div>
     <div class="left-content">
       <h1>PROTECT OUR GRASSLANDS</h1>
-      <p>Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this trend by conserving the habitat necessary to a wide array of wildlife species.</p>
+      <p>Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this trend by protecting the homes and environments vital to a wide range of animals.</p>
       <div class="buttons">
-        <v-btn class="primary-btn">Learn More</v-btn>
+        <!-- <v-btn class="primary-btn">Learn More</v-btn> -->
         <v-btn class="secondary-btn">Act now</v-btn>
       </div>
     </div>
-    <div class="right-content">
+    <div v-if="!isMobile" class="right-content">
       
     </div>
   </div>
@@ -28,14 +31,18 @@
       </div>
     </div>
 </div>
-  <div class="section-placeholder">
-    <leaflet-map :layerYear="2010" />
-    <div class="stickey" style="position:relative; top: 10%; left: 20%; background-color: white; z-index: 1000">
-      This is what the American grasslands looked like 30 years ago.
+  <div class="section">
+    <div id="map-msg-1">
+      <h2>Here is how grasslands in the U.S. looked 30 years ago.</h2>
     </div>
+    <leaflet-map mapId="leaflet-1992" :layerYear="1991" />
+    <div id="map-msg-2">
+      <h2>Here is what remained in 2022.</h2>
+    </div>
+    <leaflet-map mapId="leaflet-2022" :layerYear="2021" />
   </div>
   <div class="section flex-container">
-    <div class="flex-half text-pad">
+    <div class="flex-third text-pad">
       <h2>Regional collapse</h2>
     <p>
       Across the continental U.S., grasslands have seen serious declines. Here is how much they have
@@ -48,18 +55,48 @@ much has been lost.
     <p>
       Grassland animals are losing their homes.
     </p>
-    <p>By changing nothing, nothing changes.
-      Click here [possible link: https://actforgrasslands.org/take-action/ ] to call on Congress to
-      restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
-      </p>
     </div>
-    <div class="flex-half section-placeholder">
-        <div style="color: white">maps go here</div>
+    <div class="flex-two-third">
+      <div class="region-map-titles">
+        <div>
+          <h2>1992</h2>
+        </div>
+        <div>
+          <h2>2022</h2>
+        </div>        
+      </div>
+      <h3 style="margin-left: 20px">West</h3>
+      <div class="flex-section-region-maps">
+        <div class="region-map-item">
+          <img src="/images/region-maps-01.png" width="100%" alt="">
+        </div>
+        <div class="region-map-item">
+          <img src="/images/region-maps-02.png" width="100%" alt="">
+        </div>
+      </div>
+      <h3 style="margin-left: 20px">Midwest</h3>
+      <div class="flex-section-region-maps">
+        <div class="region-map-item">
+          <img src="/images/region-maps-05.png" width="100%" alt="">
+        </div>
+        <div class="region-map-item">
+          <img src="/images/region-maps-06.png" width="100%" alt="">
+        </div>
+      </div>
+      <h3 style="margin-left: 20px">Southeast</h3>
+      <div class="flex-section-region-maps">
+        <div class="region-map-item">
+          <img src="/images/region-maps-04.png" width="100%" alt="">
+        </div>
+        <div class="region-map-item">
+          <img src="/images/region-maps-03.png" width="100%" alt="">
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="species-section" class="section">
-    <h2>Select a species</h2>
+    <h2 style="margin-bottom: 50px; text-align: center;">Select a species to learn how it has been impacted by grasslands loss</h2>
     <div class="flex-section">
       <div v-for="(species, index) in allSpecies.slice(0, 4)" :key="index">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }" :id="'species-'+species.id" class="species-circle"></div>
@@ -72,18 +109,44 @@ much has been lost.
         <div class="species-title"><p>{{ species.name }}</p></div>
       </div>
     </div>
+    <div class="flex-section">
+      <div v-for="(species, index) in allSpecies.slice(8, 12)" :key="index">
+        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }" :id="'species-'+species.id" class="species-circle"></div>
+        <div class="species-title"><p>{{ species.name }}</p></div>
+      </div>
+    </div>
+    <div class="flex-section">
+      <div v-for="(species, index) in allSpecies.slice(12,16)" :key="index">
+        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }" :id="'species-'+species.id" class="species-circle"></div>
+        <div class="species-title"><p>{{ species.name }}</p></div>
+      </div>
+    </div>
   </div>
-
+  <div id="before-species-highlight"></div>
   <SpeciesHighlight class="section" v-if="selectedSpecies !=null"
       :imageUrl="selectedSpecies.photoFile"
       :title="selectedSpecies.name"
       :description="selectedSpecies.descriptionLong"
   />
 
-  <div class="map-section">
-    <div class="section-placeholder">
-      map
+  <div class="section-placeholder" style="height: 500px"></div>
+
+  <div id="map-section">
+    <div id="left-map-panel">
+      <h3>Select a species</h3>
+      <div v-for="(species, i) in allSpecies" :key="i">
+        <Accordion :species="species"></Accordion>
+      </div>
     </div>
+    <div id="interactive-map-container">
+        <leaflet-map :layerYear="2010" mapId="interactive-map" />
+      </div>
+  </div>
+  <div>
+    <p>By changing nothing, nothing changes.
+      Click here [possible link: https://actforgrasslands.org/take-action/ ] to call on Congress to
+      restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
+      </p>
   </div>
   </template>
 
@@ -91,22 +154,35 @@ much has been lost.
   import SpeciesHighlight from '../components/SpeciesHighlight.vue'
   import LeafletMap from '../components/LeafletMap.vue'
   import species from '../assets/data/species.json'
+  import Accordion from '../components/Accordion.vue'
   
   export default {
     name: 'HomeView',
     components: {
       SpeciesHighlight,
-      LeafletMap
+      LeafletMap,
+      Accordion
     },
     data() {
       return {
-        selectedSpecies: null
+        selectedSpecies: null,
+        isMobile: false
       }
     },
     computed: {
       allSpecies() {
         return species
       }
+    },
+    mounted() {
+      // setup an event listener to change the value of isMobile to true if the viewport width is less than 800px
+      window.addEventListener('resize', () => {
+        if (window.innerWidth < 800) {
+          this.isMobile = true
+        } else {
+          this.isMobile = false
+        }
+      })
     },
     methods: {
       selectSpecies(e) {
@@ -130,6 +206,10 @@ much has been lost.
         // select the div that was clicked and then add class "highlight-circle" to it
         document.getElementById(e.target.id).classList.add('highlight-circle')
 
+        // scroll to the div with id "before-species-highlight" with duration of 1000ms
+        document.getElementById('before-species-highlight').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+        
+
       }
     }
   }
@@ -139,6 +219,10 @@ much has been lost.
   <style scoped>
   .highlight-circle {
     border: 6px solid #EFEAD4;
+  }
+
+  #before-species-highlight {
+    height: 30px
   }
 
   #species-section {
@@ -157,13 +241,71 @@ much has been lost.
     flex: 1 1 50%;
   }
 
+  #map-msg-1 {
+    height: 250px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+
+  #map-msg-2 {
+    height: 200px;
+    margin-top: 120px;
+    margin-bottom: 0px;
+  }
+
+  .flex-third {
+    flex: 1 1 33%;
+  }
+
+  .flex-two-third {
+    flex: 1 1 66%;
+  }
+
   /* create a flex container with 4 divs evenly spaced horizontally and centered */
   .flex-section {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
   }
 
+  .flex-section-region-maps {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .region-map-titles {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .region-map-item {
+    max-width: 300px;
+  }
+
+  #map-section {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #EFEAD4;
+    color: #475026;
+    margin-bottom: 100px;
+  }
+
+  #left-map-panel {
+    flex: 1 1 30%;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 1rem;
+  }
+
+  #interactive-map-container {
+    flex: 1 1 70%;
+  }
   /* make this div a circle using a high border radius and width of 200px */
   .species-circle {
     border-radius: 50%;
@@ -225,15 +367,32 @@ much has been lost.
   z-index: 1; /* Ensure the right div is below the left div */
 }
 
+@media (max-width: 900px) {
+  .flex-section {
+    /* display: block */
+  }
+}
+
 /* Media query for smaller screens */
 @media (max-width: 800px) {
   #banner {
-    flex-direction: column;
+    display: block;
   }
 
-  .left-content,
-  .right-content {
-    flex: 1 1 100%;
+  #banner .left-content {
+    width: 100%;
+    border-radius: 0px;
+    position: relative;
+  }
+
+  #mobile-header-image {
+    position: relative;
+    display: block;
+    height: 300px
+  }
+
+  #mobile-header-image img {
+    width: 100%
   }
 
   .flex-container {

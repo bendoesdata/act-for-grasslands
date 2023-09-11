@@ -4,12 +4,17 @@
         <div class="accordion-icon" :class="{ 'open': isOpen }" :style="{ transform: rotateTransform }">
           <span class="plus">+</span>
         </div>
-        <div class="accordion-title">{{ title }}</div>
+        <div class="accordion-title">{{ species.name }}</div>
       </div>
       <transition name="accordion-transition">
         <div class="accordion-content" v-show="isOpen">
-          <div class="accordion-text" :class="{ 'fade-in': isOpen, 'fade-out': !isOpen }" v-html="description">
+            <img :src="species.photoFile" width="200" alt="NEED ALT TEXT">
+          <div class="accordion-text" :class="{ 'fade-in': isOpen, 'fade-out': !isOpen }" v-html="species.descriptionShort">
           </div>
+          <br>
+          <div style="font-size: 12px">Source:</div>
+            <div style="text-decoration: underline; font-size: 12px; font-style: italic;">Source 1</div>
+          <v-switch label="Add to map"></v-switch>
         </div>
       </transition>
     </div>
@@ -18,12 +23,8 @@
   <script>
   export default {
     props: {
-      title: {
-        type: String,
-        required: true
-      },
-      description: {
-        type: String,
+      species: {
+        type: Object,
         required: true
       },
       selectedModal: {
@@ -41,7 +42,7 @@
         return this.isOpen ? 'rotate(45deg)' : 'rotate(0)';
       },
       accId() {
-        return this.title.replace(/\s+/g, '-').toLowerCase();
+        return this.species.name.replace(/\s+/g, '-').toLowerCase();
       }
     },
     mounted() {
@@ -65,13 +66,13 @@
 
         if (this.isOpen) {
           // take the description prop and remove all spaces, replacing spaces with a - and store in variable
-          const id = this.title.replace(/\s+/g, '-').toLowerCase();
+        //   const id = this.title.replace(/\s+/g, '-').toLowerCase();
 
-          // remove the current URL hash
-          window.location.hash = '';
+        //   // remove the current URL hash
+        //   window.location.hash = '';
 
-          // take this id and add it to the current URL as a hash
-          window.location.hash = id;
+        //   // take this id and add it to the current URL as a hash
+        //   window.location.hash = id;
         }
       }
     }
@@ -120,9 +121,7 @@
   
   .accordion-text {
     padding: 10px;
-    
-    border-top: 1px solid #E3E3E3;
-    border-bottom: 1px solid #E3E3E3;
+    border-bottom: 1px solid #475026;
     opacity: 0;
     transition: opacity 0.3s;
   }

@@ -1,9 +1,9 @@
 <template>
-    <div class="container">
-      <div class="left" :style="{ flexBasis: isMobile ? '100%' : '50%' }">
+    <div class="container" id="species-highlight-description">
+      <div class="left">
         <img :src="'../'+imageUrl" alt="Left Image" :style="{ width: isMobile ? '100%' : 'auto' }">
       </div>
-      <div class="right" :style="{ flexBasis: isMobile ? '100%' : '50%' }">
+      <div class="right">
         <h2>{{ title }}</h2>
         <div class="species-description" v-html="description"></div>
         
@@ -48,6 +48,11 @@
   .right {
     flex: 1 1 50%;
     padding-left: 20px;
+  }
+
+  .species-description {
+    max-width: 600px;
+    font-size: 18px
   }
   
   img {
