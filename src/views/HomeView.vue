@@ -1,7 +1,7 @@
 <template>
   <div id="banner">
     <div id="mobile-header-image" v-if="isMobile">
-      <img src="images/Northern-Bobwhite/489539801_ML_Andrew Simon.jpeg" alt="">
+      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpeg" alt="">
     </div>
     <div class="left-content">
       <h1>PROTECT OUR GRASSLANDS</h1>
@@ -27,19 +27,22 @@
         </p>
       </div>
       <div class="flex-half">
-        <img src="images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
+        <img src="/images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
       </div>
     </div>
 </div>
   <div class="section">
-    <div id="map-msg-1">
+    <div class="section-placeholder">
+      <h3 style="text-align: center; padding-top: 100px; color: white">MAP SHOWING HISTORIC CHANGE IN GRASSLANDS LOSS STILL IN DEVELOPMENT</h3>
+    </div>
+    <!-- <div id="map-msg-1">
       <h2>Here is how grasslands in the U.S. looked 30 years ago.</h2>
     </div>
     <leaflet-map mapId="leaflet-1992" :layerYear="1991" />
     <div id="map-msg-2">
       <h2>Here is what remained in 2022.</h2>
     </div>
-    <leaflet-map mapId="leaflet-2022" :layerYear="2021" />
+    <leaflet-map mapId="leaflet-2022" :layerYear="2021" /> -->
   </div>
   <div class="section flex-container">
     <div class="flex-third text-pad">
@@ -56,7 +59,7 @@ much has been lost.
       Grassland animals are losing their homes.
     </p>
     </div>
-    <div class="flex-two-third">
+    <div class="flex-two-third" style="position: relative">
       <div class="region-map-titles">
         <div>
           <h2>1992</h2>
@@ -92,6 +95,10 @@ much has been lost.
           <img src="/images/region-maps-03.png" width="100%" alt="">
         </div>
       </div>
+        <!-- temporary to add overlay for focus groups -->
+        <div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 100%;z-index: 9; position: absolute; top: 0; left: 0">
+          <h3 style="color: white; text-align: center; padding-top: 200px;">REGION MAPS STILL UNDER DEVELOPMENT</h3>
+</div>
     </div>
   </div>
 
@@ -129,9 +136,31 @@ much has been lost.
       :description="selectedSpecies.descriptionLong"
   />
 
-  <div class="section-placeholder" style="height: 500px"></div>
+  <div style="padding-bottom: 50px;background-color: #475026; color: #EFEAD4; text-align: center; padding-top: 50px; padding-left: 20px; padding-right: 20px">
+    <h3>INTERACTIVE MAP TO EXPLORE DATA COMING SOON</h3>
+    <br>
+    <div style="max-width: 800px; margin: 0 auto">
+    <h3>Species facts:</h3>
+    <br>
+    <p>Bobolink: This grassland bird is on track to lose 50% of its population in the next 50 years if nothing changes.</p>
+    <p>Greater Sage-Grouse: The Greater Sage-Grouse, a bird that lives only in sagebrush, has lost 60% of its population.</p>
+    <p>Scaled Quail: The population of this western quail has declined by 31%.</p>
+    <p>Ring-necked Pheasant: Ring-necked Pheasants have lost 27% of their population.</p>
+    <p>Northern Pintail: Northern Pintails have lost roughly 82% of their population in the last 70 years.</p>
+    <p>Greater Prairie-Chicken: Once found across the central U.S., this grouse now occupies a fraction of its past range.</p>
+    <p>Northern Bobwhite: This quail has lost 81% of its population.</p>
+    <p>Mallard: Mallards (and other ducks) have lost over half their prairie breeding grounds.</p>
+    <p>Rio Grande Cutthroat Trout: The loss of grasslands and sagebrush leads to pollution of the rivers and streams that Cutthroat Trout depend on.</p>
+    <p>Pronghorn: Populations of Pronghorn have shrunk from almost every western state they once occupied.</p>
+    <p>Elk: The Elk's current population is a tenth of its historic size.</p>
+    <p>Mule Deer: Disruptions to Mule Deer migrations is one reason many populations have declined across the western U.S. since the 1970.</p>
+    <p>Monarch: Monarch numbers have collapsed by 80-95% across the country.</p>
+    <p>Southern Plains Bumble Bee: The Southern Plains Bumble Bee could disappear if declines continue at current rates.</p>
+    <p>Regal Fritillary: This grassland butterfly has likely disappeared from half its historic range and continues to decline in most of its remaining range in the Midwest.</p>
+  </div>
+  </div>
 
-  <div id="map-section">
+  <!-- <div id="map-section">
     <div id="left-map-panel">
       <h3>Select a species</h3>
       <div v-for="(species, i) in allSpecies" :key="i">
@@ -141,13 +170,13 @@ much has been lost.
     <div id="interactive-map-container">
         <leaflet-map :layerYear="2010" mapId="interactive-map" />
       </div>
-  </div>
-  <div>
+  </div> -->
+  <!-- <div>
     <p>By changing nothing, nothing changes.
       Click here [possible link: https://actforgrasslands.org/take-action/ ] to call on Congress to
       restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
       </p>
-  </div>
+  </div> -->
   </template>
 
   <script>
@@ -361,7 +390,7 @@ much has been lost.
   background-color: gray;
   margin-left: 40%;
   min-height: 500px; /* Set the height you want for the right section */
-  background-image: url('images/Northern-Bobwhite/489539801_ML_Andrew Simon.jpeg');
+  background-image: url('/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpeg');
   background-repeat: repeat-x;
   background-size: cover;
   z-index: 1; /* Ensure the right div is below the left div */
