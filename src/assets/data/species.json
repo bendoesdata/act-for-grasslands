@@ -24,20 +24,20 @@
         "name": "Southern Plains Bumble Bee",
         "id": "southern-plains-bumble-bee",
         "photoFile": "/images/Southern-Plains-Bumblebee/cbolt_09252020_DSC9304_Clay_Bolt.jpg",
-        "descriptionLong": "Southern Plains Bumble Bees pollinate many plants in the southeastern coastal plain and Great Plains. Across its range, it is 85% less common than it used to be.  The endangered pollinator is facing a significant chance of disappearing. ",
+        "descriptionLong": "Southern Plains Bumble Bees pollinate many plants in the southeastern coastal plain and Great Plains. Across its range, it is 85% less common than it used to be.  This endangered pollinator faces a significant chance of disappearing. ",
         "descriptionShort": "The Southern Plains Bumble Bee could disappear if declines continue at current rates."
     },
     {
         "name": "Northern Pintail",
         "id": "northern-pintail",
         "photoFile": "/images/Northern-Pintail/pintail-1.jpg",
-        "descriptionLong": "Northern Pintail ducks breed in grasslands. They have lost habitat across the U.S., especially nesting cover but also across their wintering sites. Pintail populations fell from 10 million ducks in the 1950s to just 1.8 million by 2022.",
+        "descriptionLong": "Northern Pintail ducks breed in grasslands. They have lost crucial sites across the U.S., especially nesting places, but also their wintering homes. Pintail populations fell from 10 million ducks in the 1950s to just 1.8 million by 2022.",
         "descriptionShort": "Northern pintails have lost roughly 82% of their population in the last 70 years."
     },{
         "name": "Rio Grande Cutthroat Trout",
         "id": "rio-grande-cutthroad-trout",
         "photoFile": "/images/Rio-Grande-Cutthroat/Rio_Grande_Cutthroat_Trout_CT-PC193_Patrick_Clayton_Engbretson_Underwater_Photography.jpg",
-        "descriptionLong": "Rio Grande Cutthroat Trout are the southernmost subspecies of cutthroat trout. Like other cutthroat trout, they live in clear, cold streams and lakes. They are threatened by non-native trout, as well as water pollution caused by the loss of grasslands and sagebrush.",
+        "descriptionLong": "Rio Grande Cutthroat Trout are the southernmost type of cutthroat trout. Like other cutthroat trout, they live in clear, cold streams and lakes. They are threatened by non-native trout, as well as water pollution caused by the loss of grasslands and sagebrush.",
         "descriptionShort": "The loss of grasslands and sagebrush leads to pollution of the rivers and streams that Cutthroat Trout depend on."
     },
     {
@@ -79,7 +79,7 @@
         "name": "Mallard",
         "id": "mallard",
         "photoFile": "/images/Mallard/mallard-1.jpg",
-        "descriptionLong": "Mallards are widespread but show recent declines, especially in the West and Midwest’s Prairie Pothole region (also known as the continent’s “duck factory”) where the greatest numbers of North American Mallards breed. Only half this habitat remains today. ",
+        "descriptionLong": "Mallards are widespread but show recent declines, especially in the West and Midwest’s Prairie Pothole region (also known as the continent’s “duck factory”) where the greatest numbers of North American Mallards breed. Less than half this habitat remains today. ",
         "descriptionShort": " Mallards (and other ducks) have lost over half their prairie breeding grounds."
     },
     {
@@ -100,7 +100,7 @@
         "name": "Regal Fritillary",
         "id": "regal-fritillary",
         "photoFile": "/images/Regal_Fritillary/Missouri_Prairie_Foundation_Allen_Woodliffe.jpg",
-        "descriptionLong": "Regal Fritillary butterflies are found only in grasslands and reproduce only once a year. Once widespread, they are likely extinct from 15 states, and continue to decline in most of their remaining range in the Midwest.",
+        "descriptionLong": "Regal Fritillary butterflies are found only in grasslands and reproduce only once a year. Once widespread, they are likely gone from 15 states and continue to decline in most of their remaining range in the Midwest.",
         "descriptionShort": "This grassland butterfly is likely extinct from half its historic range and continues to decline in most of its remaining range in the Midwest."
     }
 ]
