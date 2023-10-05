@@ -21,7 +21,7 @@ export default {
     const map1 = ref(null);
     const map2 = ref(null);
     const textBoxes = ref([
-      { content: 'Here is how grasslands in the U.S. looked in 1996 years ago.' },
+      { content: 'Here is how grasslands in the U.S. looked in 1996.' },
       { content: 'Here is what remains in 2022.' }
     ]);
     const textBoxRefs = ref([]);
@@ -109,7 +109,7 @@ export default {
 <style scoped>
 .map-container {
   position: sticky;
-  top: 30%; /* This will make the map stick to the center of the viewport */
+  top: 10%; /* This will make the map stick to the center of the viewport */
   z-index: 0;
   margin-bottom: 0px;
 }

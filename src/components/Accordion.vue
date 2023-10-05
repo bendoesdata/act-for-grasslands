@@ -8,9 +8,11 @@
       </div>
       <transition name="accordion-transition">
         <div class="accordion-content" v-show="isOpen">
-            <img :src="species.photoFile" width="200" alt="NEED ALT TEXT">
-          <div class="accordion-text" :class="{ 'fade-in': isOpen, 'fade-out': !isOpen }" v-html="species.descriptionShort">
+          <div class="flex-container">
+            <div :style="{ backgroundImage: 'url(' + species.photoFile + ')' }" class="flex-icon species-circle-small"></div>
+            <div class="accordion-text flex-text" :class="{ 'fade-in': isOpen, 'fade-out': !isOpen }" v-html="species.descriptionShort"></div>
           </div>
+          
           <br>
           <div style="font-size: 12px">Source:</div>
             <div style="text-decoration: underline; font-size: 12px; font-style: italic;">Source 1</div>
@@ -80,10 +82,26 @@
   </script>
   
   <style>
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* create flex class that does not grow */
+
+
+  .flex-icon {
+    flex: 0 1 100px;
+  }
+
+  .flex-text {
+    flex: 1 1 70%;
+  }
+
   .accordion {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 30px;
-    border-bottom: 2px solid #E3E3E3;
+    border-bottom: 0.5px solid #475026;
   }
   
   .accordion-header {
@@ -116,6 +134,7 @@
   }
   
   .accordion-content {
+    margin-top: 10px;
     overflow: hidden;
   }
   
@@ -143,6 +162,15 @@
   .accordion-transition-leave-to {
     height: 0;
     overflow: hidden;
+  }
+
+  .species-circle-small {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-color: #EFEAD4;
   }
   </style>
   
