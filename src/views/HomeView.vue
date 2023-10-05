@@ -32,9 +32,10 @@
     </div>
 </div>
   <div class="section">
-    <div class="section-placeholder">
+    <ScrollyLeaflet />
+    <!-- <div class="section-placeholder">
       <h3 style="text-align: center; padding-top: 100px; color: white">MAP SHOWING HISTORIC CHANGE IN GRASSLANDS LOSS STILL IN DEVELOPMENT</h3>
-    </div>
+    </div> -->
     <!-- <div id="map-msg-1">
       <h2>Here is how grasslands in the U.S. looked 30 years ago.</h2>
     </div>
@@ -44,6 +45,7 @@
     </div>
     <leaflet-map mapId="leaflet-2022" :layerYear="2021" /> -->
   </div>
+  <div style="height: 600px;"></div>
   <div class="section flex-container">
     <div class="flex-third text-pad">
       <h2>Regional collapse</h2>
@@ -62,7 +64,7 @@ much has been lost.
     <div class="flex-two-third" style="position: relative">
       <div class="region-map-titles">
         <div>
-          <h2>1992</h2>
+          <h2>1997</h2>
         </div>
         <div>
           <h2>2022</h2>
@@ -71,34 +73,43 @@ much has been lost.
       <h3 style="margin-left: 20px">West</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps-01.png" width="100%" alt="">
+          <img src="/images/region-maps/west-1997.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps-02.png" width="100%" alt="">
+          <img src="/images/region-maps/west-2022.png" width="100%" alt="">
         </div>
       </div>
       <h3 style="margin-left: 20px">Midwest</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps-05.png" width="100%" alt="">
+          <img src="/images/region-maps/mw-1997.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps-06.png" width="100%" alt="">
+          <img src="/images/region-maps/mw-2022.png" width="100%" alt="">
         </div>
       </div>
       <h3 style="margin-left: 20px">Southeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps-04.png" width="100%" alt="">
+          <img src="/images/region-maps/se-1997.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps-03.png" width="100%" alt="">
+          <img src="/images/region-maps/se-2022.png" width="100%" alt="">
+        </div>
+      </div>
+      <h3 style="margin-left: 20px">Northeast</h3>
+      <div class="flex-section-region-maps">
+        <div class="region-map-item">
+          <img src="/images/region-maps/ne-1997.png" width="100%" alt="">
+        </div>
+        <div class="region-map-item">
+          <img src="/images/region-maps/ne-2022.png" width="100%" alt="">
         </div>
       </div>
         <!-- temporary to add overlay for focus groups -->
-        <div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 100%;z-index: 9; position: absolute; top: 0; left: 0">
+        <!-- <div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 100%;z-index: 9; position: absolute; top: 0; left: 0">
           <h3 style="color: white; text-align: center; padding-top: 200px;">REGION MAPS STILL UNDER DEVELOPMENT</h3>
-</div>
+        </div> -->
     </div>
   </div>
 
@@ -139,25 +150,6 @@ much has been lost.
   <div style="padding-bottom: 50px;background-color: #475026; color: #EFEAD4; text-align: center; padding-top: 50px; padding-left: 20px; padding-right: 20px">
     <h3>INTERACTIVE MAP TO EXPLORE DATA COMING SOON</h3>
     <br>
-    <div style="max-width: 800px; margin: 0 auto">
-    <h3>Species facts:</h3>
-    <br>
-    <p>Bobolink: This grassland bird is on track to lose 50% of its population in the next 50 years if nothing changes.</p>
-    <p>Greater Sage-Grouse: The Greater Sage-Grouse, a bird that lives only in sagebrush, has lost 60% of its population.</p>
-    <p>Scaled Quail: The population of this western quail has declined by 31%.</p>
-    <p>Ring-necked Pheasant: Ring-necked Pheasants have lost 27% of their population.</p>
-    <p>Northern Pintail: Northern Pintails have lost roughly 82% of their population in the last 70 years.</p>
-    <p>Greater Prairie-Chicken: Once found across the central U.S., this grouse now occupies a fraction of its past range.</p>
-    <p>Northern Bobwhite: This quail has lost 81% of its population.</p>
-    <p>Mallard: Mallards (and other ducks) have lost over half their prairie breeding grounds.</p>
-    <p>Rio Grande Cutthroat Trout: The loss of grasslands and sagebrush leads to pollution of the rivers and streams that Cutthroat Trout depend on.</p>
-    <p>Pronghorn: Populations of Pronghorn have shrunk from almost every western state they once occupied.</p>
-    <p>Elk: The Elk's current population is a tenth of its historic size.</p>
-    <p>Mule Deer: Disruptions to Mule Deer migrations is one reason many populations have declined across the western U.S. since the 1970.</p>
-    <p>Monarch: Monarch numbers have collapsed by 80-95% across the country.</p>
-    <p>Southern Plains Bumble Bee: The Southern Plains Bumble Bee could disappear if declines continue at current rates.</p>
-    <p>Regal Fritillary: This grassland butterfly has likely disappeared from half its historic range and continues to decline in most of its remaining range in the Midwest.</p>
-  </div>
   </div>
 
   <!-- <div id="map-section">
@@ -184,13 +176,15 @@ much has been lost.
   import LeafletMap from '../components/LeafletMap.vue'
   import species from '../assets/data/species.json'
   import Accordion from '../components/Accordion.vue'
+  import ScrollyLeaflet from '../components/ScrollyLeaflet.vue'
   
   export default {
     name: 'HomeView',
     components: {
       SpeciesHighlight,
       LeafletMap,
-      Accordion
+      Accordion,
+      ScrollyLeaflet
     },
     data() {
       return {
@@ -314,7 +308,7 @@ much has been lost.
   }
 
   .region-map-item {
-    max-width: 300px;
+    max-width: 400px;
   }
 
   #map-section {
@@ -338,8 +332,8 @@ much has been lost.
   /* make this div a circle using a high border radius and width of 200px */
   .species-circle {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     background-size: cover;
     background-position: center;
     background-color: #EFEAD4;
@@ -349,16 +343,17 @@ much has been lost.
   display: flex;
   flex-wrap: wrap;
   position: relative; /* Set the banner to a relative position */
-  background-color: #475026;
+  background-color: #EFEAD4;
 }
 
 .left-content {
-  flex: 1 1 40%;
+  flex: 1 1 30%;
   padding: 20px;
-  background-color: #475026;
-  color: #EFEAD4;
-  border-top-right-radius: 20% 200px; /* Adjust the second value to control the curve */
-  border-bottom-right-radius: 22% 300px; /* Adjust the second value to control the curve */
+  background-color: #EFEAD4;
+  color: #475026;
+  padding-top: 80px;
+  border-top-right-radius: 40% 300px; /* Adjust the second value to control the curve */
+  border-bottom-right-radius: 0% 300px; /* Adjust the second value to control the curve */
   position: absolute; /* Set the left div to an absolute position */
     z-index: 2; /* Ensure the left div is above the right div */
     width: 50%;
@@ -386,9 +381,9 @@ much has been lost.
 }
 
 .right-content {
-  flex: 1 1 60%;
+  flex: 1 1 65%;
   background-color: gray;
-  margin-left: 40%;
+  margin-left: 35%;
   min-height: 500px; /* Set the height you want for the right section */
   background-image: url('/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpeg');
   background-repeat: repeat-x;

@@ -59,6 +59,12 @@
                 opacity: 1
             }).addTo(map);
 
+      var CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+          }).addTo(map);
+
     // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
     document.getElementById(props.mapId).addEventListener('mousewheel', (e) => {
         

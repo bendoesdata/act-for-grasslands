@@ -2,7 +2,7 @@
     {
         "name": "Northern Bobwhite",
         "id": "northern-bobwhite",
-        "photoFile": "/images/Northern-Bobwhite/bobwhite-1.jpeg",
+        "photoFile": "/images/Northern-Bobwhite/63374221_ML_Chad_Hutchinson.jpg",
         "descriptionLong": "Northern Bobwhite, a small game bird with an unmistakable call, has lost extensive amounts of habitat in the central and eastern U.S., leading to an 81% population decline over the last 50 years.",
         "descriptionShort": "This quail has lost 81% of its population."
     },
@@ -23,7 +23,7 @@
     {
         "name": "Southern Plains Bumble Bee",
         "id": "southern-plains-bumble-bee",
-        "photoFile": "/images/Southern-Plains-Bumblebee/cbolt_09252020_DSC9304_Clay_Bolt.jpg",
+        "photoFile": "/images/Southern-Plains-Bumblebee/cbolt_bumblebee.jpg",
         "descriptionLong": "Southern Plains Bumble Bees pollinate many plants in the southeastern coastal plain and Great Plains. Across its range, it is 85% less common than it used to be.  This endangered pollinator faces a significant chance of disappearing. ",
         "descriptionShort": "The Southern Plains Bumble Bee could disappear if declines continue at current rates."
     },
@@ -85,14 +85,14 @@
     {
         "name": "Pronghorn",
         "id": "pronghorn",
-        "photoFile": "/images/Pronghorn/VSFfqlapf4c_unsplash_Cliff_Fincher.jpg",
+        "photoFile": "/images/Pronghorn/20180612-WFT_5545-2_Wenfei_Tong.png",
         "descriptionLong": "Pronghorn have been in North America for over a million years and are the second fastest land mammals in the world. Speed and stamina will not be enough to keep our antelope playing on the Great Plains unless they can continue to use their generations-old migratory routes. ",
         "descriptionShort": "Populations of Pronghorn no longer exist in Iowa and Minnesota and are struggling in Arizona and California."
     },
     {
         "name": "Elk",
         "id": "elk",
-        "photoFile": "/images/Elk/Colorado_Wildlife_Federation_FB.jpg",
+        "photoFile": "/images/Elk/20190714-WFT_7080-Enhanced-NR-1_elk_Wenfei_tong.png",
         "descriptionLong": "Elk bugles are true calls of the wild. Prior to European settlement, there may have been as many as 10 million elk ranging across North America. Today, about a tenth of that population remains within a fraction of their historic range.",
         "descriptionShort": "The Elk's current population is a tenth of its historic size."
     },
