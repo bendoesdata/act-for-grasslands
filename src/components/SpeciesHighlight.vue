@@ -4,11 +4,6 @@
   
     <div class="container" id="species-highlight-description">
       <div class="left">
-  <div>
-
-  
-    <div class="container" id="species-highlight-description">
-      <div class="left">
         <img :src="'../'+imageUrl" alt="Left Image" :style="{ width: isMobile ? '100%' : 'auto' }">
       </div>
       <div class="right">
@@ -26,6 +21,7 @@
       <h2>Species Snapshot</h2>
       <img :src="'../images/trend-maps/'+speciesId+'.png'" alt="">
     </div>
+  </div>
   </div>
   </template>
   

@@ -299,19 +299,7 @@ fetch('/data/monarch-east-before.geojson')
     this.drawMap();
     
     this.addBirdLayer()
-
-        getData('Burrowing Owl');
-        
-    }
   },
-  mounted() {
-    this.drawMap();
-    
-    this.addBirdLayer()
-  },
-  unmounted() {
-    this.map.remove();
-  }
   
   unmounted() {
     this.map.remove();
