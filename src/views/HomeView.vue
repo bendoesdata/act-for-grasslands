@@ -44,7 +44,6 @@
       </div>
       <div class="flex-half">
         <img src="/images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
-        <img src="/images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
       </div>
     </div>
   </div>
@@ -129,62 +128,10 @@
       <!-- <div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 100%;z-index: 9; position: absolute; top: 0; left: 0">
           <h3 style="color: white; text-align: center; padding-top: 200px;">REGION MAPS STILL UNDER DEVELOPMENT</h3>
         </div> -->
-    <div class="flex-two-third" style="position: relative">
-      <div class="region-map-titles">
-        <div>
-          <h2>1997</h2>
-        </div>
-        <div>
-          <h2>2022</h2>
-        </div>
-      </div>
-      <h3 style="margin-left: 20px">West</h3>
-      <div class="flex-section-region-maps">
-        <div class="region-map-item">
-          <img src="/images/region-maps/west-1997.png" width="100%" alt="">
-        </div>
-        <div class="region-map-item">
-          <img src="/images/region-maps/west-2022.png" width="100%" alt="">
-        </div>
-      </div>
-      <h3 style="margin-left: 20px">Midwest</h3>
-      <div class="flex-section-region-maps">
-        <div class="region-map-item">
-          <img src="/images/region-maps/mw-1997.png" width="100%" alt="">
-        </div>
-        <div class="region-map-item">
-          <img src="/images/region-maps/mw-2022.png" width="100%" alt="">
-        </div>
-      </div>
-      <h3 style="margin-left: 20px">Southeast</h3>
-      <div class="flex-section-region-maps">
-        <div class="region-map-item">
-          <img src="/images/region-maps/se-1997.png" width="100%" alt="">
-        </div>
-        <div class="region-map-item">
-          <img src="/images/region-maps/se-2022.png" width="100%" alt="">
-        </div>
-      </div>
-      <h3 style="margin-left: 20px">Northeast</h3>
-      <div class="flex-section-region-maps">
-        <div class="region-map-item">
-          <img src="/images/region-maps/ne-1997.png" width="100%" alt="">
-        </div>
-        <div class="region-map-item">
-          <img src="/images/region-maps/ne-2022.png" width="100%" alt="">
-        </div>
-      </div>
-      <!-- temporary to add overlay for focus groups -->
-      <!-- <div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 100%;z-index: 9; position: absolute; top: 0; left: 0">
-          <h3 style="color: white; text-align: center; padding-top: 200px;">REGION MAPS STILL UNDER DEVELOPMENT</h3>
-        </div> -->
-    </div>
   </div>
 </div>
 
   <div id="species-section" class="section">
-    <h2 style="margin-bottom: 50px; text-align: center;">Select a species to learn how it has been impacted by grasslands
-      loss</h2>
     <h2 style="margin-bottom: 50px; text-align: center;">Select a species to learn how it has been impacted by grasslands
       loss</h2>
     <div class="flex-section">
@@ -194,11 +141,7 @@
         <div class="species-title">
           <p>{{ species.name }}</p>
         </div>
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
-          :id="'species-' + species.id" class="species-circle"></div>
-        <div class="species-title">
-          <p>{{ species.name }}</p>
-        </div>
+        
       </div>
     </div>
     <div class="flex-section">
@@ -226,31 +169,9 @@
         <div class="species-title">
           <p>{{ species.name }}</p>
         </div>
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
-          :id="'species-' + species.id" class="species-circle"></div>
-        <div class="species-title">
-          <p>{{ species.name }}</p>
-        </div>
       </div>
     </div>
-    <div class="flex-section">
-      <div v-for="(species, index) in allSpecies.slice(8, 12)" :key="index">
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
-          :id="'species-' + species.id" class="species-circle"></div>
-        <div class="species-title">
-          <p>{{ species.name }}</p>
-        </div>
-      </div>
-    </div>
-    <div class="flex-section">
-      <div v-for="(species, index) in allSpecies.slice(12, 16)" :key="index">
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
-          :id="'species-' + species.id" class="species-circle"></div>
-        <div class="species-title">
-          <p>{{ species.name }}</p>
-        </div>
-      </div>
-    </div>
+    
   </div>
   <div id="before-species-highlight"></div>
   <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesId="selectedSpecies.id"
@@ -396,6 +317,9 @@ export default {
     allSpecies() {
       return species;
     },
+    rotateTransform() {
+        return this.isOpen ? 'rotate(45deg)' : 'rotate(0)';
+      },
     speciesId() {
       // get all of the id values from the allSpecies array
       let speciesIds = this.allSpecies.map((species) => species.id);
@@ -681,8 +605,8 @@ export default {
 .left-content {
   flex: 1 1 35%;
   padding: 20px;
-  background-color: #475026;
-  color: #EFEAD4;
+  background-color: #EFEAD4;
+  color: #475026;
   border-top-right-radius: 20% 200px; /* Adjust the second value to control the curve */
   border-bottom-right-radius: 22% 300px; /* Adjust the second value to control the curve */
   position: absolute; /* Set the left div to an absolute position */
@@ -771,5 +695,62 @@ export default {
 
 .text-pad {
   padding: 20px
-}</style>
+}
+.layer-box-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .layer-box-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .layer-box-icon.open {
+    transform: rotate(45deg);
+  }
+
+  .layer-box-title {
+    font-weight: bold;
+  }
+  
+  .layer-box-content {
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .layer-box-text {
+    padding: 10px;
+    border-bottom: 1px solid #475026;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .fade-in {
+    opacity: 1;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  .layer-box-transition-enter-active,
+  .layer-box-transition-leave-active {
+    transition: height 0.3s, opacity 0.3s;
+  }
+  
+  .layer-box-transition-enter,
+  .layer-box-transition-leave-to {
+    height: 0;
+    overflow: hidden;
+  }
+
+
+</style>
   

@@ -95,7 +95,11 @@
       this.map.remove();
       
       this.drawMap();
-      if (this.birdLayerName !== 'none') {
+      if (this.birdLayerName == 'Monarch Butterfly') {
+        this.drawMonarch();
+      } else if (this.birdLayerName == 'Pronghorn') {
+        this.drawPronghorn();
+      } else if (this.birdLayerName !== 'none') {
         this.addBirdLayer(this.birdLayerName)
       }
     }
@@ -123,35 +127,31 @@
             subdomains: 'abcd',
             maxZoom: 20
           }).addTo(this.map);
+    
 
-          // Load range GeoJSON from an external file
-fetch('/data/final-prong.geojson')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    // Add GeoJSON layer to the map once the file is loaded
-    L.geoJSON(data, {
-  style: function(feature) {
-    if (feature.properties.Time == 'Original') {
-      return {
-        color: "#7f9694", // Example color
-        weight: 2,
-        dashArray: '5, 5'
-      };
-    } else {
-      return {
-        color: "#BBA38E", // Example color
-        weight: 2,
-        fillOpacity: 0.7
-      };
+     // Add event listeners
+     this.map.on('zoomend', this.handleZoomChange);
+    this.map.on('moveend', this.handleCenterChange);
+
+    if (!this.allowScrollZoom) {
+      // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
+    document.getElementById(this.mapId).addEventListener('mousewheel', (e) => {
+        
+        if (e.ctrlKey || e.metaKey) {
+          // Zoom when Cmd/Ctrl key is held down
+          const delta = e.wheelDeltaY || e.deltaY;
+          if (delta > 0) {
+            this.map.zoomIn();
+          } else {
+            this.map.zoomOut();
+          }
+          e.preventDefault();
+        }
+      });
     }
-  },
-  onEachFeature: function(feature, layer) {
-    // layer.bindPopup(feature.properties.name); // Assuming 'name' is a property in your GeoJSON
-  }
-}).addTo(this.map);
-
-// Define the custom icon
+    },
+    drawMonarch() {
+      // Define the custom icon
 var butterflyIconBefore = L.icon({
     iconUrl: '/images/icons/butterfly-before.svg',  // Adjust the path as needed
     iconSize: [28, 75],  // Size of the icon; adjust based on your SVG's dimensions
@@ -189,29 +189,36 @@ fetch('/data/monarch-east-before.geojson')
             }
         }).addTo(this.map);
     });
-  });
-    
-
-     // Add event listeners
-     this.map.on('zoomend', this.handleZoomChange);
-    this.map.on('moveend', this.handleCenterChange);
-
-    if (!this.allowScrollZoom) {
-      // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
-    document.getElementById(this.mapId).addEventListener('mousewheel', (e) => {
-        
-        if (e.ctrlKey || e.metaKey) {
-          // Zoom when Cmd/Ctrl key is held down
-          const delta = e.wheelDeltaY || e.deltaY;
-          if (delta > 0) {
-            this.map.zoomIn();
-          } else {
-            this.map.zoomOut();
-          }
-          e.preventDefault();
-        }
-      });
+    },
+    drawPronghorn() {
+      // Load range GeoJSON from an external file
+fetch('/data/final-prong.geojson')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    // Add GeoJSON layer to the map once the file is loaded
+    L.geoJSON(data, {
+  style: function(feature) {
+    if (feature.properties.Time == 'Original') {
+      return {
+        color: "#7f9694", // Example color
+        weight: 2,
+        dashArray: '5, 5'
+      };
+    } else {
+      return {
+        color: "#BBA38E", // Example color
+        weight: 2,
+        fillOpacity: 0.7
+      };
     }
+  },
+  onEachFeature: function(feature, layer) {
+    // layer.bindPopup(feature.properties.name); // Assuming 'name' is a property in your GeoJSON
+  }
+}).addTo(this.map);
+
+  });
     },
     handleCenterChange() {
       this.localCenter = this.map.getCenter();
@@ -297,7 +304,7 @@ fetch('/data/monarch-east-before.geojson')
   },
   mounted() {
     this.drawMap();
-    
+  
     this.addBirdLayer()
   },
   
