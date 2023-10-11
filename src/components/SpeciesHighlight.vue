@@ -4,20 +4,27 @@
   
     <div class="container" id="species-highlight-description">
       <div class="left">
+  <div>
+
+  
+    <div class="container" id="species-highlight-description">
+      <div class="left">
         <img :src="'../'+imageUrl" alt="Left Image" :style="{ width: isMobile ? '100%' : 'auto' }">
       </div>
+      <div class="right">
       <div class="right">
         <h2>{{ title }}</h2>
         <div class="species-description" v-html="description"></div>
         <br>
-        <p>By changing nothing, nothing changes.
+        <p style="font-weight: 600">By changing nothing, nothing changes.
       <a href="#" style="text-decoration: underline;">Click here</a> to call on Congress to
       restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
       </p>
       </div>
     </div>
-    <div class="species-map-placeholder">
-      species specific map coming soon
+    <div class="species-map-container">
+      <h2>Species Snapshot</h2>
+      <img :src="'../images/trend-maps/'+speciesId+'.png'" alt="">
     </div>
   </div>
   </template>
@@ -37,6 +44,10 @@
         type: String,
         required: true,
       },
+      speciesId: {
+        type: String,
+        required: true,
+      }
     },
     computed: {
       isMobile() {
@@ -48,12 +59,9 @@
   
   <style scoped>
 
-  .species-map-placeholder {
-    height: 300px;
-    background-color: #475026;
-    color: #EFEAD4;
-    display: flex;
-    margin-top: 20px;
+  .species-map-container {
+    
+    margin-top: 50px;
     justify-content: center;
     align-items: center;
   }
@@ -75,11 +83,20 @@
     max-width: 600px;
     font-size: 18px
   }
+
+  .species-description {
+    max-width: 600px;
+    font-size: 18px
+  }
   
   img {
     display: block;
     max-width: 100%;
   }
+
+  /* .species-description {
+    font-size: 21px;
+  } */
 
   /* .species-description {
     font-size: 21px;

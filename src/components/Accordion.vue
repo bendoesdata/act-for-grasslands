@@ -16,7 +16,7 @@
           <br>
           <div style="font-size: 12px">Source:</div>
             <div style="text-decoration: underline; font-size: 12px; font-style: italic;">Source 1</div>
-          <v-switch label="Add to map"></v-switch>
+          <v-switch @click="sendSpeciesSelection" label="Add to map"></v-switch>
         </div>
       </transition>
     </div>
@@ -36,7 +36,8 @@
     },
     data() {
       return {
-        isOpen: false
+        isOpen: false,
+        switchState: false
       };
     },
     computed: {
@@ -57,12 +58,23 @@
         const targetElement = document.getElementById("#accordion-" + this.accId);
 
         // Scroll to the target element
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        // if (targetElement) {
+        //   targetElement.scrollIntoView({ behavior: 'smooth' });
+        // }
       }
     },
     methods: {
+      sendSpeciesSelection(){
+        this.switchState = !this.switchState;
+
+        if (this.switchState) {
+          // send the species name to the parent component
+          this.$emit('species-selected', this.species.name);
+        } else {
+          // send the species name to the parent component
+          this.$emit('species-selected', 'none');
+        }
+      },
       toggleAccordion() {
         this.isOpen = !this.isOpen;
 
