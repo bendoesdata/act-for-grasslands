@@ -36,7 +36,7 @@ export default {
             maxZoom: 20
         }).addTo(leafletMap1);
         
-      let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/unmasked/${'pfg'}/${'1996'}/{z}/{x}/{y}.png`, {
+      let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/${'pfg'}/${'1996'}/{z}/{x}/{y}.png`, {
                 maxZoom: 18,
                 opacity: 1
             }).addTo(leafletMap1);
@@ -55,7 +55,7 @@ export default {
             maxZoom: 20
         }).addTo(leafletMap2);
         
-      let tileLayer2 = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/unmasked/${'pfg'}/${'2021'}/{z}/{x}/{y}.png`, {
+      let tileLayer2 = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/${'pfg'}/${'2021'}/{z}/{x}/{y}.png`, {
                 maxZoom: 18,
                 opacity: 1
             }).addTo(leafletMap2);

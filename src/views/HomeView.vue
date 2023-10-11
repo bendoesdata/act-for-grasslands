@@ -29,15 +29,8 @@
           bobwhite quail, that help define our communities. While devastating for hunters and birdwatchers, these declines
           also show that the places where people live are losing soil productivity and water, and are less able to
           withstand extreme heat and storms.
-          The loss of America’s grasslands over the past several decades has led to alarming declines in the wildlife we
-          all care about. If these iconic landscapes continue to disappear, we risk losing the animals, like pronghorn and
-          bobwhite quail, that help define our communities. While devastating for hunters and birdwatchers, these declines
-          also show that the places where people live are losing soil productivity and water, and are less able to
-          withstand extreme heat and storms.
         </p>
         <p>
-          The slow collapse of this system is underway. The North American Grasslands Conservation Act will help reverse
-          the decline of America's grasslands - the prairies, savannas, glades, sage lands - in our own backyards.
           The slow collapse of this system is underway. The North American Grasslands Conservation Act will help reverse
           the decline of America's grasslands - the prairies, savannas, glades, sage lands - in our own backyards.
         </p>
@@ -64,18 +57,7 @@
         The greener the map, the more grasslands are present. Vast patches of emptiness show how
         much has been lost.
       </p>
-      <p>
-        Grassland animals are losing their homes.
-      </p>
-      <p>
-        Across the continental U.S., grasslands have seen serious declines. Here is how much they have
-        disappeared over the past thirty years.
-      </p>
-      <p>
-        The greener the map, the more grasslands are present. Vast patches of emptiness show how
-        much has been lost.
-      </p>
-      <p>
+      <p style="font-weight: 600">
         Grassland animals are losing their homes.
       </p>
     </div>
@@ -178,7 +160,7 @@
   :imageUrl="selectedSpecies.photoFile"
     :title="selectedSpecies.name" :description="selectedSpecies.descriptionLong" />
   <br>
-  <h2>Explore the interactive map to learn more</h2>
+  <h2 style="margin: 30px">Explore the interactive map to learn more</h2>
 
   
   <div id="map-section">
@@ -284,7 +266,7 @@ export default {
       selectedSpecies: null,
       isMobile: false,
       selectedBaseLayerFromUser: {
-        name: "Perennial forb and grassland",
+        name: "Grasslands",
         id: "pfg",
       },
       selectedBaseLayer: "pfg",
@@ -298,13 +280,9 @@ export default {
         center: [39.0997, -94.5786],
       },
       grassLayers: [
-        { name: "Only basemap (no data layer)", id: "none" },
-        { name: "Perennial forb and grassland", id: "pfg" },
-        { name: "Annual forb and grassland", id: "afg" },
-        { name: "Shrubs", id: "shr" },
-        { name: "Tree cover", id: "tre" },
-        { name: "Litter", id: "ltr" },
-        { name: "Bare ground", id: "bgr" },
+        { name: "Only species data (no vegetation)", id: "none" },
+        { name: "Grasslands", id: "pfg" },
+        { name: "Sagebrush", id: "shr" }
       ],
     };
   },

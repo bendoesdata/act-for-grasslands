@@ -116,7 +116,7 @@
         }).addTo(this.map);
 
       if (!this.layerName != 'none') {
-        let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/unmasked/${this.layerName}/${this.layerYear}/{z}/{x}/{y}.png`, {
+        let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/${this.layerName}/${this.layerYear}/{z}/{x}/{y}.png`, {
                 maxZoom: 18,
                 opacity: 1
             }).addTo(this.map);
@@ -203,7 +203,7 @@ fetch('/data/final-prong.geojson')
       return {
         color: "#7f9694", // Example color
         weight: 2,
-        dashArray: '5, 5'
+        // dashArray: '5, 5'
       };
     } else {
       return {
@@ -239,21 +239,21 @@ fetch('/data/final-prong.geojson')
             var fillColor;
 
             if (abd_trend <= -20) {
-            fillColor = '#CB181D';
+            fillColor = '#750036';
             } else if (abd_trend > -20 && abd_trend <= 0) {
-            fillColor = '#FD9272';
+            fillColor = '#C97FAA';
             } else if (abd_trend > 0 && abd_trend <= 20) {
-            fillColor = '#7ece61';
+            fillColor = '#92BC5D';
             } else if (abd_trend > 20) {
-            fillColor = '#1B6900';
+            fillColor = '#0D5300';
             }
 
         return {
             fillColor: fillColor,
-            weight: 1,
+            weight: 0,
             opacity: 1,
             color: 'black',
-            fillOpacity: 0.6
+            fillOpacity: 0.8
         };
         }
 
