@@ -154,7 +154,21 @@ export default {
   text-align: center;
   padding: 20px;
   margin: auto 0;
-  
+}
 
+/* Media query for smaller screens */
+@media (max-width: 800px) {
+  .text-box {
+    height: 180px; /* Adjust as needed */
+    background: rgba(255,255,255,0.8);
+    /* center text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-box h2 {
+    font-size: 1.6rem
+  }
 }
 </style>

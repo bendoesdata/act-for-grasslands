@@ -14,15 +14,22 @@
           </div>
           
           <br>
-          <div style="font-size: 12px">Source:</div>
-            <div style="text-decoration: underline; font-size: 12px; font-style: italic;">Source 1</div>
-          <v-switch @click="sendSpeciesSelection" label="Add to map"></v-switch>
+            <div style="font-size: 12px; font-style: italic;"><div class="source">Source: 
+              <span v-if="species.mapSourceLink == null">
+                {{ species.mapSource }}
+              </span>
+              <a v-else :href="species.mapSourceLink" target="_blank" style="text-decoration: underline;">{{ species.mapSource }}</a>
+            </div>
+            </div>
+          <v-switch @click="sendSpeciesSelection" :model-value="switchState" label="Add to map"></v-switch>
         </div>
       </transition>
     </div>
   </template>
   
   <script>
+import { map } from 'leaflet';
+
   export default {
     props: {
       species: {
@@ -32,6 +39,15 @@
       selectedModal: {
         type: String,
         required: false
+      },
+      currentlySelectedSpecies: {
+        type: String,
+        required: false
+      },
+      firstInList: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     data() {
@@ -39,6 +55,16 @@
         isOpen: false,
         switchState: false
       };
+    },
+    watch: {
+      currentlySelectedSpecies(val) {
+        console.log(val)
+        if (val === this.species.name) {
+          this.switchState = true;
+        } else {
+          this.switchState = false;
+        }
+      }
     },
     computed: {
       rotateTransform() {
@@ -50,6 +76,10 @@
     },
     mounted() {
       console.log(this.selectedModal)
+
+      if (this.firstInList) {
+        this.isOpen = true;
+      }
       // if the selectedModal prop is equal to the current accordion title, open the accordion
       if (this.selectedModal === this.accId) {
         this.isOpen = true;

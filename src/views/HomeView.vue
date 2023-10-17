@@ -70,25 +70,7 @@
           <h2>2022</h2>
         </div>
       </div>
-      <h3 style="margin-left: 20px">West</h3>
-      <div class="flex-section-region-maps">
-        <div class="region-map-item">
-          <img src="/images/region-maps/west-1997.png" width="100%" alt="">
-        </div>
-        <div class="region-map-item">
-          <img src="/images/region-maps/west-2022.png" width="100%" alt="">
-        </div>
-      </div>
-      <h3 style="margin-left: 20px">Midwest</h3>
-      <div class="flex-section-region-maps">
-        <div class="region-map-item">
-          <img src="/images/region-maps/mw-1997.png" width="100%" alt="">
-        </div>
-        <div class="region-map-item">
-          <img src="/images/region-maps/mw-2022.png" width="100%" alt="">
-        </div>
-      </div>
-      <h3 style="margin-left: 20px">Southeast</h3>
+      <h3 class="regional-titles">Southeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
           <img src="/images/region-maps/se-1997.png" width="100%" alt="">
@@ -97,7 +79,25 @@
           <img src="/images/region-maps/se-2022.png" width="100%" alt="">
         </div>
       </div>
-      <h3 style="margin-left: 20px">Northeast</h3>
+      <h3 class="regional-titles">Midwest</h3>
+      <div class="flex-section-region-maps">
+        <div class="region-map-item">
+          <img src="/images/region-maps/mw-1997.png" width="100%" alt="">
+        </div>
+        <div class="region-map-item">
+          <img src="/images/region-maps/mw-2022.png" width="100%" alt="">
+        </div>
+      </div>
+      <h3 class="regional-titles">West</h3>
+      <div class="flex-section-region-maps">
+        <div class="region-map-item">
+          <img src="/images/region-maps/west-1997.png" width="100%" alt="">
+        </div>
+        <div class="region-map-item">
+          <img src="/images/region-maps/west-2022.png" width="100%" alt="">
+        </div>
+      </div>
+      <h3 class="regional-titles">Northeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
           <img src="/images/region-maps/ne-1997.png" width="100%" alt="">
@@ -106,10 +106,6 @@
           <img src="/images/region-maps/ne-2022.png" width="100%" alt="">
         </div>
       </div>
-      <!-- temporary to add overlay for focus groups -->
-      <!-- <div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 100%;z-index: 9; position: absolute; top: 0; left: 0">
-          <h3 style="color: white; text-align: center; padding-top: 200px;">REGION MAPS STILL UNDER DEVELOPMENT</h3>
-        </div> -->
   </div>
 </div>
 
@@ -165,9 +161,64 @@
   
   <div id="map-section">
     <div id="left-map-panel">
-      <h3>Select a species</h3>
-      <div v-for="(species, i) in allSpecies" :key="i">
-        <Accordion @species-selected="updateSelectedSpecies" :species="species"></Accordion>
+      <div v-if="isMobile">
+        <v-dialog
+      v-model="dialog"
+      fullscreen
+      :scrim="false"
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ props }">
+        <v-btn
+          color="#475026"
+          light
+          class="white--text"
+          v-bind="props"
+        >
+          Open Dialog
+        </v-btn>
+      </template>
+      <v-card>
+        <v-toolbar
+          dark
+          color="#475026"
+        >
+          <v-btn
+            icon
+            dark
+            @click="dialog = false"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <v-toolbar-title>Select a species</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              variant="text"
+              @click="dialog = false"
+            >
+              Go to map
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+        <v-list
+          lines="one"
+          subheader
+        >
+      <div v-for="(species, i) in allSpeciesForLeftPanel" :key="i">
+        <Accordion v-if="i==0" :firstInList="true" @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+        <Accordion v-else @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+      </div>
+        </v-list>
+      </v-card>
+    </v-dialog>
+      </div>
+      <div v-else>
+        <h3>Select a species</h3>
+        <div v-for="(species, i) in allSpeciesForLeftPanel" :key="i">
+          <Accordion v-if="i==0" :firstInList="true" @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+          <Accordion v-else @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+        </div>
       </div>
     </div>
     <div id="interactive-map-container">
@@ -175,7 +226,7 @@
         <div class="layer-box">
           <div class="layer-box-header" @click="toggleLayerBox">
             <div class="layer-box-icon" :class="{ 'open': layerBoxIsOpen }" :style="{ transform: rotateTransform }">
-              <span class="plus">&#8963;</span>
+              <span class="layer-box-plus">&#8963;</span>
             </div>
             <div class="layer-box-title"><span>VIEW MAP LAYERS</span></div>
           </div>
@@ -188,15 +239,6 @@
                     <div class="layer-box-title flex-half" style="text-align: right;">Timespan</div>
                   </div>
                   <div class="flex-container layer-box-row">
-                    <!-- <select style="color: black; background-color: rgb(241, 241, 241);" name="layers" v-model="selectedBaseLayer" id="layer-select">
-                    <option value="none">Only basemap (no data layer)</option>    
-                    <option value="pfg">Perennial forb and grassland</option>
-                        <option value="afg">Annual forb and grassland</option>
-                        <option value="shr">Shrubs</option>
-                        <option value="tre">Tree cover</option>
-                        <option value="ltr">Litter</option>
-                        <option value="bgr">Bare ground</option>
-                  </select> -->
                   <div style="width: 250px">
                     <v-select
                   v-model="selectedBaseLayer"
@@ -232,7 +274,7 @@
                 </div>
               </div>
               <br>
-              <div style="font-size: 12px">Sources:</div>
+              <div style="font-size: 12px">Vegetation layer source: <a style="text-decoration: underline;" href="https://rangelands.app/" target="_blank">Rangeland Analysis Platform (1988-2022)</a></div>
             </div>
           </transition>
         </div>
@@ -263,6 +305,10 @@ export default {
   },
   data() {
     return {
+      dialog: false,
+        notifications: false,
+        sound: true,
+        widgets: false,
       selectedSpecies: null,
       isMobile: false,
       selectedBaseLayerFromUser: {
@@ -271,8 +317,9 @@ export default {
       },
       selectedBaseLayer: "pfg",
       selectedYearForMap: "2020",
-      birdSelection: "",
+      birdSelection: "none",
       layerBoxIsOpen: false,
+      allSpeciesForLeftPanel: null,
       speciesForInteractiveMap: null,
       yearToggle: "2021",
       startingMapPosition: {
@@ -290,13 +337,29 @@ export default {
     selectedBaseLayerFromUser() {
       this.selectedBaseLayer = this.selectedBaseLayerFromUser.id;
     },
+    selectedSpecies() {
+      this.speciesForInteractiveMap = this.selectedSpecies.name;
+      this.birdSelection = this.speciesForInteractiveMap;
+
+      // take the allSpecies array and make sure that this.sepectedSpecies.name comes first in the array
+      // this will make sure that the selected species is the first one in the list
+      let speciesArray = this.allSpecies;
+      let selectedSpecies = this.selectedSpecies.name;
+      let selectedSpeciesIndex = speciesArray.findIndex(
+        (species) => species.name === selectedSpecies
+      );
+      let selectedSpeciesObject = speciesArray.splice(selectedSpeciesIndex, 1);
+      speciesArray.unshift(selectedSpeciesObject[0]);
+      this.allSpeciesForLeftPanel = speciesArray;
+    }
   },
   computed: {
     allSpecies() {
+      this.allSpeciesForLeftPanel = species;
       return species;
     },
     rotateTransform() {
-        return this.isOpen ? 'rotate(45deg)' : 'rotate(0)';
+        return this.layerBoxIsOpen ? 'rotate(180deg)' : 'rotate(0)';
       },
     speciesId() {
       // get all of the id values from the allSpecies array
@@ -487,7 +550,7 @@ export default {
 
 #left-map-panel {
   flex: 1 1 30%;
-  max-height: 500px;
+  max-height: 650px;
   overflow-y: scroll;
   padding: 1rem;
 }
@@ -506,7 +569,7 @@ export default {
   position: absolute;
   bottom: 20px;
   left: 40px;
-  width: 450px;
+  width: 500px;
   z-index: 500;
   background-color: #FAFAF8;
   padding: 10px;
@@ -583,6 +646,7 @@ export default {
 .left-content {
   flex: 1 1 35%;
   padding: 20px;
+  padding-left: 40px;
   background-color: #EFEAD4;
   color: #475026;
   border-top-right-radius: 20% 200px; /* Adjust the second value to control the curve */
@@ -625,16 +689,46 @@ export default {
   /* Ensure the right div is below the left div */
 }
 
-@media (max-width: 900px) {
-  .flex-section {
-    /* display: block */
-  }
+.regional-titles {
+  margin-left: 20px
 }
 
 /* Media query for smaller screens */
 @media (max-width: 800px) {
+  #map-section {
+    display: block
+  }
+
+  #layer-box {
+    width: 250px;
+    left: 5%;
+    bottom: 10%;
+  }
+
+  .regional-titles {
+    margin-left: 0px
+  }
+
+  .flex-section-region-maps {
+    margin-top: 10px;
+    margin-bottom: 40px
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  #title {
+    font-size: 42px;
+    line-height: 40px;
+  }
+  
   #banner {
     display: block;
+  }
+
+  .layer-box-title {
+    font-size: 12px
   }
 
   #banner .left-content {
@@ -684,18 +778,27 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    transform-origin: 50% 50%;
     transition: transform 0.3s;
   }
   
   .layer-box-icon.open {
-    transform: rotate(45deg);
+    transform: rotate(180deg);
+    transform-origin: 50% 50%;
+  }
+
+  .layer-box-plus {
+    font-size: 24px;
+    transform-origin: 50% 50%;
   }
 
   .layer-box-title {
     font-weight: bold;
+    font-size: 14px
   }
   
   .layer-box-content {
@@ -728,6 +831,11 @@ export default {
     height: 0;
     overflow: hidden;
   }
+
+  .dialog-bottom-transition-enter-active,
+.dialog-bottom-transition-leave-active {
+  transition: transform .2s ease-in-out;
+}
 
 
 </style>

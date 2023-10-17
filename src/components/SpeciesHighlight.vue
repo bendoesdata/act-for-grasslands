@@ -79,11 +79,6 @@
     max-width: 600px;
     font-size: 18px
   }
-
-  .species-description {
-    max-width: 600px;
-    font-size: 18px
-  }
   
   img {
     display: block;
@@ -99,10 +94,15 @@
   } */
   
   /* Media query for smaller screens */
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
     .left,
     .right {
       flex: 1 1 100%;
+      padding: 0px
+    }
+
+    .right {
+      margin-top: 10px
     }
   }
   </style>
