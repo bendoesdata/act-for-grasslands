@@ -157,67 +157,30 @@
     :title="selectedSpecies.name" :description="selectedSpecies.descriptionLong" />
   <br>
   <h2 style="margin: 30px">Explore the interactive map to learn more</h2>
-
-  
   <div id="map-section">
     <div id="left-map-panel">
-      <div v-if="isMobile">
-        <v-dialog
-      v-model="dialog"
-      fullscreen
-      :scrim="false"
-      transition="dialog-bottom-transition"
-    >
-      <template v-slot:activator="{ props }">
-        <v-btn
-          color="#475026"
-          light
-          class="white--text"
-          v-bind="props"
-        >
-          Open Dialog
-        </v-btn>
-      </template>
-      <v-card>
-        <v-toolbar
-          dark
-          color="#475026"
-        >
-          <v-btn
-            icon
-            dark
-            @click="dialog = false"
-          >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-          <v-toolbar-title>Select a species</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn
-              variant="text"
-              @click="dialog = false"
-            >
-              Go to map
-            </v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-list
-          lines="one"
-          subheader
-        >
-      <div v-for="(species, i) in allSpeciesForLeftPanel" :key="i">
-        <Accordion v-if="i==0" :firstInList="true" @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
-        <Accordion v-else @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
-      </div>
-        </v-list>
-      </v-card>
-    </v-dialog>
-      </div>
-      <div v-else>
+      <div>
         <h3>Select a species</h3>
-        <div v-for="(species, i) in allSpeciesForLeftPanel" :key="i">
-          <Accordion v-if="i==0" :firstInList="true" @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
-          <Accordion v-else @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+        <div class="layer-box">
+          <div class="layer-box-header" id="select-species-acc-header" @click="toggleSpeciesList">
+            <div class="layer-box-icon" :class="{ 'open': mobileSpeciesListIsOpen }" :style="{ transform: rotateTransformSpecies }">
+              <span class="layer-box-plus">&#8963;</span>
+            </div>
+            <div v-if="!mobileSpeciesListIsOpen" class="layer-box-title">Show species list</div>
+            <div v-else class="layer-box-title">Hide species list</div>
+          </div>
+          <transition name="layer-box-transition">
+            <div class="layer-box-content" id="species-list-content" v-show="mobileSpeciesListIsOpen">
+              <div>
+                <div class="layer-box-text" :class="{ 'fade-in': mobileSpeciesListIsOpen, 'fade-out': !mobileSpeciesListIsOpen }">
+                  <div v-for="(species, i) in allSpeciesForLeftPanel" :key="i">
+                    <Accordion v-if="i==0" :firstInList="true" @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+                    <Accordion v-else @species-selected="updateSelectedSpecies" :species="species" :currentlySelectedSpecies="birdSelection"></Accordion>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -305,10 +268,6 @@ export default {
   },
   data() {
     return {
-      dialog: false,
-        notifications: false,
-        sound: true,
-        widgets: false,
       selectedSpecies: null,
       isMobile: false,
       selectedBaseLayerFromUser: {
@@ -319,6 +278,7 @@ export default {
       selectedYearForMap: "2020",
       birdSelection: "none",
       layerBoxIsOpen: false,
+      mobileSpeciesListIsOpen: true,
       allSpeciesForLeftPanel: null,
       speciesForInteractiveMap: null,
       yearToggle: "2021",
@@ -336,6 +296,14 @@ export default {
   watch: {
     selectedBaseLayerFromUser() {
       this.selectedBaseLayer = this.selectedBaseLayerFromUser.id;
+    },
+    isMobile(val) {
+      if (val == false) {
+        this.mobileSpeciesListIsOpen = true;
+        document.getElementById('select-species-acc-header').style.display = 'none';
+      } else {
+        document.getElementById('select-species-acc-header').style.display = 'block';
+      }
     },
     selectedSpecies() {
       this.speciesForInteractiveMap = this.selectedSpecies.name;
@@ -361,6 +329,9 @@ export default {
     rotateTransform() {
         return this.layerBoxIsOpen ? 'rotate(180deg)' : 'rotate(0)';
       },
+      rotateTransformSpecies() {
+        return this.mobileSpeciesListIsOpen ? 'rotate(180deg)' : 'rotate(0)';
+      },
     speciesId() {
       // get all of the id values from the allSpecies array
       let speciesIds = this.allSpecies.map((species) => species.id);
@@ -368,6 +339,14 @@ export default {
     },
   },
   mounted() {
+    // initial viewport widwth check
+    if (window.innerWidth < 800) {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+        document.getElementById('select-species-acc-header').style.display = 'none';
+      }
+
     // setup an event listener to change the value of isMobile to true if the viewport width is less than 800px
     window.addEventListener("resize", () => {
       if (window.innerWidth < 800) {
@@ -390,6 +369,10 @@ export default {
     },
     toggleLayerBox() {
       this.layerBoxIsOpen = !this.layerBoxIsOpen;
+    },
+    toggleSpeciesList() {
+      console.log('toggle')
+      this.mobileSpeciesListIsOpen = !this.mobileSpeciesListIsOpen;
     },
     selectSpecies(e) {
       // remove the first 8 letters from the id
@@ -695,6 +678,20 @@ export default {
 
 /* Media query for smaller screens */
 @media (max-width: 800px) {
+  /* #left-map-panel {
+    max-height: 400px;
+    overflow-y: scroll;
+  } */
+
+  #species-list-content {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+
+  /* #left-map-panel .layer-box-header {
+    position: sticky
+  } */
+
   #map-section {
     display: block
   }
@@ -831,11 +828,6 @@ export default {
     height: 0;
     overflow: hidden;
   }
-
-  .dialog-bottom-transition-enter-active,
-.dialog-bottom-transition-leave-active {
-  transition: transform .2s ease-in-out;
-}
 
 
 </style>
