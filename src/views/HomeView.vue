@@ -64,37 +64,37 @@
     <div class="flex-two-third" style="position: relative">
       <div class="region-map-titles">
         <div>
-          <h2>1997</h2>
+          <h2>1992</h2>
         </div>
         <div>
-          <h2>2022</h2>
+          <h2>2021</h2>
         </div>
       </div>
       <h3 class="regional-titles">Southeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/se-1997.png" width="100%" alt="">
+          <img src="/images/region-maps/se-1992-2.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/se-2022.png" width="100%" alt="">
+          <img src="/images/region-maps/se-2021-2.png" width="100%" alt="">
         </div>
       </div>
       <h3 class="regional-titles">Midwest</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/mw-1997.png" width="100%" alt="">
+          <img src="/images/region-maps/mw-1992.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/mw-2022.png" width="100%" alt="">
+          <img src="/images/region-maps/mw-2021-2.png" width="100%" alt="">
         </div>
       </div>
       <h3 class="regional-titles">West</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/west-1997.png" width="100%" alt="">
+          <img src="/images/region-maps/we-1992.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/west-2022.png" width="100%" alt="">
+          <img src="/images/region-maps/we-2021-2.png" width="100%" alt="">
         </div>
       </div>
       <h3 class="regional-titles">Northeast</h3>
@@ -113,7 +113,7 @@
     <h2 style="margin-bottom: 50px; text-align: center;">Select a species to learn how it has been impacted by grasslands
       loss</h2>
     <div class="flex-section">
-      <div v-for="(species, index) in allSpecies.slice(0, 4)" :key="index">
+      <div v-for="(species, index) in immutableSpeciesList.slice(0, 4)" :key="index">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -123,7 +123,7 @@
       </div>
     </div>
     <div class="flex-section">
-      <div v-for="(species, index) in allSpecies.slice(4, 8)" :key="index">
+      <div v-for="(species, index) in immutableSpeciesList.slice(4, 8)" :key="index">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -132,7 +132,7 @@
       </div>
     </div>
     <div class="flex-section">
-      <div v-for="(species, index) in allSpecies.slice(8, 12)" :key="index">
+      <div v-for="(species, index) in immutableSpeciesList.slice(8, 12)" :key="index">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -141,7 +141,7 @@
       </div>
     </div>
     <div class="flex-section">
-      <div v-for="(species, index) in allSpecies.slice(12, 16)" :key="index">
+      <div v-for="(species, index) in immutableSpeciesList.slice(12, 16)" :key="index">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -219,8 +219,8 @@
                       variant="outlined"
                       style="text-align: right; float: right; position:absolute; right: 20px"
                     >
-                      <v-btn value="1990" rounded="5">1990</v-btn>
-                      <v-btn value="2020" selected rounded="5">2020</v-btn>
+                      <v-btn value="1992" rounded="5">1992</v-btn>
+                      <v-btn value="2021" selected rounded="5">2021</v-btn>
                     </v-btn-toggle>
                   </div>
                   <div class="layer-box-row flex-container" v-if="birdSelection != '' && birdSelection != 'none'">
@@ -268,6 +268,7 @@ export default {
   },
   data() {
     return {
+      speciesList: [],
       selectedSpecies: null,
       isMobile: false,
       selectedBaseLayerFromUser: {
@@ -275,7 +276,7 @@ export default {
         id: "pfg",
       },
       selectedBaseLayer: "pfg",
-      selectedYearForMap: "2020",
+      selectedYearForMap: "2021",
       birdSelection: "none",
       layerBoxIsOpen: false,
       mobileSpeciesListIsOpen: true,
@@ -311,13 +312,15 @@ export default {
 
       // take the allSpecies array and make sure that this.sepectedSpecies.name comes first in the array
       // this will make sure that the selected species is the first one in the list
-      let speciesArray = this.allSpecies;
-      let selectedSpecies = this.selectedSpecies.name;
-      let selectedSpeciesIndex = speciesArray.findIndex(
+      // do not manipulate the original array of this.allSpecies
+      const speciesArray = this.allSpecies;
+
+      const selectedSpecies = this.selectedSpecies.name;
+      const selectedSpeciesIndex = species.findIndex(
         (species) => species.name === selectedSpecies
       );
-      let selectedSpeciesObject = speciesArray.splice(selectedSpeciesIndex, 1);
-      speciesArray.unshift(selectedSpeciesObject[0]);
+      let selectedSpeciesObject = species.splice(selectedSpeciesIndex, 1);
+      species.unshift(selectedSpeciesObject[0]);
       this.allSpeciesForLeftPanel = speciesArray;
     }
   },
@@ -332,6 +335,10 @@ export default {
       rotateTransformSpecies() {
         return this.mobileSpeciesListIsOpen ? 'rotate(180deg)' : 'rotate(0)';
       },
+      immutableSpeciesList() {
+      // Create a shallow immutable copy of the original array
+      return Object.freeze([...this.allSpecies]);
+    },
     speciesId() {
       // get all of the id values from the allSpecies array
       let speciesIds = this.allSpecies.map((species) => species.id);
@@ -339,6 +346,8 @@ export default {
     },
   },
   mounted() {
+    this.speciesList = species;
+
     // initial viewport widwth check
     if (window.innerWidth < 800) {
         this.isMobile = true;

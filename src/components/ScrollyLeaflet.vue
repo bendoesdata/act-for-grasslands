@@ -21,8 +21,8 @@ export default {
     const map1 = ref(null);
     const map2 = ref(null);
     const textBoxes = ref([
-      { content: 'Here is how grasslands in the U.S. looked in 1996.' },
-      { content: 'Here is what remains in 2022.' }
+      { content: 'Here is how grasslands in the U.S. looked in 1992.' },
+      { content: 'Here is what remains in 2021.' }
     ]);
     const textBoxRefs = ref([]);
 
@@ -36,7 +36,7 @@ export default {
             maxZoom: 20
         }).addTo(leafletMap1);
         
-      let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/${'pfg'}/${'1996'}/{z}/{x}/{y}.png`, {
+      let tileLayer = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/${'pfg'}/${'1992'}/{z}/{x}/{y}.png`, {
                 maxZoom: 18,
                 opacity: 1
             }).addTo(leafletMap1);
@@ -55,6 +55,7 @@ export default {
             maxZoom: 20
         }).addTo(leafletMap2);
         
+        // rap tiles won't let me get year 2022 for some reason
       let tileLayer2 = L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/${'pfg'}/${'2021'}/{z}/{x}/{y}.png`, {
                 maxZoom: 18,
                 opacity: 1

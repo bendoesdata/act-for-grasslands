@@ -5,52 +5,83 @@
     @mouseover="showMessage = true"
     @mouseleave="showMessage = false"
   >
-  <div id="legend-container">
-    <div style="max-width: 250px">
-      <div v-if="layerName == 'pfg'">
-        <div class="legend-title">Grasslands</div>
-      <img src="/images/legends/map-legends-03.png" style="width: 100%" alt="">
-      </div>
-      <div v-else-if="layerName == 'shr'">
-        <div class="legend-title">Sagebrush</div>
-      <img src="/images/legends/map-legends-04.png" style="width: 100%" alt="">
-      </div>
-      <div v-if="birdLayerName != 'none'">
-        <div v-if="layerType == 'trend'">
-        <div class="legend-title">Relative abundance</div>
-        <div class="legend-subtitle">Middle year of range, 2014</div>
-        <img src="/images/legends/map-legends-02.png" style="width: 100%" alt="">
-        <div class="legend-title">Abundance trend</div>
-        <div class="legend-subtitle">Pct. change, 2007-2021</div>
-        <img src="/images/legends/map-legends-01.png" style="width: 100%" alt="">
-      </div>
-      <div v-else-if="layerType == 'range'">
-        <div class="legend-title">
-          Species range
+    <div id="legend-container">
+      <div style="max-width: 250px">
+        <div v-if="layerName == 'pfg'">
+          <div class="legend-title">Grasslands</div>
+          <img
+            src="/images/legends/map-legends-03.png"
+            style="width: 100%"
+            alt=""
+          />
         </div>
-        <div style="margin-top: 5px"><span class="circle-legend-before"></span> Maximum historic range</div>
-        <div><span class="circle-legend-after"></span> Current</div>
-      </div>
-      <div v-else-if="layerType == 'abundance'">
-        <div class="legend-title">
-          Estimated abundance
+        <div v-else-if="layerName == 'shr'">
+          <div class="legend-title">Sagebrush</div>
+          <img
+            src="/images/legends/map-legends-04.png"
+            style="width: 100%"
+            alt=""
+          />
         </div>
-        <v-btn-toggle
-            v-model="selectedYearForMap"
-            color="primary"
-            variant="outlined"
-            style="text-align: right; float: right; position:absolute; right: 20px"
-          >
-            <v-btn value="1990" rounded="5">1990</v-btn>
-            <v-btn value="2020" selected rounded="5">2020</v-btn>
-          </v-btn-toggle>
-      </div>
+        <div v-if="birdLayerName != 'none'">
+          <div v-if="layerType == 'trend'">
+            <div class="legend-title">Relative abundance</div>
+            <div class="legend-subtitle">Middle year of range, 2014</div>
+            <img
+              src="/images/legends/map-legends-02.png"
+              style="width: 100%"
+              alt=""
+            />
+            <div class="legend-title">Abundance trend</div>
+            <div class="legend-subtitle">Pct. change, 2007-2021</div>
+            <img
+              src="/images/legends/map-legends-01.png"
+              style="width: 100%"
+              alt=""
+            />
+          </div>
+          <div v-else-if="layerType == 'range'">
+            <div class="legend-title">Species range</div>
+            <div style="margin-top: 5px">
+              <span class="circle-legend-before"></span> Maximum historic range
+            </div>
+            <div><span class="circle-legend-after"></span> Current</div>
+          </div>
+          <div v-else-if="layerType == 'abundance'">
+            <div class="legend-title">Estimated abundance</div>
+            <div style="height: 100px">
+              <v-btn-toggle
+                v-model="monarchYear"
+                color="primary"
+                variant="outlined"
+                small
+                style="height: 30px"
+              >
+                <v-btn value="before" rounded="5">Before</v-btn>
+                <v-btn value="after" selected rounded="5">After</v-btn>
+              </v-btn-toggle>
+              <div style="font-style: italic; margin-bottom: 0px">
+                Butterflies show relative loss at scale, and do not represent
+                actual butterfly locations.
+              </div>
+              <div>
+                <div style="margin-top: 5px">
+                  <span class="circle-legend-before"></span> Western population
+                  range
+                </div>
+                <div>
+                  <span class="circle-legend-after"></span> Eastern population
+                  range
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
     <div id="loading-msg">
       <v-progress-circular indeterminate></v-progress-circular>
-       Data layers loading...
+      Data layers loading...
     </div>
   </div>
 </template>
@@ -101,6 +132,7 @@ export default {
   data() {
     return {
       showMessage: false,
+      monarchYear: "before",
       map: null,
       mapRef: ref(null),
       localZoomLevel: null,
@@ -111,12 +143,12 @@ export default {
         "Burrowing Owl": "burowl3",
         "Northern Bobwhite": "norbob",
         "Western Meadowlark": "wesmead",
-        "Bobolink": "bobo",
+        Bobolink: "bobo",
         "Sharp-tailed Grouse": "shtgro",
         "Scaled Quail": "scaqua",
         "Ring-necked Pheasant": "rinphe",
         "Northern Pintail": "norpin",
-        "Mallard": "mal-reduced",
+        Mallard: "mal-reduced",
         "American Wigeon": "amewig",
       },
     };
@@ -136,6 +168,11 @@ export default {
         this.checkLayerTypeAndDraw();
       }
     },
+    monarchYear() {
+      this.map.remove();
+      this.drawMap();
+      this.drawMonarch();
+    },
     birdLayerName() {
       this.map.remove();
 
@@ -147,28 +184,31 @@ export default {
   methods: {
     checkLayerTypeAndDraw() {
       if (this.birdLayerName == "Monarch Butterfly") {
-        this.layerType = "abundance"
+        this.layerType = "abundance";
         this.drawMonarch();
       } else if (this.birdLayerName == "Pronghorn") {
-        this.layerType = "range"
+        this.layerType = "range";
         this.drawPronghorn();
       } else if (this.birdLayerName == "Elk") {
-        this.layerType = "range"
+        this.layerType = "range";
         this.drawElk();
       } else if (this.birdLayerName == "Greater Prairie-Chicken") {
-        this.layerType = "range"
+        this.layerType = "range";
         this.drawGPC();
       } else if (this.birdLayerName == "Greater Sage-Grouse") {
-        this.layerType = "range"
+        this.layerType = "range";
         this.drawSagGro();
-      } else if (this.birdLayerName == "Mule Deer") {
-        this.layerType = "migration"
-        this.drawMuleDeer();
-      }  else if (this.birdLayerName == "Regal Fritillary") {
+      } else if (this.birdLayerName == "Rio Grande Cutthroat Trout") {
         this.layerType = "range"
+        this.drawTrout();
+      } else if (this.birdLayerName == "Mule Deer") {
+        this.layerType = "migration";
+        this.drawMuleDeer();
+      } else if (this.birdLayerName == "Regal Fritillary") {
+        this.layerType = "range";
         this.drawRegalFrit(this.birdLayerName);
       } else if (this.birdLayerName !== "none") {
-        this.layerType = "trend"
+        this.layerType = "trend";
         this.addBirdLayer(this.birdLayerName);
       }
     },
@@ -237,7 +277,7 @@ export default {
         iconAnchor: [19, 47], // Point of the icon which corresponds to marker's location
         popupAnchor: [0, -47], // Point where the popup will open relative to the iconAnchor
       });
-      
+
       // load east range
       fetch("/data/east-monarch-range.geojson")
         .then((response) => response.json())
@@ -246,12 +286,10 @@ export default {
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
-              
-                return {
-                  color: "#C08440", // Example color
-                  weight: 2,
-                };
-              
+              return {
+                color: "#C08440", // Example color
+                weight: 2,
+              };
             },
           }).addTo(this.map);
         });
@@ -264,37 +302,59 @@ export default {
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
-              
-                return {
-                  color: "#607C78", // Example color
-                  weight: 2,
-                };
-              
+              return {
+                color: "#607C78", // Example color
+                weight: 2,
+              };
             },
           }).addTo(this.map);
         });
 
-      fetch("/data/monarch-east-before.geojson")
-        .then((response) => response.json())
-        .then((data) => {
-          L.geoJSON(data, {
-            pointToLayer: function (feature, latlng) {
-              // Use a custom icon if desired
-              return L.marker(latlng, { icon: butterflyIcon });
-            },
-          }).addTo(this.map);
-        });
-      // Load the GeoJSON
-      fetch("/data/monarch-west-before.geojson")
-        .then((response) => response.json())
-        .then((data) => {
-          L.geoJSON(data, {
-            pointToLayer: function (feature, latlng) {
-              // Use a custom icon if desired
-              return L.marker(latlng, { icon: butterflyIcon });
-            },
-          }).addTo(this.map);
-        });
+      if (this.monarchYear == "after") {
+        fetch("/data/monarch-east-after.geojson")
+          .then((response) => response.json())
+          .then((data) => {
+            L.geoJSON(data, {
+              pointToLayer: function (feature, latlng) {
+                // Use a custom icon if desired
+                return L.marker(latlng, { icon: butterflyIcon });
+              },
+            }).addTo(this.map);
+          });
+        // Load the GeoJSON
+        fetch("/data/monarch-west-after.geojson")
+          .then((response) => response.json())
+          .then((data) => {
+            L.geoJSON(data, {
+              pointToLayer: function (feature, latlng) {
+                // Use a custom icon if desired
+                return L.marker(latlng, { icon: butterflyIcon });
+              },
+            }).addTo(this.map);
+          });
+      } else {
+        fetch("/data/monarch-east-before.geojson")
+          .then((response) => response.json())
+          .then((data) => {
+            L.geoJSON(data, {
+              pointToLayer: function (feature, latlng) {
+                // Use a custom icon if desired
+                return L.marker(latlng, { icon: butterflyIcon });
+              },
+            }).addTo(this.map);
+          });
+        // Load the GeoJSON
+        fetch("/data/monarch-west-before.geojson")
+          .then((response) => response.json())
+          .then((data) => {
+            L.geoJSON(data, {
+              pointToLayer: function (feature, latlng) {
+                // Use a custom icon if desired
+                return L.marker(latlng, { icon: butterflyIcon });
+              },
+            }).addTo(this.map);
+          });
+      }
     },
     drawMuleDeer() {
       // Load range GeoJSON from an external file
@@ -305,19 +365,21 @@ export default {
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
-                return {
-                  color: "#BBA38E", // Example color
-                  weight: 2,
-                  fillOpacity: 0.7,
-                };
+              return {
+                color: "#BBA38E", // Example color
+                weight: 2,
+                fillOpacity: 0.7,
+              };
             },
           }).addTo(this.map);
         });
     },
     drawRegalFrit() {
+      // NOTE: add "states of historical occurrence" to legend instead of Max known range
+
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
-      
+
       // Load range GeoJSON from an external file
       // NOTE: the cornell-saggro-layer file has both historic and current range
       // but we use a more up to date current range on top of it instead of changing the color of this one dynamically
@@ -328,39 +390,35 @@ export default {
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
-              
-                return {
-                  color: "#7f9694", // Example color
-                  weight: 2,
-                };
-              
+              return {
+                color: "#7f9694", // Example color
+                weight: 0,
+              };
             },
           }).addTo(this.map);
         });
 
-        // Load range GeoJSON for the current range
-      // fetch("/data/saggro-current.geojson")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     console.log(data);
-      //     // Add GeoJSON layer to the map once the file is loaded
-      //     L.geoJSON(data, {
-      //       style: function (feature) {
-              
-      //           return {
-      //             color: "#BBA38E", // Example color
-      //             weight: 2,
-      //             fillOpacity: 0.7
-      //           };
-              
-      //       },
-      //     }).addTo(this.map);
-      //   });
+      // Load range GeoJSON for the current range
+      fetch("/data/regal-frit-reduced-current.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // Add GeoJSON layer to the map once the file is loaded
+          L.geoJSON(data, {
+            style: function (feature) {
+              return {
+                color: "#BBA38E", // Example color
+                weight: 2,
+                fillOpacity: 0.7,
+              };
+            },
+          }).addTo(this.map);
+        });
     },
     drawSagGro() {
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
-      
+
       // Load range GeoJSON from an external file
       // NOTE: the cornell-saggro-layer file has both historic and current range
       // but we use a more up to date current range on top of it instead of changing the color of this one dynamically
@@ -371,17 +429,15 @@ export default {
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
-              
-                return {
-                  color: "#7f9694", // Example color
-                  weight: 2,
-                };
-              
+              return {
+                color: "#7f9694", // Example color
+                weight: 2,
+              };
             },
           }).addTo(this.map);
         });
 
-        // Load range GeoJSON for the current range
+      // Load range GeoJSON for the current range
       fetch("/data/saggro-current.geojson")
         .then((response) => response.json())
         .then((data) => {
@@ -389,13 +445,11 @@ export default {
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
-              
-                return {
-                  color: "#BBA38E", // Example color
-                  weight: 2,
-                  fillOpacity: 0.7
-                };
-              
+              return {
+                color: "#BBA38E", // Example color
+                weight: 2,
+                fillOpacity: 0.7,
+              };
             },
           }).addTo(this.map);
         });
@@ -403,7 +457,7 @@ export default {
     drawGPC() {
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
-      
+
       // Load range GeoJSON from an external file
       fetch("/data/gpc-historic.geojson")
         .then((response) => response.json())
@@ -412,17 +466,15 @@ export default {
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
-              
-                return {
-                  color: "#7f9694", // Example color
-                  weight: 2,
-                };
-              
+              return {
+                color: "#7f9694", // Example color
+                weight: 2,
+              };
             },
           }).addTo(this.map);
         });
 
-        // Load range GeoJSON for the current range
+      // Load range GeoJSON for the current range
       fetch("/data/gpc-current.geojson")
         .then((response) => response.json())
         .then((data) => {
@@ -430,13 +482,35 @@ export default {
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
-              
+              return {
+                color: "#BBA38E", // Example color
+                weight: 2,
+                fillOpacity: 0.7,
+              };
+            },
+          }).addTo(this.map);
+        });
+    },
+    drawTrout() {
+      // Load range GeoJSON from an external file
+      fetch("/data/trout-combined.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          // Add GeoJSON layer to the map once the file is loaded
+          L.geoJSON(data, {
+            style: function (feature) {
+              if (feature.properties.status == "Historical range") {
+                return {
+                  color: "#7f9694", // Example color
+                  weight: 2,
+                };
+              } else {
                 return {
                   color: "#BBA38E", // Example color
                   weight: 2,
-                  fillOpacity: 0.7
+                  fillOpacity: 0.7,
                 };
-              
+              }
             },
           }).addTo(this.map);
         });
@@ -453,12 +527,12 @@ export default {
                 return {
                   color: "#7f9694", // Example color
                   weight: 2,
-                  fillOpacity: 0.7,
                 };
               } else {
                 return {
                   color: "#BBA38E", // Example color
                   weight: 2,
+                  fillOpacity: 0.7,
                 };
               }
             },
@@ -504,11 +578,11 @@ export default {
       this.$emit("map-center-change", this.localCenter, this.localZoomLevel);
     },
     addBirdLayer(species) {
-      console.log('GET SPECIES')
+      console.log("GET SPECIES");
       // Define a custom style function for the polygon
 
       // turn the display of #loading-msg to block
-      document.getElementById('loading-msg').style.display = 'block';
+      document.getElementById("loading-msg").style.display = "block";
 
       function customPolygonStyle(feature) {
         var abd_trend = feature.properties.abd_trend;
@@ -529,7 +603,7 @@ export default {
           strokeColor: fillColor,
           weight: 1,
           opacity: 1,
-          color:  fillColor,
+          color: fillColor,
           fillOpacity: 0.8,
         };
       }
@@ -541,17 +615,17 @@ export default {
 
       // Fetch the GeoJSON file
       function getData() {
-        console.log('GET DATA')
+        console.log("GET DATA");
         // create fp variable and store filepath for burowl3.geojson in the public folder under data
         let fp = `/data/${currentSpecies}.geojson`;
 
         fetch(fp)
           .then(function (response) {
-            console.log('DATA GOT')
+            console.log("DATA GOT");
             return response.json();
           })
           .then(function (data) {
-            console.log('DATA READY');
+            console.log("DATA READY");
             data.features.forEach(function (state) {
               state.active = true;
 
@@ -570,7 +644,7 @@ export default {
                 },
               }).addTo(map);
             });
-            console.log('data plotted')
+            console.log("data plotted");
 
             // turn the display of #loading-msg to none
             document.getElementById("loading-msg").style.display = "none";
@@ -658,7 +732,7 @@ export default {
   width: 10px;
   height: 10px;
   margin-right: 5px;
-  background-color: #7f9694
+  background-color: #7f9694;
 }
 
 .circle-legend-after {
@@ -667,8 +741,7 @@ export default {
   width: 10px;
   height: 10px;
   margin-right: 5px;
-  background-color: #BBA38E
+  background-color: #bba38e;
 }
-
 </style>
   
