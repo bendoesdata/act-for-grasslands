@@ -51,7 +51,7 @@
             <div class="legend-title">Estimated abundance</div>
             <div style="height: 100px">
               <v-btn-toggle
-                v-model="monarchYear"
+                v-model="beforeAfterToggle"
                 color="primary"
                 variant="outlined"
                 small
@@ -132,7 +132,7 @@ export default {
   data() {
     return {
       showMessage: false,
-      monarchYear: "before",
+      beforeAfterToggle: "before",
       map: null,
       mapRef: ref(null),
       localZoomLevel: null,
@@ -143,12 +143,12 @@ export default {
         "Burrowing Owl": "burowl3",
         "Northern Bobwhite": "norbob",
         "Western Meadowlark": "wesmead",
-        Bobolink: "bobo",
+        "Bobolink": "bobo",
         "Sharp-tailed Grouse": "shtgro",
         "Scaled Quail": "scaqua",
         "Ring-necked Pheasant": "rinphe",
         "Northern Pintail": "norpin",
-        Mallard: "mal-reduced",
+        "Mallard": "mal-reduced",
         "American Wigeon": "amewig",
       },
     };
@@ -168,10 +168,15 @@ export default {
         this.checkLayerTypeAndDraw();
       }
     },
-    monarchYear() {
+    beforeAfterToggle() {
       this.map.remove();
       this.drawMap();
-      this.drawMonarch();
+      
+      if (this.birdLayerName == "Southern Plains Bumble Bee") {
+        this.drawBumbleBee();
+      } else if (this.birdLayerName == "Monarch Butterfly") {
+        this.drawMonarch();
+      }
     },
     birdLayerName() {
       this.map.remove();
@@ -207,6 +212,9 @@ export default {
       } else if (this.birdLayerName == "Regal Fritillary") {
         this.layerType = "range";
         this.drawRegalFrit(this.birdLayerName);
+      } else if (this.birdLayerName == "Southern Plains Bumble Bee") {
+        this.layerType = "abundance";
+        this.drawBumbleBee();
       } else if (this.birdLayerName !== "none") {
         this.layerType = "trend";
         this.addBirdLayer(this.birdLayerName);
@@ -269,6 +277,37 @@ export default {
           });
       }
     },
+    drawBumbleBee() {
+      // Define the custom icon
+      var butterflyIcon = L.icon({
+        iconUrl: "/images/icons/noun-monarch-butterfly-3564833.svg", // Adjust the path as needed
+        iconSize: [28, 75], // Size of the icon; adjust based on your SVG's dimensions
+        iconAnchor: [19, 47], // Point of the icon which corresponds to marker's location
+        popupAnchor: [0, -47], // Point where the popup will open relative to the iconAnchor
+      });
+
+      if (this.beforeAfterToggle == "after") {
+        fetch("/data/bees-post-2000.json")
+          .then((response) => response.json())
+          .then(data => {
+        // Loop through the data and create markers for each point
+        data.forEach(point => {
+            return L.marker([point.latitude, point.longitude], { icon: butterflyIcon }).addTo(this.map);
+            // You can customize the marker icon, popup, etc. here if needed
+        });
+      })
+      } else {
+        fetch("/data/bees-post-2000.json")
+          .then((response) => response.json())
+          .then(data => {
+        // Loop through the data and create markers for each point
+        data.forEach(point => {
+            return L.marker([point.latitude, point.longitude], { icon: butterflyIcon }).addTo(this.map);
+            // You can customize the marker icon, popup, etc. here if needed
+        });
+      })
+      }
+    },
     drawMonarch() {
       // Define the custom icon
       var butterflyIcon = L.icon({
@@ -309,8 +348,8 @@ export default {
             },
           }).addTo(this.map);
         });
-
-      if (this.monarchYear == "after") {
+      
+      if (this.beforeAfterToggle == "after") {
         fetch("/data/monarch-east-after.geojson")
           .then((response) => response.json())
           .then((data) => {

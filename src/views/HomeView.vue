@@ -46,8 +46,8 @@
     <!-- <leaflet-map mapId="leaflet-2022" :layerYear="2021" />  -->
   </div>
   <div style="height: 600px;"></div>
-  <div class="section flex-container">
-    <div class="flex-third text-pad">
+  <div class="section">
+    <div class="text-pad">
       <h2>Regional collapse</h2>
       <p>
         Across the continental U.S., grasslands have seen serious declines. Here is how much they have
@@ -61,7 +61,7 @@
         Grassland animals are losing their homes.
       </p>
     </div>
-    <div class="flex-two-third" style="position: relative">
+    <div class="" style="position: relative">
       <div class="region-map-titles">
         <div>
           <h2>1992</h2>
@@ -100,10 +100,10 @@
       <h3 class="regional-titles">Northeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/ne-1997.png" width="100%" alt="">
+          <img src="/images/region-maps/ne-1992-masked.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/ne-2022.png" width="100%" alt="">
+          <img src="/images/region-maps/ne-2021-masked.png" width="100%" alt="">
         </div>
       </div>
   </div>
@@ -529,7 +529,7 @@ export default {
 }
 
 .region-map-item {
-  max-width: 400px;
+  max-width: 600px;
 }
 
 #map-section {
