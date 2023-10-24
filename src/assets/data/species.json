@@ -162,7 +162,7 @@
     "descriptionShort": "The population of this western quail has declined by 31%.",
     "mapSource": "eBird Status and Trends",
     "mapSourceLink": "https://science.ebird.org/en/status-and-trends/species/scaqua/trends-map",
-    "textSource": [
+    "textSources": [
         {
             "name": "Breeding Bird Survey",
             "link": "https://www.mbr-pwrc.usgs.gov/"
@@ -232,7 +232,14 @@
     "photoFile": "/images/selected/20190714-WFT_7080-Enhanced-NR-1_elk_Wenfei_tong.png",
     "descriptionLong": "Elk bugles are true calls of the wild. Prior to European settlement, there may have been as many as 10 million elk ranging across North America. Today, about a tenth of that population remains within a fraction of their historic range.",
     "descriptionShort": "The Elk's current population is a tenth of its historic size.",
-    "mapSource": "Wild Migrations: Atlas of Wyoming’s Ungulates, 2018, OSU Press"
+    "mapSource": "Wild Migrations: Atlas of Wyoming’s Ungulates, 2018, OSU Press",
+    "mapSourceLink": "",
+    "textSources": [
+        {
+            "name": "Ungulate Migrations of the Western United States, vol. 1 (2020)",
+            "link": "https://pubs.er.usgs.gov/publication/sir20205101"
+        }
+    ]
   },
   {
     "name": "Regal Fritillary",

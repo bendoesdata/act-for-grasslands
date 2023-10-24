@@ -100,10 +100,10 @@
       <h3 class="regional-titles">Northeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/ne-1992-masked.png" width="100%" alt="">
+          <img src="/images/region-maps/ne-1992-2.png" width="100%" alt="">
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/ne-2021-masked.png" width="100%" alt="">
+          <img src="/images/region-maps/ne-2021-2.png" width="100%" alt="">
         </div>
       </div>
   </div>
@@ -152,9 +152,7 @@
     
   </div>
   <div id="before-species-highlight"></div>
-  <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesId="selectedSpecies.id"
-  :imageUrl="selectedSpecies.photoFile"
-    :title="selectedSpecies.name" :description="selectedSpecies.descriptionLong" />
+  <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesObject="selectedSpecies" />
   <br>
   <h2 style="margin: 30px">Explore the interactive map to learn more</h2>
   <div id="map-section">
@@ -307,6 +305,7 @@ export default {
       }
     },
     selectedSpecies() {
+      console.log(this.selectedSpecies)
       this.speciesForInteractiveMap = this.selectedSpecies.name;
       this.birdSelection = this.speciesForInteractiveMap;
 

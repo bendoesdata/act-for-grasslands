@@ -4,12 +4,26 @@
   
     <div class="container" id="species-highlight-description">
       <div class="left">
-        <img :src="'../'+imageUrl" alt="Left Image" :style="{ width: isMobile ? '100%' : 'auto' }">
+        <img :src="'../'+speciesObject.photoFile" alt="Left Image" :style="{ width: isMobile ? '100%' : 'auto' }">
       </div>
       <div class="right">
       <div class="right">
-        <h2>{{ title }}</h2>
-        <div class="species-description" v-html="description"></div>
+        <h2>{{ speciesObject.name }}</h2>
+        <div class="species-description" v-html="speciesObject.descriptionLong"></div>
+        <br>
+        <div>
+          <div v-if="speciesObject.textSources.length > 1">
+            <span style="font-size: 14px">Sources: </span>
+            <span  class="text-source" v-for="(d, i) in speciesObject.textSources" :key="i">
+              <a :href="d.link" target="_blank">{{ d.name }}</a>
+              <span v-if="i == 0">, </span>
+            </span>
+          </div>
+          <div v-else>
+            <span style="font-size: 14px">Source: </span>
+            <span class="text-source" v-for="(d, i) in speciesObject.textSources" :key="i"><a :href="d.link" target="_blank">{{ d.name }}</a></span>
+          </div>
+        </div>
         <br>
         <p style="font-weight: 600">By changing nothing, nothing changes.
       <a href="#" style="text-decoration: underline;">Click here</a> to call on Congress to
@@ -19,7 +33,7 @@
     </div>
     <div class="species-map-container">
       <h2>Species Snapshot</h2>
-      <img :src="'../images/trend-maps/'+speciesId+'.png'" alt="">
+      <img :src="'../images/trend-maps/'+speciesObject.id+'.png'" alt="">
     </div>
   </div>
   </div>
@@ -28,22 +42,13 @@
   <script>
   export default {
     props: {
-      imageUrl: {
-        type: String,
-        required: true,
-      },
-      title: {
-        type: String,
-        required: true,
-      },
-      description: {
-        type: String,
-        required: true,
-      },
-      speciesId: {
-        type: String,
-        required: true,
+      speciesObject: {
+        type: Object,
+        required: true
       }
+    },
+    mounted() {
+      console.log(this.speciesObject)
     },
     computed: {
       isMobile() {
@@ -78,6 +83,12 @@
   .species-description {
     max-width: 600px;
     font-size: 18px
+  }
+
+  .text-source {
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 10px
   }
   
   img {
