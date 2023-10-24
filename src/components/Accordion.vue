@@ -58,7 +58,7 @@ import { map } from 'leaflet';
     },
     watch: {
       currentlySelectedSpecies(val) {
-        console.log(val)
+        
         if (val === this.species.name) {
           this.switchState = true;
         } else {
@@ -75,7 +75,6 @@ import { map } from 'leaflet';
       }
     },
     mounted() {
-      console.log(this.selectedModal)
 
       if (this.firstInList) {
         this.isOpen = true;

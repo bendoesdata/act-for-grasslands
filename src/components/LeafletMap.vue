@@ -23,7 +23,7 @@
             alt=""
           />
         </div>
-        <div v-if="birdLayerName != 'none'">
+        <div v-if="speciesLayerName != 'none'">
           <div v-if="layerType == 'trend'">
             <div class="legend-title">Relative abundance</div>
             <div class="legend-subtitle">Middle year of range, 2014</div>
@@ -113,7 +113,7 @@ export default {
       required: false,
       default: 2020,
     },
-    birdLayerName: {
+    speciesLayerName: {
       type: String,
       required: false,
       default: null,
@@ -157,14 +157,14 @@ export default {
     layerName() {
       this.map.remove();
       this.drawMap();
-      if (this.birdLayerName !== "none") {
+      if (this.speciesLayerName !== "none") {
         this.checkLayerTypeAndDraw();
       }
     },
     layerYear() {
       this.map.remove();
       this.drawMap();
-      if (this.birdLayerName !== "none") {
+      if (this.speciesLayerName !== "none") {
         this.checkLayerTypeAndDraw();
       }
     },
@@ -172,13 +172,21 @@ export default {
       this.map.remove();
       this.drawMap();
       
-      if (this.birdLayerName == "Southern Plains Bumble Bee") {
-        this.drawBumbleBee();
-      } else if (this.birdLayerName == "Monarch Butterfly") {
+      if (this.speciesLayerName == "Southern Plains Bumble Bee") {
+        console.log('switch on')
+        // turn the display of #loading-msg to block
+        document.getElementById("loading-msg").style.display = "block";
+
+        setTimeout(()=> {
+          this.drawBumbleBee();  
+        }, 1500)
+
+        
+      } else if (this.speciesLayerName == "Monarch Butterfly") {
         this.drawMonarch();
       }
     },
-    birdLayerName() {
+    speciesLayerName() {
       this.map.remove();
 
       this.drawMap();
@@ -188,36 +196,41 @@ export default {
   },
   methods: {
     checkLayerTypeAndDraw() {
-      if (this.birdLayerName == "Monarch Butterfly") {
+      if (this.speciesLayerName == "Monarch Butterfly") {
         this.layerType = "abundance";
         this.drawMonarch();
-      } else if (this.birdLayerName == "Pronghorn") {
+      } else if (this.speciesLayerName == "Pronghorn") {
         this.layerType = "range";
         this.drawPronghorn();
-      } else if (this.birdLayerName == "Elk") {
+      } else if (this.speciesLayerName == "Elk") {
         this.layerType = "range";
         this.drawElk();
-      } else if (this.birdLayerName == "Greater Prairie-Chicken") {
+      } else if (this.speciesLayerName == "Greater Prairie-Chicken") {
         this.layerType = "range";
         this.drawGPC();
-      } else if (this.birdLayerName == "Greater Sage-Grouse") {
+      } else if (this.speciesLayerName == "Greater Sage-Grouse") {
         this.layerType = "range";
         this.drawSagGro();
-      } else if (this.birdLayerName == "Rio Grande Cutthroat Trout") {
+      } else if (this.speciesLayerName == "Rio Grande Cutthroat Trout") {
         this.layerType = "range"
         this.drawTrout();
-      } else if (this.birdLayerName == "Mule Deer") {
+      } else if (this.speciesLayerName == "Mule Deer") {
         this.layerType = "migration";
         this.drawMuleDeer();
-      } else if (this.birdLayerName == "Regal Fritillary") {
+      } else if (this.speciesLayerName == "Regal Fritillary") {
         this.layerType = "range";
-        this.drawRegalFrit(this.birdLayerName);
-      } else if (this.birdLayerName == "Southern Plains Bumble Bee") {
+        this.drawRegalFrit(this.speciesLayerName);
+      } else if (this.speciesLayerName == "Southern Plains Bumble Bee") {
         this.layerType = "abundance";
-        this.drawBumbleBee();
-      } else if (this.birdLayerName !== "none") {
+        // turn the display of #loading-msg to block
+        document.getElementById("loading-msg").style.display = "block";
+
+        setTimeout(()=> {
+          this.drawBumbleBee();  
+        }, 1500)
+      } else if (this.speciesLayerName !== "none") {
         this.layerType = "trend";
-        this.addBirdLayer(this.birdLayerName);
+        this.addBirdLayer(this.speciesLayerName);
       }
     },
     drawMap() {
@@ -278,35 +291,34 @@ export default {
       }
     },
     drawBumbleBee() {
-      // Define the custom icon
-      var butterflyIcon = L.icon({
-        iconUrl: "/images/icons/noun-monarch-butterfly-3564833.svg", // Adjust the path as needed
-        iconSize: [28, 75], // Size of the icon; adjust based on your SVG's dimensions
-        iconAnchor: [19, 47], // Point of the icon which corresponds to marker's location
-        popupAnchor: [0, -47], // Point where the popup will open relative to the iconAnchor
-      });
-
+      console.log('start draw')
       if (this.beforeAfterToggle == "after") {
         fetch("/data/bees-post-2000.json")
           .then((response) => response.json())
           .then(data => {
+            console.log('data loaded')
         // Loop through the data and create markers for each point
         data.forEach(point => {
-            return L.marker([point.latitude, point.longitude], { icon: butterflyIcon }).addTo(this.map);
+            return L.marker([point.latitude, point.longitude]).addTo(this.map);
             // You can customize the marker icon, popup, etc. here if needed
         });
+        console.log('loop complete')
       })
       } else {
-        fetch("/data/bees-post-2000.json")
+        fetch("/data/bees-post-2000-reduced.json")
           .then((response) => response.json())
           .then(data => {
+            console.log('data loaded')
         // Loop through the data and create markers for each point
         data.forEach(point => {
-            return L.marker([point.latitude, point.longitude], { icon: butterflyIcon }).addTo(this.map);
-            // You can customize the marker icon, popup, etc. here if needed
+            return L.marker([point.latitude, point.longitude]).addTo(this.map);
         });
+        console.log('loop complete')
       })
       }
+
+      // turn the display of #loading-msg to none
+      document.getElementById("loading-msg").style.display = "none";
     },
     drawMonarch() {
       // Define the custom icon
@@ -318,10 +330,10 @@ export default {
       });
 
       // load east range
-      fetch("/data/east-monarch-range.geojson")
+      fetch("/data/monarch-east-range.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
@@ -334,10 +346,10 @@ export default {
         });
 
       // load west range
-      fetch("/data/west-monarch-range.geojson")
+      fetch("/data/monarch-west-range.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
@@ -350,7 +362,7 @@ export default {
         });
       
       if (this.beforeAfterToggle == "after") {
-        fetch("/data/monarch-east-after.geojson")
+        fetch("/data/monarch-east-after-double.geojson")
           .then((response) => response.json())
           .then((data) => {
             L.geoJSON(data, {
@@ -372,7 +384,7 @@ export default {
             }).addTo(this.map);
           });
       } else {
-        fetch("/data/monarch-east-before.geojson")
+        fetch("/data/monarch-east-before-double.geojson")
           .then((response) => response.json())
           .then((data) => {
             L.geoJSON(data, {
@@ -400,14 +412,32 @@ export default {
       fetch("/data/mule-deer-migration.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+
+          // filter the data object to only include records where the id includes "255_"
+          // this is because the data file includes both the migration route and the winter range
+          // and we only want to plot the migration route
+          var filteredData = data.features.filter(function (item) {
+            return item.properties.mig.includes("255_");
+          });
+          
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
               return {
+                color: "#a8a8a8", // Example color
+                weight: 1,
+                opacity: 0.4,
+              };
+            },
+          }).addTo(this.map);
+
+          // Add GeoJSON layer to the map once the file is loaded
+          L.geoJSON(filteredData, {
+            style: function (feature) {
+              return {
                 color: "#BBA38E", // Example color
                 weight: 2,
-                fillOpacity: 0.7,
+                opacity: 1,
               };
             },
           }).addTo(this.map);
@@ -425,7 +455,7 @@ export default {
       fetch("/data/regal-frit-historic.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
@@ -441,7 +471,7 @@ export default {
       fetch("/data/regal-frit-reduced-current.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
@@ -464,7 +494,7 @@ export default {
       fetch("/data/cornell-saggro-layer.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
@@ -480,7 +510,7 @@ export default {
       fetch("/data/saggro-current.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
@@ -498,10 +528,10 @@ export default {
       // because there is no way to delineate diff sources for each
 
       // Load range GeoJSON from an external file
-      fetch("/data/gpc-historic.geojson")
+      fetch("/data/gpc-historic-only-tympanuchus-cupido.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer for historic range
           L.geoJSON(data, {
             style: function (feature) {
@@ -517,7 +547,7 @@ export default {
       fetch("/data/gpc-current.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
@@ -583,7 +613,7 @@ export default {
       fetch("/data/final-prong.geojson")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
@@ -647,8 +677,6 @@ export default {
         };
       }
 
-      let speciesLayer;
-
       let map = this.map;
       let currentSpecies = this.speciesDictionary[species];
 
@@ -669,15 +697,15 @@ export default {
               state.active = true;
 
               // Create a GeoJSON layer with the custom polygon style
-              speciesLayer = L.geoJSON(state, {
+              let speciesLayer = L.geoJSON(state, {
                 // renderer: L.canvas(),
                 style: customPolygonStyle,
                 // add a popup for this polygon
                 onEachFeature: function (feature, layer) {
                   layer.on("click", function (event) {
-                    console.log(feature, layer, event);
+                    
                     var popupContent = feature.properties.abd_trend; // Replace with the appropriate property for your popup content
-                    console.log(popupContent);
+                    
                     layer.bindPopup(popupContent).openPopup();
                   });
                 },

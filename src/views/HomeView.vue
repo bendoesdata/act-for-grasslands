@@ -220,7 +220,7 @@
                       style="text-align: right; float: right; position:absolute; right: 20px"
                     >
                       <v-btn value="1992" rounded="5">1992</v-btn>
-                      <v-btn value="2021" selected rounded="5">2021</v-btn>
+                      <v-btn value="2020" selected rounded="5">2021</v-btn>
                     </v-btn-toggle>
                   </div>
                   <div class="layer-box-row flex-container" v-if="birdSelection != '' && birdSelection != 'none'">
@@ -242,7 +242,7 @@
           </transition>
         </div>
       </div>
-      <leaflet-map :layerYear="selectedYearForMap" mapId="interactive-map" :birdLayerName="birdSelection"
+      <leaflet-map :layerYear="selectedYearForMap" mapId="interactive-map" :speciesLayerName="birdSelection"
         :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
         :allowScrollZoom="true" @map-center-change="updateMapZoom" />
     </div>
@@ -276,13 +276,13 @@ export default {
         id: "pfg",
       },
       selectedBaseLayer: "pfg",
-      selectedYearForMap: "2021",
+      selectedYearForMap: "2020",
       birdSelection: "none",
       layerBoxIsOpen: false,
       mobileSpeciesListIsOpen: true,
       allSpeciesForLeftPanel: null,
       speciesForInteractiveMap: null,
-      yearToggle: "2021",
+      yearToggle: "2020",
       startingMapPosition: {
         zoom: 4,
         center: [39.0997, -94.5786],
@@ -390,12 +390,7 @@ export default {
       let speciesID = e.target.id.slice(8);
 
       console.log(speciesID, this.allSpecies);
-      console.log(speciesID, this.allSpecies);
 
-      // filter the allSpecies array to find the species that matches the selectedSpecies with the id key
-      this.selectedSpecies = this.allSpecies.find(
-        (species) => species.id === speciesID
-      );
       // filter the allSpecies array to find the species that matches the selectedSpecies with the id key
       this.selectedSpecies = this.allSpecies.find(
         (species) => species.id === speciesID
