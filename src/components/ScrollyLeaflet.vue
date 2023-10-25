@@ -22,7 +22,7 @@ export default {
     const map2 = ref(null);
     const textBoxes = ref([
       { content: 'Here is how grasslands in the U.S. looked in 1992.' },
-      { content: 'Here is what remains in 2021.' }
+      { content: 'Here is what remained in 2021.' }
     ]);
     const textBoxRefs = ref([]);
 
