@@ -244,6 +244,34 @@
         :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
         :allowScrollZoom="true" @map-center-change="updateMapZoom" />
     </div>
+    <div class="section">
+      <h2>References</h2>
+      <div class="reference-list">
+        <ol>
+          <li>U.S. Geological Survey. BBS trends 1966-2019. In: Eastern Ecological Science Center - Bird Population Studies [Internet]. 2019 [cited 29 Aug 2023]. Available: https://www.mbr-pwrc.usgs.gov/</li>
+          <li>North American Bird Conservation Initiative. The State of the Birds, United States of America, 2022. 2022. Available: https://www.stateofthebirds.org</li>
+          <li>Zornes M, Bishop RA. Western Quail Management Plan. Williamson SJ, editor. Cabot, VT: Wildlife Management Institute; 2009.</li>
+          <li>Dabbert CB, Pleasant G, Schemnitz SD. Conservation and management. In: Scaled Quail (Callipepla squamata) [Internet]. 4 Mar 2020 [cited 29 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/scaqua/cur/conservation</li>
+          <li>McIntosh MM, Holechek JL, Spiegal SA, Cibils AF, Estell RE. Long-term declining trends in Chihuahuan desert forage production in relation to precipitation and ambient temperature. Rangeland Ecol Manage. 2019;72: 976–987.</li>
+          <li>Whitmore RW, Pruess KP, Gold RE. Insect food selection by 2-week-old Ring-Necked Pheasant chicks. J Wildl Manage. 1986;50: 223–228.</li>
+          <li>Clark RG, Fleskes JP, Guyn KL, Haukos DA, Austin JE, Miller MR. Conservation and management. In: Northern Pintail (Anas acuta) [Internet]. 4 Mar 2020 [cited 29 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/norpin/cur/conservation</li>
+          <li>U.S. Fish and Wildlife Service. Waterfowl population status, 2022. Washington, D.C. USA: U.S. Department of the Interior; 2022. Available: https://www.fws.gov/media/waterfowl-population-status-2022</li>
+          <li>Johnson JA, Schroeder MA, Robb LA. Behavior. In: Greater Prairie-Chicken (Tympanuchus cupido) [Internet]. 4 Mar 2020 [cited 30 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/grpchi/cur/behavior</li>
+          <li>Lautenbach JM, Plumb RT, Robinson SG, Hagen CA, Haukos DA, Pitman JC. Lesser Prairie-Chicken avoidance of trees in a grassland landscape. Rangeland Ecol Manage. 2017;70: 78–86.</li>
+          <li>Brennan LA, Hernández F, Williford D. Conservation and management. In: Northern Bobwhite (Colinus virginianus) [Internet]. 4 Mar 2020 [cited 30 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/norbob/cur/conservation</li>
+          <li>Drilling N, Titman RD, McKinney F. Habitat. In: Mallard (Anas platyrhynchos) [Internet]. 4 Mar 2020 [cited 30 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/mallar3/cur/habitat</li>
+          <li>Doherty KE, Ryba AJ, Stemler CL, Niemuth ND, Meeks WA. Conservation planning in an era of change: state of the U.S. Prairie Pothole region. Wildl Soc Bull. 2013. doi:10.1002/wsb.284</li>
+          <li>Trout Unlimited. State of the trout: a report on the status and trends of native trout in the United States. Arlington, VA; 2015.</li>
+          <li>Western Native Trout Initiative. Rio Grande Cutthroat Trout (Oncorhynchus clarkii virginalis). 2016 May.</li>
+          <li>Kauffman MJ, Copeland HE, Berg J, Bergen S, Cole E, Cuzzocreo M, et al. Ungulate migrations of the western United States, Volume 1: U.S. Geological Survey Scientific Investigations Report 2020–5101. U.S. Department of the Interior, U.S. Geological Survey; 2020. doi:10.3133/sir20205101</li>
+          <li>Semmens BX, Semmens DJ, Thogmartin WE, Wiederholt R, López-Hoffman L, Diffendorfer JE, et al. Quasi-extinction risk and population targets for the Eastern, migratory population of monarch butterflies (Danaus plexippus). Sci Rep. 2016;6: 23265.</li>
+          <li>Schultz CB, Brown LM, Pelton E, Crone EE. Citizen science monitoring demonstrates dramatic declines of monarch butterflies in western North America. Biol Conserv. 2017;214: 343–346.</li>
+          <li>Hatfield R, Colla S, Jepsen S, Richardson L, Thorp R, Jordan SF. IUCN assessments for North American Bombus spp. Xerces Society; 2015 Mar.</li>
+          <li>Selby G. Regal Fritillary (Speyeria idalia Drury): a technical conservation assessment. USDA Forest Service, Rocky Mountain Region; 2007 Feb. Available: http://www.fs.fed.us/r2/projects/scp/assessments/regalfritillary.pdf</li>
+          <li>NatureServe explorer 2.0. [cited 30 Aug 2023]. Available: https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.114908/Argynnis_idalia</li>
+        </ol>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -305,9 +333,14 @@ export default {
       }
     },
     selectedSpecies() {
-      console.log(this.selectedSpecies)
+      // console.log(this.selectedSpecies)
       this.speciesForInteractiveMap = this.selectedSpecies.name;
-      this.birdSelection = this.speciesForInteractiveMap;
+
+      setTimeout(()=> {
+        this.birdSelection = this.speciesForInteractiveMap;
+      }, 1000)
+      
+      
 
       // take the allSpecies array and make sure that this.sepectedSpecies.name comes first in the array
       // this will make sure that the selected species is the first one in the list
@@ -320,6 +353,8 @@ export default {
       );
       let selectedSpeciesObject = species.splice(selectedSpeciesIndex, 1);
       species.unshift(selectedSpeciesObject[0]);
+
+
       this.allSpeciesForLeftPanel = speciesArray;
     }
   },
@@ -505,7 +540,6 @@ export default {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 30px;
 }
 
 .flex-section-region-maps {
@@ -676,7 +710,9 @@ export default {
 }
 
 .regional-titles {
-  margin-left: 20px
+  padding-left: 30px;
+  margin-top: 30px;
+  font-size: 24px
 }
 
 /* Media query for smaller screens */
@@ -830,6 +866,15 @@ export default {
   .layer-box-transition-leave-to {
     height: 0;
     overflow: hidden;
+  }
+
+  .reference-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .reference-list li {
+    margin-top: 10px
   }
 
 
