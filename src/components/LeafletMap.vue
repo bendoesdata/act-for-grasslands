@@ -43,7 +43,7 @@
           <div v-else-if="layerType == 'range'">
             <div class="legend-title">Species range</div>
             <div style="margin-top: 5px">
-              <span class="circle-legend-before"></span> Maximum historic range
+              <span class="circle-legend-before"></span> Maximum known range
             </div>
             <div><span class="circle-legend-after"></span> Current</div>
           </div>
@@ -60,7 +60,8 @@
                 <v-btn value="before" rounded="5">Before</v-btn>
                 <v-btn value="after" selected rounded="5">After</v-btn>
               </v-btn-toggle>
-              <div style="font-style: italic; margin-bottom: 0px">
+              <div v-if="speciesLayerName == 'Monarch Butterfly'">
+                <div style="font-style: italic; margin-bottom: 0px">
                 Butterflies show relative loss at scale, and do not represent
                 actual butterfly locations.
               </div>
@@ -73,6 +74,13 @@
                   <span class="circle-legend-after"></span> Eastern population
                   range
                 </div>
+              </div>
+              </div>
+              <div v-else>
+                <br>
+                <span>Before: pre 2000</span>
+                <br>
+                <span>After: 2000-2020</span>
               </div>
             </div>
           </div>
@@ -291,7 +299,13 @@ export default {
       }
     },
     drawBumbleBee() {
-      console.log('start draw')
+      // Define the custom icon
+      var beeIcon = L.icon({
+          iconUrl: "/images/icons/noun-bumble-bee-5498655.svg", // Adjust the path as needed
+          iconSize: [18, 65], // Size of the icon; adjust based on your SVG's dimensions
+          iconAnchor: [19, 47], // Point of the icon which corresponds to marker's location
+          popupAnchor: [0, -47], // Point where the popup will open relative to the iconAnchor
+        });
       if (this.beforeAfterToggle == "after") {
         fetch("/data/bees-post-2000.json")
           .then((response) => response.json())
@@ -299,7 +313,7 @@ export default {
             console.log('data loaded')
         // Loop through the data and create markers for each point
         data.forEach(point => {
-            return L.marker([point.latitude, point.longitude]).addTo(this.map);
+            return L.marker([point.latitude, point.longitude], { icon: beeIcon }).addTo(this.map);
             // You can customize the marker icon, popup, etc. here if needed
         });
         console.log('loop complete')
@@ -311,7 +325,7 @@ export default {
             console.log('data loaded')
         // Loop through the data and create markers for each point
         data.forEach(point => {
-            return L.marker([point.latitude, point.longitude]).addTo(this.map);
+            return L.marker([point.latitude, point.longitude], { icon: beeIcon }).addTo(this.map);
         });
         console.log('loop complete')
       })
