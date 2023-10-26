@@ -154,7 +154,11 @@
   <div id="before-species-highlight"></div>
   <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesObject="selectedSpecies" />
   <br>
+  
   <h2 style="margin: 30px">Explore the interactive map to learn more</h2>
+  <div class="btn-right-container">
+    <v-btn class="primary-btn">ACT NOW</v-btn>
+  </div>
   <div id="map-section">
     <div id="left-map-panel">
       <div>
@@ -876,7 +880,12 @@ export default {
   .reference-list li {
     margin-top: 10px
   }
-
+.btn-right-container {
+  /* position all content in this div to the right */
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px
+}
 
 </style>
   
