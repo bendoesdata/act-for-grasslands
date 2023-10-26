@@ -5,6 +5,9 @@
     @mouseover="showMessage = true"
     @mouseleave="showMessage = false"
   >
+  <div id="zoom-msg">
+    Hold Cmd or Ctrl to zoom by scroll
+  </div>
     <div id="legend-container">
       <div style="max-width: 250px">
         <div v-if="layerName == 'pfg'">
@@ -252,6 +255,7 @@ export default {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
           subdomains: "abcd",
+          minZoom: 4,
           maxZoom: 20,
         }
       ).addTo(this.map);
@@ -260,7 +264,8 @@ export default {
         let tileLayer = L.tileLayer(
           `https://storage.googleapis.com/rap-tiles-cover-v3/masked/${this.layerName}/${this.layerYear}/{z}/{x}/{y}.png`,
           {
-            maxZoom: 18,
+            minZoom: 4,
+            maxZoom: 20,
             opacity: 1,
           }
         ).addTo(this.map);
@@ -272,6 +277,7 @@ export default {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
           subdomains: "abcd",
+          minZoom: 4,
           maxZoom: 20,
         }
       ).addTo(this.map);
@@ -777,6 +783,19 @@ export default {
 
 .source {
   color: rgb(85, 85, 85);
+}
+
+#zoom-msg {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  /* transform: translate(-50%, -50%); */
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  z-index: 9999;
 }
 
 #loading-msg {

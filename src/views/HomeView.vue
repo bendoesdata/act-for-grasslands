@@ -242,7 +242,7 @@
       </div>
       <leaflet-map :layerYear="selectedYearForMap" mapId="interactive-map" :speciesLayerName="birdSelection"
         :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
-        :allowScrollZoom="true" @map-center-change="updateMapZoom" />
+        :allowScrollZoom="false" @map-center-change="updateMapZoom" />
     </div>
     <div class="section">
       <h2>References</h2>
