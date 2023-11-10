@@ -16,7 +16,7 @@
   .footer {
     background-color: #475026;
     color: #efead4;
-    height: 150px;
+    height: 180px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -29,12 +29,12 @@
   }
   
   .footer-content {
-    padding: 10px;
     max-width: 600px
   }
   
   .footer-text {
     text-align: center;
+    padding: 20px;
   }
   </style>
   

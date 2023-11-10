@@ -95,10 +95,10 @@
       <h3 class="regional-titles">Northeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/ne-1992-2.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map1" mapYear="1992" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/ne-2021-2.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map2" mapYear="2021" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
   </div>
@@ -262,6 +262,7 @@
 <script>
 import SpeciesHighlight from "../components/SpeciesHighlight.vue";
 import LeafletMap from "../components/LeafletMap.vue";
+import RegionalLeaflet from "../components/RegionalLeaflet.vue";
 import species from "../assets/data/species-2.json";
 import Accordion from "../components/Accordion.vue";
 import ReferenceAccordion from "../components/ReferenceAccordion.vue";
@@ -277,7 +278,8 @@ export default {
     Accordion,
     ScrollyLeaflet,
     Footer,
-    ReferenceAccordion
+    ReferenceAccordion,
+    RegionalLeaflet
   },
   data() {
     return {
@@ -299,6 +301,13 @@ export default {
       startingMapPosition: {
         zoom: 4,
         center: [39.0997, -94.5786],
+      },
+      regionalMapPositions: {
+        ne: {
+          updateSource: null,
+          zoom: 5,
+          center: [43.2994, -74.2179],
+        },
       },
       grassLayers: [
         { name: "Only species data (no vegetation)", id: "none" },
@@ -391,6 +400,11 @@ export default {
       console.log(center, zoom);
       this.startingMapPosition.center = center;
       this.startingMapPosition.zoom = zoom;
+    },
+    updateRegionalMapPos(event) {
+      
+      this.regionalMapPositions.ne.updateSource = event.id;
+      this.regionalMapPositions.ne.center = event.center;
     },
     updateSelectedSpecies(val) {
       this.speciesForInteractiveMap = val;
