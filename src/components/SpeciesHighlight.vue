@@ -11,19 +11,6 @@
         <h2>{{ speciesObject.name }}</h2>
         <div class="species-description" v-html="speciesObject.descriptionLong"></div>
         <br>
-        <div>
-          <div v-if="speciesObject.textSources.length > 1">
-            <span style="font-size: 14px">Sources: </span>
-            <span  class="text-source" v-for="(d, i) in speciesObject.textSources" :key="i">
-              <a :href="d.link" target="_blank">{{ d.name }}</a>
-              <span v-if="i == 0">, </span>
-            </span>
-          </div>
-          <div v-else>
-            <span style="font-size: 14px">Source: </span>
-            <span class="text-source" v-for="(d, i) in speciesObject.textSources" :key="i"><a :href="d.link" target="_blank">{{ d.name }}</a></span>
-          </div>
-        </div>
         <br>
         <p style="font-weight: 600">By changing nothing, nothing changes.
       <a href="#" style="text-decoration: underline;">Click here</a> to call on Congress to

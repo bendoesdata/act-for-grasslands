@@ -283,7 +283,7 @@
 <script>
 import SpeciesHighlight from "../components/SpeciesHighlight.vue";
 import LeafletMap from "../components/LeafletMap.vue";
-import species from "../assets/data/species.json";
+import species from "../assets/data/species-2.json";
 import Accordion from "../components/Accordion.vue";
 import ScrollyLeaflet from "../components/ScrollyLeaflet.vue";
 import { mdiAccount } from "@mdi/js";

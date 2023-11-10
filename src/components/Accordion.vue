@@ -15,10 +15,10 @@
           
           <br>
             <div style="font-size: 12px; font-style: italic;"><div class="source">Source: 
-              <span v-if="species.mapSourceLink == null">
+              <span v-if="species.mapSourceLink1 == null || species.mapSourceLink1 == ''">
                 {{ species.mapSource }}
               </span>
-              <a v-else :href="species.mapSourceLink" target="_blank" style="text-decoration: underline;">{{ species.mapSource }}</a>
+              <a v-else :href="species.mapSourceLink1" target="_blank" style="text-decoration: underline;">{{ species.mapSource }}</a>
             </div>
             </div>
           <v-switch @click="sendSpeciesSelection" :model-value="switchState" label="Add to map"></v-switch>
