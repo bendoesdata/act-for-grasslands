@@ -8,8 +8,7 @@
       <div class="title-container">
         <h1 id="title">PROTECT OUR GRASSLANDS</h1>
       </div>
-      <p>Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this
-        trend by protecting the homes and environments vital to a wide range of animals.</p>
+      <p>Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this trend by protecting places vital to animals and people.</p>
       <div class="buttons">
         <!-- <v-btn class="primary-btn">Learn More</v-btn> -->
         <v-btn class="primary-btn">Act now</v-btn>
@@ -21,18 +20,16 @@
   </div>
   <br>
   <div class="section">
-    <div class="flex-container">
+    <div class="flex-container" id="intro-section">
       <div class="flex-half text-pad">
         <p>
-          The loss of America’s grasslands over the past several decades has led to alarming declines in the wildlife we
-          all care about. If these iconic landscapes continue to disappear, we risk losing the animals, like pronghorn and
-          bobwhite quail, that help define our communities. While devastating for hunters and birdwatchers, these declines
-          also show that the places where people live are losing soil productivity and water, and are less able to
-          withstand extreme heat and storms.
+          The loss of America’s grasslands has led to alarming declines in the wildlife we all care about. If these iconic landscapes continue to disappear, we risk losing the animals that define our communities. These losses show that the places where people live are losing soil productivity and water, and are less able to withstand extreme heat and storms.
         </p>
         <p>
-          The slow collapse of this system is underway. The North American Grasslands Conservation Act will help reverse
-          the decline of America's grasslands - the prairies, savannas, glades, sage lands - in our own backyards.
+          The slow collapse of this system is underway. 
+        </p>
+        <p>
+          The North American Grasslands Conservation Act will help reverse the decline of America's prairies, savannas, glades, and sagebrush – in our own backyards.
         </p>
       </div>
       <div class="flex-half">
@@ -40,7 +37,7 @@
       </div>
     </div>
   </div>
-  <div class="section">
+  <div class="section" id="scrolly-section">
     <ScrollyLeaflet />
     
     <!-- <leaflet-map mapId="leaflet-2022" :layerYear="2021" />  -->
@@ -50,12 +47,10 @@
     <div class="text-pad">
       <h2>Regional collapse</h2>
       <p>
-        Across the continental U.S., grasslands have seen serious declines. Here is how much they have
-        disappeared over the past thirty years.
+        Across the continental U.S., grasslands have seen serious declines. Here is how much they have disappeared over the past thirty years.
       </p>
       <p>
-        The greener the map, the more grasslands are present. Vast patches of emptiness show how
-        much has been lost.
+        The greener the map, the more grasslands are present. Vast patches of emptiness show how much has been lost.
       </p>
       <p style="font-weight: 600">
         Grassland animals are losing their homes.
@@ -154,8 +149,10 @@
   <div id="before-species-highlight"></div>
   <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesObject="selectedSpecies" />
   <br>
-  
-  <h2 style="margin: 30px">Explore the interactive map to learn more</h2>
+  <div class="section">
+  <h2>Explore the interactive map</h2>
+  <p>Use the map below to see how animals have been affected by the loss of grasslands and sagebrush.</p>
+  </div>
   <div class="btn-right-container">
     <v-btn class="primary-btn">ACT NOW</v-btn>
   </div>
@@ -248,35 +245,17 @@
         :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
         :allowScrollZoom="false" @map-center-change="updateMapZoom" />
     </div>
-    <div class="section">
-      <h2>References</h2>
-      <div class="reference-list">
-        <ol>
-          <li>U.S. Geological Survey. BBS trends 1966-2019. In: Eastern Ecological Science Center - Bird Population Studies [Internet]. 2019 [cited 29 Aug 2023]. Available: https://www.mbr-pwrc.usgs.gov/</li>
-          <li>North American Bird Conservation Initiative. The State of the Birds, United States of America, 2022. 2022. Available: https://www.stateofthebirds.org</li>
-          <li>Zornes M, Bishop RA. Western Quail Management Plan. Williamson SJ, editor. Cabot, VT: Wildlife Management Institute; 2009.</li>
-          <li>Dabbert CB, Pleasant G, Schemnitz SD. Conservation and management. In: Scaled Quail (Callipepla squamata) [Internet]. 4 Mar 2020 [cited 29 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/scaqua/cur/conservation</li>
-          <li>McIntosh MM, Holechek JL, Spiegal SA, Cibils AF, Estell RE. Long-term declining trends in Chihuahuan desert forage production in relation to precipitation and ambient temperature. Rangeland Ecol Manage. 2019;72: 976–987.</li>
-          <li>Whitmore RW, Pruess KP, Gold RE. Insect food selection by 2-week-old Ring-Necked Pheasant chicks. J Wildl Manage. 1986;50: 223–228.</li>
-          <li>Clark RG, Fleskes JP, Guyn KL, Haukos DA, Austin JE, Miller MR. Conservation and management. In: Northern Pintail (Anas acuta) [Internet]. 4 Mar 2020 [cited 29 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/norpin/cur/conservation</li>
-          <li>U.S. Fish and Wildlife Service. Waterfowl population status, 2022. Washington, D.C. USA: U.S. Department of the Interior; 2022. Available: https://www.fws.gov/media/waterfowl-population-status-2022</li>
-          <li>Johnson JA, Schroeder MA, Robb LA. Behavior. In: Greater Prairie-Chicken (Tympanuchus cupido) [Internet]. 4 Mar 2020 [cited 30 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/grpchi/cur/behavior</li>
-          <li>Lautenbach JM, Plumb RT, Robinson SG, Hagen CA, Haukos DA, Pitman JC. Lesser Prairie-Chicken avoidance of trees in a grassland landscape. Rangeland Ecol Manage. 2017;70: 78–86.</li>
-          <li>Brennan LA, Hernández F, Williford D. Conservation and management. In: Northern Bobwhite (Colinus virginianus) [Internet]. 4 Mar 2020 [cited 30 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/norbob/cur/conservation</li>
-          <li>Drilling N, Titman RD, McKinney F. Habitat. In: Mallard (Anas platyrhynchos) [Internet]. 4 Mar 2020 [cited 30 Aug 2023]. Available: https://birdsoftheworld.org/bow/species/mallar3/cur/habitat</li>
-          <li>Doherty KE, Ryba AJ, Stemler CL, Niemuth ND, Meeks WA. Conservation planning in an era of change: state of the U.S. Prairie Pothole region. Wildl Soc Bull. 2013. doi:10.1002/wsb.284</li>
-          <li>Trout Unlimited. State of the trout: a report on the status and trends of native trout in the United States. Arlington, VA; 2015.</li>
-          <li>Western Native Trout Initiative. Rio Grande Cutthroat Trout (Oncorhynchus clarkii virginalis). 2016 May.</li>
-          <li>Kauffman MJ, Copeland HE, Berg J, Bergen S, Cole E, Cuzzocreo M, et al. Ungulate migrations of the western United States, Volume 1: U.S. Geological Survey Scientific Investigations Report 2020–5101. U.S. Department of the Interior, U.S. Geological Survey; 2020. doi:10.3133/sir20205101</li>
-          <li>Semmens BX, Semmens DJ, Thogmartin WE, Wiederholt R, López-Hoffman L, Diffendorfer JE, et al. Quasi-extinction risk and population targets for the Eastern, migratory population of monarch butterflies (Danaus plexippus). Sci Rep. 2016;6: 23265.</li>
-          <li>Schultz CB, Brown LM, Pelton E, Crone EE. Citizen science monitoring demonstrates dramatic declines of monarch butterflies in western North America. Biol Conserv. 2017;214: 343–346.</li>
-          <li>Hatfield R, Colla S, Jepsen S, Richardson L, Thorp R, Jordan SF. IUCN assessments for North American Bombus spp. Xerces Society; 2015 Mar.</li>
-          <li>Selby G. Regal Fritillary (Speyeria idalia Drury): a technical conservation assessment. USDA Forest Service, Rocky Mountain Region; 2007 Feb. Available: http://www.fs.fed.us/r2/projects/scp/assessments/regalfritillary.pdf</li>
-          <li>NatureServe explorer 2.0. [cited 30 Aug 2023]. Available: https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.114908/Argynnis_idalia</li>
-        </ol>
-      </div>
+    <div class="section" style="max-width: 600px;">
+      <h2>By changing nothin, nothing changes.</h2>
+      <br>
+      <p>
+        Click here [possible link: https://actforgrasslands.org/take-action/] to call on Congress to restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
+      </p>
+      <ReferenceAccordion></ReferenceAccordion>
     </div>
+    
   </div>
+  <Footer />
 </div>
 </template>
 
@@ -285,7 +264,9 @@ import SpeciesHighlight from "../components/SpeciesHighlight.vue";
 import LeafletMap from "../components/LeafletMap.vue";
 import species from "../assets/data/species-2.json";
 import Accordion from "../components/Accordion.vue";
+import ReferenceAccordion from "../components/ReferenceAccordion.vue";
 import ScrollyLeaflet from "../components/ScrollyLeaflet.vue";
+import Footer from "../components/Footer.vue"
 import { mdiAccount } from "@mdi/js";
 
 export default {
@@ -295,6 +276,8 @@ export default {
     LeafletMap,
     Accordion,
     ScrollyLeaflet,
+    Footer,
+    ReferenceAccordion
   },
   data() {
     return {
@@ -726,6 +709,10 @@ export default {
     overflow-y: scroll;
   } */
 
+  #scrolly-section {
+    padding: 0px
+  }
+
   #species-list-content {
     max-height: 400px;
     overflow-y: scroll;
@@ -793,6 +780,14 @@ export default {
 
   .flex-half {
     flex: 1 1 100%;
+  }
+
+  #intro-section {
+    flex-direction: column-reverse;
+  }
+
+  .text-pad {
+    padding: 5px !important;
   }
 }
 

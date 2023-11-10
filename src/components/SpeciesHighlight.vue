@@ -12,10 +12,7 @@
         <div class="species-description" v-html="speciesObject.descriptionLong"></div>
         <br>
         <br>
-        <p style="font-weight: 600">By changing nothing, nothing changes.
-      <a href="#" style="text-decoration: underline;">Click here</a> to call on Congress to
-      restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
-      </p>
+        <v-btn class="primary-btn">Act now</v-btn>
       </div>
     </div>
     <div class="species-map-container">

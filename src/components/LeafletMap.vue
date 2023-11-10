@@ -42,6 +42,7 @@
               style="width: 100%"
               alt=""
             />
+            <div class="ebird-note">Circles reflect modeled trends and not actual bird locations.</div>
           </div>
           <div v-else-if="layerType == 'range'">
             <div class="legend-title">Species range</div>
@@ -358,7 +359,7 @@ export default {
           L.geoJSON(data, {
             style: function (feature) {
               return {
-                color: "#C08440", // Example color
+                color: "#607C78",
                 weight: 2,
               };
             },
@@ -374,7 +375,7 @@ export default {
           L.geoJSON(data, {
             style: function (feature) {
               return {
-                color: "#607C78", // Example color
+                color: "#C08440", // Example color
                 weight: 2,
               };
             },
@@ -842,6 +843,10 @@ export default {
   height: 10px;
   margin-right: 5px;
   background-color: #bba38e;
+}
+
+.ebird-note {
+  font-style: italic;
 }
 </style>
   
