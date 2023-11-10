@@ -246,7 +246,7 @@
         :allowScrollZoom="false" @map-center-change="updateMapZoom" />
     </div>
     <div class="section" style="max-width: 600px;">
-      <h2>By changing nothin, nothing changes.</h2>
+      <h2>By changing nothing, nothing changes.</h2>
       <br>
       <p>
         Click here [possible link: https://actforgrasslands.org/take-action/] to call on Congress to restore disappearing grasslands by supporting a North American Grasslands Conservation Act.

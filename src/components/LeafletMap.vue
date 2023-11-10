@@ -9,7 +9,9 @@
     Hold Cmd or Ctrl to zoom by scroll
   </div>
     <div id="legend-container">
-      <div style="max-width: 250px">
+      <div>
+        <div @click="toggleLegendBox" id="toggle-legend">Tap to minimize legend</div>
+        <div id="legend-contents">
         <div v-if="layerName == 'pfg'">
           <div class="legend-title">Grasslands</div>
           <img
@@ -89,6 +91,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
     <div id="loading-msg">
@@ -143,6 +146,7 @@ export default {
   },
   data() {
     return {
+      legendOpen: true,
       showMessage: false,
       beforeAfterToggle: "before",
       map: null,
@@ -207,6 +211,23 @@ export default {
     },
   },
   methods: {
+    toggleLegendBox() {
+      this.legendOpen = !this.legendOpen;
+      if (this.legendOpen) {
+        document.getElementById("legend-container").style.height = "auto";
+
+        document.getElementById("legend-contents").classList.remove("hide-content")
+
+        document.getElementById("toggle-legend").innerHTML = "Tap to minimize legend";
+      } else {
+        document.getElementById("legend-container").style.height = "40px";
+
+        document.getElementById("legend-contents").classList.add("hide-content")
+
+        document.getElementById("toggle-legend").innerHTML = "Expand legend";
+      }
+      
+    },
     checkLayerTypeAndDraw() {
       if (this.speciesLayerName == "Monarch Butterfly") {
         this.layerType = "abundance";
@@ -758,8 +779,13 @@ export default {
   height: 650px;
 }
 
+.hide-content {
+  display: none;
+}
+
 #legend-container {
   display: block;
+  max-width: 250px;
   position: absolute;
   top: 5%;
   right: 5%;
@@ -847,6 +873,37 @@ export default {
 
 .ebird-note {
   font-style: italic;
+}
+
+#toggle-legend {
+  display: none
+}
+
+@media (max-width: 800px) {
+  #zoom-msg {
+    display: none;
+  }
+
+  #toggle-legend {
+    display: block;
+    text-align: right;
+    text-decoration: underline;
+  }
+
+  #legend-container {
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(33, 33, 33);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 9999;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
 }
 </style>
   
