@@ -68,37 +68,37 @@
       <h3 class="regional-titles">Southeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/se-1992-2.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map1" mapYear="1992" :updateSource="regionalMapPositions.se.updateSource" :center="regionalMapPositions.se.center" :zoom="regionalMapPositions.se.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/se-2021-2.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map2" mapYear="2021" :updateSource="regionalMapPositions.se.updateSource" :center="regionalMapPositions.se.center" :zoom="regionalMapPositions.se.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
       <h3 class="regional-titles">Midwest</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/mw-1992.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map3" mapYear="1992" :updateSource="regionalMapPositions.mw.updateSource" :center="regionalMapPositions.mw.center" :zoom="regionalMapPositions.mw.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/mw-2021-2.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map4" mapYear="2021" :updateSource="regionalMapPositions.mw.updateSource" :center="regionalMapPositions.mw.center" :zoom="regionalMapPositions.mw.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
       <h3 class="regional-titles">West</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <img src="/images/region-maps/we-1992.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map5" mapYear="1992" :updateSource="regionalMapPositions.west.updateSource" :center="regionalMapPositions.west.center" :zoom="regionalMapPositions.west.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <img src="/images/region-maps/we-2021-2.png" width="100%" alt="">
+          <RegionalLeaflet mapId="map6" mapYear="2021" :updateSource="regionalMapPositions.west.updateSource" :center="regionalMapPositions.west.center" :zoom="regionalMapPositions.west.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
       <h3 class="regional-titles">Northeast</h3>
       <div class="flex-section-region-maps">
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map1" mapYear="1992" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet mapId="map7" mapYear="1992" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" :zoom="regionalMapPositions.ne.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map2" mapYear="2021" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet mapId="map8" mapYear="2021" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" :zoom="regionalMapPositions.ne.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
   </div>
@@ -305,9 +305,24 @@ export default {
       regionalMapPositions: {
         ne: {
           updateSource: null,
-          zoom: 5,
+          zoom: 7,
           center: [43.2994, -74.2179],
         },
+        se: {
+          updateSource: null,
+          zoom: 7,
+          center: [30.5994, -91.2179],
+        },
+        mw: {
+          updateSource: null,
+          zoom: 7,
+          center: [43.2994, -88.2179],
+        },
+        west: {
+          updateSource: null,
+          zoom: 6,
+          center: [41.2994, -125.2179],
+        }
       },
       grassLayers: [
         { name: "Only species data (no vegetation)", id: "none" },
@@ -402,9 +417,31 @@ export default {
       this.startingMapPosition.zoom = zoom;
     },
     updateRegionalMapPos(event) {
-      
-      this.regionalMapPositions.ne.updateSource = event.id;
-      this.regionalMapPositions.ne.center = event.center;
+      if (event.id == 'map1') {
+        this.regionalMapPositions.se.updateSource = event.id;
+        this.regionalMapPositions.se.center = event.center;
+      } else if (event.id == 'map2') {
+        this.regionalMapPositions.se.updateSource = event.id;
+        this.regionalMapPositions.se.center = event.center;
+      } else if (event.id == 'map3') {
+        this.regionalMapPositions.mw.updateSource = event.id;
+        this.regionalMapPositions.mw.center = event.center;
+      } else if (event.id == 'map4') {
+        this.regionalMapPositions.mw.updateSource = event.id;
+        this.regionalMapPositions.mw.center = event.center;
+      } else if (event.id == 'map5') {
+        this.regionalMapPositions.west.updateSource = event.id;
+        this.regionalMapPositions.west.center = event.center;
+      } else if (event.id == 'map6') {
+        this.regionalMapPositions.west.updateSource = event.id;
+        this.regionalMapPositions.west.center = event.center;
+      } else if (event.id == 'map7') {
+        this.regionalMapPositions.ne.updateSource = event.id;
+        this.regionalMapPositions.ne.center = event.center;
+      } else if (event.id == 'map8') {
+        this.regionalMapPositions.ne.updateSource = event.id;
+        this.regionalMapPositions.ne.center = event.center;
+      }
     },
     updateSelectedSpecies(val) {
       this.speciesForInteractiveMap = val;
