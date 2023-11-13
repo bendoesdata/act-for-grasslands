@@ -10,7 +10,7 @@
   </div>
     <div id="legend-container">
       <div>
-        <div @click="toggleLegendBox" id="toggle-legend">Tap to minimize legend</div>
+        <div @click="toggleLegendBox" id="toggle-legend">&minus; Minimize legend</div>
         <div id="legend-contents">
         <div v-if="layerName == 'pfg'">
           <div class="legend-title">Grasslands</div>
@@ -49,11 +49,12 @@
           <div v-else-if="layerType == 'range'">
             <div class="legend-title">Species range</div>
             <div style="margin-top: 5px">
-              <span class="circle-legend-before"></span> Maximum known range
+              <span class="circle-legend-before"></span> Maximum historical range
             </div>
             <div><span class="circle-legend-after"></span> Current</div>
           </div>
           <div v-else-if="layerType == 'abundance'">
+            <div v-if="speciesLayerName == 'Monarch Butterfly'">
             <div class="legend-title">Estimated abundance</div>
             <div style="height: 100px">
               <v-btn-toggle
@@ -66,7 +67,7 @@
                 <v-btn value="before" rounded="5">Before</v-btn>
                 <v-btn value="after" selected rounded="5">After</v-btn>
               </v-btn-toggle>
-              <div v-if="speciesLayerName == 'Monarch Butterfly'">
+              
                 <div style="font-style: italic; margin-bottom: 0px">
                 Butterflies show relative loss at scale, and do not represent
                 actual butterfly locations.
@@ -81,14 +82,16 @@
                   range
                 </div>
               </div>
-              </div>
-              <div v-else>
-                <br>
-                <span>Before: pre 2000</span>
-                <br>
-                <span>After: 2000-2020</span>
-              </div>
             </div>
+          </div>
+          <div v-else>
+                <br>
+                <div><span class="circle-legend-before"></span> Before: pre 2000</div>
+                <div><span class="circle-legend-after"></span> After: 2000-2020</div>
+                <div style="font-style: italic; margin-bottom: 0px">
+                  Range maps created based on polygon detection maps using the Bumble Bees of North America database.
+              </div>
+              </div>
           </div>
         </div>
         </div>
@@ -218,13 +221,13 @@ export default {
 
         document.getElementById("legend-contents").classList.remove("hide-content")
 
-        document.getElementById("toggle-legend").innerHTML = "Tap to minimize legend";
+        document.getElementById("toggle-legend").innerHTML = "&minus; Minimize legend";
       } else {
         document.getElementById("legend-container").style.height = "40px";
 
         document.getElementById("legend-contents").classList.add("hide-content")
 
-        document.getElementById("toggle-legend").innerHTML = "Expand legend";
+        document.getElementById("toggle-legend").innerHTML = "&plus; Expand legend";
       }
       
     },
@@ -327,37 +330,43 @@ export default {
       }
     },
     drawBumbleBee() {
-      // Define the custom icon
-      var beeIcon = L.icon({
-          iconUrl: "/images/icons/noun-bumble-bee-5498655.svg", // Adjust the path as needed
-          iconSize: [18, 65], // Size of the icon; adjust based on your SVG's dimensions
-          iconAnchor: [19, 47], // Point of the icon which corresponds to marker's location
-          popupAnchor: [0, -47], // Point where the popup will open relative to the iconAnchor
+      fetch("/data/bees-pre-2000-range.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          
+          // Add GeoJSON layer for historic range
+          L.geoJSON(data, {
+            style: function (feature) {
+              return {
+                color: "#7f9694", // Example color
+                weight: 2,
+              };
+            },
+          }).addTo(this.map);
         });
-      if (this.beforeAfterToggle == "after") {
-        fetch("/data/bees-post-2000.json")
-          .then((response) => response.json())
-          .then(data => {
-            console.log('data loaded')
-        // Loop through the data and create markers for each point
-        data.forEach(point => {
-            return L.marker([point.latitude, point.longitude], { icon: beeIcon }).addTo(this.map);
-            // You can customize the marker icon, popup, etc. here if needed
+
+      // Load range GeoJSON for the current range
+      fetch("/data/bees-post-2000-range.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          
+          // Add GeoJSON layer to the map once the file is loaded
+          L.geoJSON(data, {
+            style: function (feature) {
+              return {
+                color: "#BBA38E", // Example color
+                weight: 2,
+                fillOpacity: 0.7,
+              };
+            },
+          }).addTo(this.map);
         });
-        console.log('loop complete')
-      })
-      } else {
-        fetch("/data/bees-post-2000-reduced.json")
-          .then((response) => response.json())
-          .then(data => {
-            console.log('data loaded')
-        // Loop through the data and create markers for each point
-        data.forEach(point => {
-            return L.marker([point.latitude, point.longitude], { icon: beeIcon }).addTo(this.map);
-        });
-        console.log('loop complete')
-      })
-      }
+
+        // Create a popup
+        var popup = L.popup()
+            .setLatLng([36.1627, -86.7816])
+            .setContent("Southern Plain Bumblebees are 85% less common than they were before 2000.")
+            .openOn(this.map);
 
       // turn the display of #loading-msg to none
       document.getElementById("loading-msg").style.display = "none";
@@ -483,6 +492,13 @@ export default {
               };
             },
           }).addTo(this.map);
+
+          // Create a popup
+        var popup = L.popup()
+            .setLatLng([44.5123, -111.2998]) // Approximate coordinates for Last Chance, Idaho
+            .setContent("<p style='font-size: 14px'>This doe, known as 255, has made the longest recorded Mule Deer migration. Each year, she <b>negotiated an average of 171 fences</b>, along with roads, rivers, and mountains, as she journeyed between her summer range in the meadows of Greater Yellowstone and her winter home in the sagebrush steppe of the Red Desert of Wyoming.</p>")
+            .openOn(this.map);
+
         });
     },
     drawRegalFrit() {
@@ -876,7 +892,10 @@ export default {
 }
 
 #toggle-legend {
-  display: none
+  display: block;
+  text-decoration: underline;
+  text-align: right;
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {

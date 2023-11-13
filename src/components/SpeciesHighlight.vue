@@ -16,7 +16,6 @@
       </div>
     </div>
     <div class="species-map-container">
-      <h2>Species Snapshot</h2>
       <img :src="'../images/trend-maps/'+speciesObject.id+'.png'" alt="">
     </div>
   </div>
