@@ -54,9 +54,9 @@
             <div><span class="circle-legend-after"></span> Current</div>
           </div>
           <div v-else-if="layerType == 'abundance'">
-            <div v-if="speciesLayerName == 'Monarch Butterfly'">
+            
             <div class="legend-title">Estimated abundance</div>
-            <div style="height: 100px">
+            <div style="height: 130px">
               <v-btn-toggle
                 v-model="beforeAfterToggle"
                 color="primary"
@@ -67,7 +67,7 @@
                 <v-btn value="before" rounded="5">Before</v-btn>
                 <v-btn value="after" selected rounded="5">After</v-btn>
               </v-btn-toggle>
-              
+              <div v-if="speciesLayerName == 'Monarch Butterfly'">
                 <div style="font-style: italic; margin-bottom: 0px">
                 Butterflies show relative loss at scale, and do not represent
                 actual butterfly locations.
@@ -83,15 +83,15 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div v-else>
+            <div v-else>
                 <br>
-                <div><span class="circle-legend-before"></span> Before: pre 2000</div>
-                <div><span class="circle-legend-after"></span> After: 2000-2020</div>
+                <div><span class="circle-legend-after"></span> Current range: 2000-2020</div>
                 <div style="font-style: italic; margin-bottom: 0px">
                   Range maps created based on polygon detection maps using the Bumble Bees of North America database.
               </div>
               </div>
+            </div>
+
           </div>
         </div>
         </div>
@@ -330,20 +330,7 @@ export default {
       }
     },
     drawBumbleBee() {
-      fetch("/data/bees-pre-2000-range.geojson")
-        .then((response) => response.json())
-        .then((data) => {
-          
-          // Add GeoJSON layer for historic range
-          L.geoJSON(data, {
-            style: function (feature) {
-              return {
-                color: "#7f9694", // Example color
-                weight: 2,
-              };
-            },
-          }).addTo(this.map);
-        });
+      
 
       // Load range GeoJSON for the current range
       fetch("/data/bees-post-2000-range.geojson")
@@ -362,11 +349,36 @@ export default {
           }).addTo(this.map);
         });
 
-        // Create a popup
-        var popup = L.popup()
-            .setLatLng([36.1627, -86.7816])
-            .setContent("Southern Plain Bumblebees are 85% less common than they were before 2000.")
-            .openOn(this.map);
+        // Define the custom icon
+      var beeIcon = L.icon({
+          iconUrl: "/images/icons/noun-bumble-bee-5498655.svg", // Adjust the path as needed
+          iconSize: [26, 75], // Size of the icon; adjust based on your SVG's dimensions
+          iconAnchor: [19, 47], // Point of the icon which corresponds to marker's location
+          popupAnchor: [0, -47], // Point where the popup will open relative to the iconAnchor
+        });
+      if (this.beforeAfterToggle == "after") {
+        fetch("/data/bees-after.geojson")
+          .then((response) => response.json())
+          .then(data => {
+            L.geoJSON(data, {
+              pointToLayer: function (feature, latlng) {
+                // Use a custom icon if desired
+                return L.marker(latlng, { icon: beeIcon });
+              },
+            }).addTo(this.map);
+      })
+      } else {
+        fetch("/data/bees-before.geojson")
+          .then((response) => response.json())
+          .then(data => {
+            L.geoJSON(data, {
+              pointToLayer: function (feature, latlng) {
+                // Use a custom icon if desired
+                return L.marker(latlng, { icon: beeIcon });
+              },
+            }).addTo(this.map);
+      })
+      }
 
       // turn the display of #loading-msg to none
       document.getElementById("loading-msg").style.display = "none";
