@@ -2,7 +2,10 @@
     <div @mousedown="handleMouseDown" 
     @mousemove="handleMouseMove" 
     @mouseup="handleMouseUp" >
-      <div :id="mapId" class="map-div" style="background-color: #252525;"></div>
+      <div :id="mapId" class="map-div" style="background-color: #252525;">
+    <div class="map-year">{{ mapYear }}</div>
+        
+      </div>
     </div>
   </template>
   
@@ -154,6 +157,27 @@
 .map-div {
   height: 400px; /* or any other height */
         width: 100%;
+}
+
+.map-year {
+  display: none;
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  /* transform: translate(-50%, -50%); */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Nunito Sans';
+  z-index: 9999;
+}
+
+@media (max-width: 800px) {
+  .map-year {
+    display: block
+  }
 }
   </style>
   

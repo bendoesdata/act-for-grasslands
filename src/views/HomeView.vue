@@ -46,7 +46,8 @@
   <div class="section">
     <div class="text-pad">
       <h2>Regional collapse</h2>
-      <p>
+      <div  style="max-width: 600px">
+        <p>
         Across the continental U.S., grasslands have seen serious declines. Here is how much they have disappeared over the past thirty years.
       </p>
       <p>
@@ -55,9 +56,10 @@
       <p style="font-weight: 600">
         Grassland animals are losing their homes.
       </p>
+      </div>
     </div>
-    <div class="" style="position: relative">
-      <div class="region-map-titles">
+    <div style="position: relative">
+      <div class="region-map-titles desktop">
         <div>
           <h2>1992</h2>
         </div>
@@ -153,9 +155,6 @@
   <h2>Explore the interactive map</h2>
   <p>Use the map below to see how animals have been affected by the loss of grasslands and sagebrush.</p>
   </div>
-  <div class="btn-right-container">
-    <v-btn class="primary-btn">ACT NOW</v-btn>
-  </div>
   <div id="map-section">
     <div id="left-map-panel">
       <div>
@@ -184,6 +183,9 @@
       </div>
     </div>
     <div id="interactive-map-container">
+      <div class="btn-right-container">
+        <v-btn class="primary-btn" style="text-align: center;">ACT NOW</v-btn>
+      </div>
       <div id="layer-box">
         <div class="layer-box">
           <div class="layer-box-header" @click="toggleLayerBox">
@@ -500,12 +502,7 @@ export default {
   color: #EFEAD4;
   padding-top: 30px;
   padding-bottom: 30px;
-}
-#species-section {
-  background-color: #475026;
-  color: #EFEAD4;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin-top: 300px;
 }
 
 .flex-container {
@@ -656,6 +653,11 @@ export default {
   background-color: #EFEAD4;
 }
 
+#intro-section {
+  margin-top: 300px;
+  margin-bottom: 300px;
+}
+
 .title-container {
   position: relative;
 }
@@ -718,6 +720,12 @@ export default {
   font-size: 20px;
 }
 
+#scrolly-section {
+    margin-top: 100px;
+    margin-bottom: 300px;
+  }
+
+
 .buttons {
   display: flex;
 }
@@ -747,6 +755,15 @@ export default {
 
 /* Media query for smaller screens */
 @media (max-width: 800px) {
+  .region-map-titles.desktop {
+    display: none
+  }
+
+  .region-map-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
   /* #left-map-panel {
     max-height: 400px;
     overflow-y: scroll;
@@ -919,10 +936,10 @@ export default {
     margin-top: 10px
   }
 .btn-right-container {
-  /* position all content in this div to the right */
+  /* position content in this div in the center */
   display: flex;
-  justify-content: flex-end;
-  padding: 20px
+  justify-content: center;
+  margin-bottom: 5px
 }
 
 </style>
