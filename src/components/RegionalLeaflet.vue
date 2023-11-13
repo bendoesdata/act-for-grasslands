@@ -46,11 +46,14 @@
             this.map.setView(newCenter);
       }
     },
-  },
-  computed: {
-    isUserInteraction() {
-      return this.map ? this.map._panInProcess > 0 : false;
-    },
+    zoom(newZoom) {
+        console.log(newZoom)
+      // Ensure that the map is initialized
+      if (this.map && this.mapInitialized) {
+            // udpate the maps zoom level
+            this.map.setZoom(newZoom);
+      }
+    }
   },
     mounted() {
       // Initialize the Leaflet map
@@ -69,12 +72,11 @@
       L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/pfg/${this.mapYear}/{z}/{x}/{y}.png`, {
         minZoom: 0, // Minimum zoom level
         maxZoom: 18, // Maximum zoom level
-        padding: 1.5 // Padding around the map (in tiles) to retain when the map is zoomed in
+        padding: 0.8 // Padding around the map (in tiles) to retain when the map is zoomed in
       }).addTo(this.map);
 
       // check the width dimensions of the window, if they are greater than 800px then set the width of the map to 600px
       if (window.innerWidth > 800) {
-        this.map.invalidateSize();
 
         // get the div with map id and set style of width to 600px
         var mapDiv = document.getElementById(this.mapId);
@@ -87,6 +89,13 @@
 
       // Set the flag to indicate that the map is initialized
     this.mapInitialized = true;
+
+    // create listener for when user clicks the zoom in or out button
+    this.map.on('zoomend', this.handleCenterChange);
+
+    setTimeout(()=>{
+      this.map.invalidateSize();
+    },200)
 
       // this.map.on("moveend", this.handleCenterChange);
     },
@@ -114,6 +123,10 @@
             console.log('moved by ', this.updateSource)
             let msg = {}
             msg.center = this.map.getCenter();
+            
+            // get the zoom level and store it in msg
+            msg.zoom = this.map.getZoom();
+
             msg.id = this.mapId;
             
             // avoid recursion

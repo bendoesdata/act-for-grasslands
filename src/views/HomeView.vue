@@ -306,22 +306,22 @@ export default {
         ne: {
           updateSource: null,
           zoom: 7,
-          center: [43.2994, -74.2179],
+          center: [38.350272538, -78.4204101],
         },
         se: {
           updateSource: null,
-          zoom: 7,
-          center: [30.5994, -91.2179],
+          zoom: 6,
+          center: [33.61461929, -85.58349],
         },
         mw: {
           updateSource: null,
-          zoom: 7,
-          center: [43.2994, -88.2179],
+          zoom: 6,
+          center: [45.5217438969, -90.37353515625],
         },
         west: {
           updateSource: null,
-          zoom: 6,
-          center: [41.2994, -125.2179],
+          zoom: 7,
+          center: [42.74701, -123.8269042],
         }
       },
       grassLayers: [
@@ -417,31 +417,23 @@ export default {
       this.startingMapPosition.zoom = zoom;
     },
     updateRegionalMapPos(event) {
-      if (event.id == 'map1') {
+      if (event.id == 'map1' || event.id == 'map2') {
         this.regionalMapPositions.se.updateSource = event.id;
         this.regionalMapPositions.se.center = event.center;
-      } else if (event.id == 'map2') {
-        this.regionalMapPositions.se.updateSource = event.id;
-        this.regionalMapPositions.se.center = event.center;
-      } else if (event.id == 'map3') {
+        this.regionalMapPositions.se.zoom = event.zoom;
+      } else if (event.id == 'map3' || event.id == 'map4') {
         this.regionalMapPositions.mw.updateSource = event.id;
         this.regionalMapPositions.mw.center = event.center;
-      } else if (event.id == 'map4') {
-        this.regionalMapPositions.mw.updateSource = event.id;
-        this.regionalMapPositions.mw.center = event.center;
-      } else if (event.id == 'map5') {
+        this.regionalMapPositions.mw.zoom = event.zoom;
+      } else if (event.id == 'map5' || event.id == 'map6') {
         this.regionalMapPositions.west.updateSource = event.id;
         this.regionalMapPositions.west.center = event.center;
-      } else if (event.id == 'map6') {
-        this.regionalMapPositions.west.updateSource = event.id;
-        this.regionalMapPositions.west.center = event.center;
-      } else if (event.id == 'map7') {
+        this.regionalMapPositions.west.zoom = event.zoom;
+      } else if (event.id == 'map7' || event.id == 'map8') {
         this.regionalMapPositions.ne.updateSource = event.id;
         this.regionalMapPositions.ne.center = event.center;
-      } else if (event.id == 'map8') {
-        this.regionalMapPositions.ne.updateSource = event.id;
-        this.regionalMapPositions.ne.center = event.center;
-      }
+        this.regionalMapPositions.ne.zoom = event.zoom;
+      } 
     },
     updateSelectedSpecies(val) {
       this.speciesForInteractiveMap = val;
