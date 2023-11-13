@@ -585,22 +585,6 @@ export default {
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
 
-      // Load range GeoJSON from an external file
-      fetch("/data/gpc-historic-only-tympanuchus-cupido.geojson")
-        .then((response) => response.json())
-        .then((data) => {
-          
-          // Add GeoJSON layer for historic range
-          L.geoJSON(data, {
-            style: function (feature) {
-              return {
-                color: "#7f9694", // Example color
-                weight: 2,
-              };
-            },
-          }).addTo(this.map);
-        });
-
       // Load range GeoJSON for the current range
       fetch("/data/gpc-current.geojson")
         .then((response) => response.json())
@@ -613,6 +597,22 @@ export default {
                 color: "#BBA38E", // Example color
                 weight: 2,
                 fillOpacity: 0.7,
+              };
+            },
+          }).addTo(this.map);
+        });
+
+        // Load range GeoJSON from an external file
+      fetch("/data/gpc-historic-only-tympanuchus-cupido.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          
+          // Add GeoJSON layer for historic range
+          L.geoJSON(data, {
+            style: function (feature) {
+              return {
+                color: "#7f9694", // Example color
+                weight: 2,
               };
             },
           }).addTo(this.map);
@@ -716,13 +716,13 @@ export default {
         var fillColor;
 
         if (abd_trend <= -20) {
-          fillColor = "#750036";
+          fillColor = "#C1197A";
         } else if (abd_trend > -20 && abd_trend <= 0) {
-          fillColor = "#C97FAA";
+          fillColor = "#DF85B8";
         } else if (abd_trend > 0 && abd_trend <= 20) {
-          fillColor = "#92BC5D";
+          fillColor = "#7CA96E";
         } else if (abd_trend > 20) {
-          fillColor = "#0D5300";
+          fillColor = "#40812C";
         }
 
         return {
