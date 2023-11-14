@@ -183,9 +183,6 @@
       </div>
     </div>
     <div id="interactive-map-container">
-      <div class="btn-right-container">
-        <v-btn class="primary-btn" style="text-align: center;">ACT NOW</v-btn>
-      </div>
       <div id="layer-box">
         <div class="layer-box">
           <div class="layer-box-header" @click="toggleLayerBox">
@@ -247,12 +244,17 @@
         :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
         :allowScrollZoom="false" @map-center-change="updateMapZoom" />
     </div>
-    <div class="section" style="max-width: 600px;">
+    <div class="section" style="max-width: 700px;">
       <h2>By changing nothing, nothing changes.</h2>
       <br>
       <p>
-        Click here [possible link: https://actforgrasslands.org/take-action/] to call on Congress to restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
+        Click here [possible link: https://actforgrasslands.org/take-action/] to call on Congress to restore disappearing grasslands by supporting a <a style="text-decoration: underline" href="https://actforgrasslands.org/about-the-grasslands-act/" target="_blank">North American Grasslands Conservation Act</a>.
       </p>
+      <br>
+      <div class="btn-right-container">
+        <v-btn class="primary-btn" style="text-align: center; width: 150px">ACT NOW</v-btn>
+      </div>
+      
       <ReferenceAccordion></ReferenceAccordion>
     </div>
     
