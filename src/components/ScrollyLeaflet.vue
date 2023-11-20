@@ -78,9 +78,12 @@ export default {
       // Initially, hide the second map
       map2.value.classList.add('map2-inactive');
 
+      leafletMap1.zoomControl.remove();
+      leafletMap2.zoomControl.remove();
+
       // Add scroll event listener
       window.addEventListener('scroll', () => {
-        const secondTextBoxTop = textBoxRefs.value[0].getBoundingClientRect().top + 200;
+        const secondTextBoxTop = textBoxRefs.value[0].getBoundingClientRect().top + 600;
         if (secondTextBoxTop <= 0) {
             map2.value.classList.remove('map-inactive');
             map2.value.classList.add('map2-active');
@@ -156,6 +159,7 @@ export default {
   padding: 20px;
   margin: auto 0;
 }
+
 
 /* Media query for smaller screens */
 @media (max-width: 800px) {

@@ -44,7 +44,7 @@
               style="width: 100%"
               alt=""
             />
-            <div class="ebird-note">Circles reflect modeled trends and not actual bird locations.</div>
+            <div class="ebird-note">Polygons reflect modeled trends and not actual bird locations.</div>
           </div>
           <div v-else-if="layerType == 'range'">
             <div class="legend-title">Species range</div>

@@ -81,7 +81,7 @@
     "photoFile": "/images/selected/pintail-1.jpg",
     "descriptionLong": "Northern Pintail ducks breed in grasslands. They have lost habitat across the U.S., especially nesting cover but also across their wintering sites [7]. Pintail populations fell from 10 million ducks in the 1950s to just 1.8 million by 2022 [8].",
     "descriptionShort": "Northern Pintails have lost roughly 82% of their population in the last 70 years [8].",
-    "mapSource": "eBird Status and Trends",
+    "mapSource": "Cornell Lab | eBird",
     "mapSourceLink": "https://science.ebird.org/en/status-and-trends/species/norpin/trends-map",
     "textSources": [
       {
@@ -130,7 +130,7 @@
     "photoFile": "/images/selected/ring-necked-1.JPG",
     "descriptionLong": "TThe Ring-necked Pheasant, a popular game bird, has lost 27% of its population [1], especially in the Midwest1. Destroying intact grasslands often means losing pollinator-friendly plants, endangering food sources for nestlings and adults [6].",
     "descriptionShort": "Ring-necked Pheasants have lost 27% of their population [1].",
-    "mapSource": "eBird Status and Trends",
+    "mapSource": "Cornell Lab | eBird",
     "mapSourceLink": "https://science.ebird.org/en/status-and-trends/species/rinphe/trends-map",
     "textSources": [
         {
@@ -149,7 +149,7 @@
     "photoFile": "images/selected/bobolink-1.jpg",
     "descriptionLong": "The distinctive Bobolink, named for the male’s bubbling song, has lost 55% of its population [1] and is on track to lose another 50% in the next 50 years if nothing changes [2].",
     "descriptionShort": "This grassland bird is on track to lose 50% of its population in the next 50 years if nothing changes [2].",
-    "mapSource": "eBird Status and Trends",
+    "mapSource": "Cornell Lab | eBird",
     "mapSourceLink": "https://science.ebird.org/en/status-and-trends/species/boboli/trends-map",
     "textSources": [
         {
@@ -168,7 +168,7 @@
     "photoFile": "/images/selected/quail-1.jpg",
     "descriptionLong": "The Scaled Quail, named for the scaly appearance of its feathers, lives in the dry scrublands and grasslands of the Southwest [3]. Loss of vegetation for food and cover [4], and more frequent droughts [5], have led to a 31% decline over the last 50 years [1].",
     "descriptionShort": "The population of this western quail has declined by 31% [1].",
-    "mapSource": "eBird Status and Trends",
+    "mapSource": "Cornell Lab | eBird",
     "mapSourceLink": "https://science.ebird.org/en/status-and-trends/species/scaqua/trends-map",
     "textSources": [
         {

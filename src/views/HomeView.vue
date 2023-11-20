@@ -48,10 +48,10 @@
       <h2>Regional collapse</h2>
       <div  style="max-width: 600px">
         <p>
-        Across the continental U.S., grasslands have seen serious declines. Here is how much they have disappeared over the past thirty years.
+          Across the continental U.S., grasslands have seen serious declines. In the middle of the country, the Central Grasslands, 2 million acres are lost on average each year.
       </p>
       <p>
-        The greener the map, the more grasslands are present. Vast patches of emptiness show how much has been lost.
+        Here is how much grasslands have they have disappeared over the past thirty years in other regions.
       </p>
       <p style="font-weight: 600">
         Grassland animals are losing their homes.
