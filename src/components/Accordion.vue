@@ -18,10 +18,14 @@
               <span v-if="species.mapSourceLink1 == null || species.mapSourceLink1 == ''">
                 {{ species.mapSource }}
               </span>
+              <span v-else-if="doubleSource">
+                <a :href="species.mapSourceLink1" target="_blank" style="text-decoration: underline;">{{ splitSource(species.mapSource)[0] }}</a>,
+                <a :href="species.mapSourceLink2" target="_blank" style="text-decoration: underline;">{{ splitSource(species.mapSource)[1] }}</a>
+              </span>
               <a v-else :href="species.mapSourceLink1" target="_blank" style="text-decoration: underline;">{{ species.mapSource }}</a>
             </div>
             </div>
-          <v-switch @click="sendSpeciesSelection" :model-value="switchState" label="Add to map"></v-switch>
+          <v-switch @click="sendSpeciesSelection" :model-value="switchState" label="Display on map"></v-switch>
         </div>
       </transition>
     </div>
@@ -53,7 +57,8 @@ import { map } from 'leaflet';
     data() {
       return {
         isOpen: false,
-        switchState: false
+        switchState: false,
+        doubleSource: false
       };
     },
     watch: {
@@ -75,6 +80,10 @@ import { map } from 'leaflet';
       }
     },
     mounted() {
+      // check to see if species.mapSource contains ';' and if so, set doubleSource to true
+      if (this.species.mapSource.indexOf(';') !== -1) {
+        this.doubleSource = true;
+      }
 
       if (this.firstInList) {
         this.isOpen = true;
@@ -93,6 +102,9 @@ import { map } from 'leaflet';
       }
     },
     methods: {
+      splitSource(val) {
+        return val.split(";");
+      },
       sendSpeciesSelection(){
         this.switchState = !this.switchState;
 

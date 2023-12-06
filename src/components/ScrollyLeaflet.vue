@@ -1,7 +1,9 @@
 <template>
    <div>
     <div class="map-container">
-        <div ref="map1" id="scroll-map-1" class="leaflet-map"></div>
+        <div ref="map1" id="scroll-map-1" class="leaflet-map">
+          <div class="map-credit">Source: Rangeland Analysis Platform</div>
+        </div>
         <div ref="map2" id="scroll-map-2" class="leaflet-map"></div>
     </div>
     <div class="scroll-box"  v-for="(box, index) in textBoxes" :key="index" :ref="el => textBoxRefs[index] = el">
@@ -80,6 +82,23 @@ export default {
 
       leafletMap1.zoomControl.remove();
       leafletMap2.zoomControl.remove();
+
+      var customControl = L.Control.extend({
+    options: {
+        position: 'bottomleft' // You can position it top|bottom - left|right
+    },
+
+    onAdd: function (map) {
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+        container.style.backgroundColor = 'white';
+        container.style.padding = '5px';
+        container.innerText = 'Data source: Rangeland Analysis Platform';
+        return container;
+    }
+});
+
+  leafletMap1.addControl(new customControl());
+  leafletMap2.addControl(new customControl());
 
       // Add scroll event listener
       window.addEventListener('scroll', () => {

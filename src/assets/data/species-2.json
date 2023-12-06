@@ -7,7 +7,7 @@
     "descriptionLong": "Northern Bobwhite, a small game bird with an unmistakable call, has lost extensive amounts of habitat in the central and eastern U.S., leading to an <b>81% population decline</b> over the last 50 years.",
     "descriptionShort": "This quail has <b>lost 81%</b> of its population.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/norbob/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/norbob/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; Birds of the World",
     "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
@@ -72,7 +72,7 @@
     "descriptionLong": "Northern Pintail ducks breed in grasslands. They have lost crucial sites across the U.S., especially nesting places, but also their wintering homes. Pintail populations fell from 10 million ducks in the 1950s to just 1.8 million by 2022.",
     "descriptionShort": "Northern Pintails have <b>lost roughly 82%</b> of their population in the last 70 years.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/norpin/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/norpin/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "USFWS Waterfowl Population Status (2022); Birds of the World",
     "textSources__link": "https://www.fws.gov/media/waterfowl-population-status-2022"
@@ -85,7 +85,7 @@
     "descriptionLong": "The Ring-necked Pheasant, a popular game bird, has lost 27% of its population, especially in the Midwest. Destroying intact grasslands often means losing pollinator-friendly plants, endangering food sources for nestlings and adults.",
     "descriptionShort": "Ring-necked Pheasants have lost 27% of their population.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/rinphe/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/rinphe/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; Birds of the World",
     "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
@@ -111,7 +111,7 @@
     "descriptionLong": "The distinctive Bobolink, named for the male’s bubbling song, has <b>lost 55%</b> of its population and is on track to lose another 50% in the next 50 years if nothing changes.",
     "descriptionShort": "This grassland bird is on track to <b>lose 50%</b> of its population in the next 50 years if nothing changes.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/boboli/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/boboli/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; State of the Birds (2022)",
     "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
@@ -121,10 +121,10 @@
     "id": "scaled-quail",
     "photoFile": "/images/selected/quail-1.jpg",
     "photoCredit": "Photo by Ad Konings",
-    "descriptionLong": "The Scaled Quail, named for the scaly appearance of its feathers, lives in the dry scrublands and grasslands of the Southwest. Loss of vegetation for food and cover, and more frequent droughts, have led to a 31% decline over the last 50 years.",
+    "descriptionLong": "The Scaled Quail, named for the scaly appearance of its feathers, lives in the dry scrublands and grasslands of the Southwest. Loss of vegetation for food and cover, and more frequent droughts, have led to a <b>31% decline</b> over the last 50 years.",
     "descriptionShort": "The population of this western quail has <b>declined by 31%</b>.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/scaqua/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/scaqua/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; Western Quail Management Plan (2009)",
     "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
@@ -137,7 +137,7 @@
     "descriptionLong": "The Greater Sage-Grouse is an iconic Western grassland bird that captivates us with its distinctive courtship dance. It has <b>lost 60%</b> of its population over the last 50 years.",
     "descriptionShort": "The Greater Sage-Grouse, a bird that lives only in sagebrush, has <b>lost 60%</b> of its population.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/saggro/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/saggro/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Birds of the World",
     "textSources__link": "https://birdsoftheworld.org/bow/species/saggro/cur/introduction"
@@ -150,7 +150,7 @@
     "descriptionLong": "Mallards are widespread but show recent declines. The greatest numbers of North American Mallards breed in the West and Midwest’s Prairie Pothole region (also known as the continent’s “duck factory”). <b>Less than half</b> this habitat remains today.",
     "descriptionShort": "Mallards (and other ducks) have <b>lost over half</b> their prairie breeding grounds.",
     "mapSource": "Cornell Lab | eBird",
-    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/mallar3/trends-map",
+    "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/mallar3/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Birds of the World; Doherty et al. (2013)",
     "textSources__link": "https://birdsoftheworld.org/bow/species/mallar3/cur/introduction"
@@ -173,7 +173,7 @@
     "id": "mule-deer",
     "photoFile": "/images/selected/NWcH4mbPRZg_unsplash_Acton_Crawford.jpg",
     "photoCredit": "Photo by Acton Crawford",
-    "descriptionLong": "Mule Deer herds are faithful to their migratory routes and seasonal ranges, and still roam most of the western half of North America from the Yukon to Mexico. However, populations across the western U.S. began declining in the 1970s. Some of these losses continue due to disrupted migratory routes and changing environmental conditions.",
+    "descriptionLong": "Mule Deer herds are faithful to their migratory routes and seasonal ranges, and still roam most of the western half of North America from the Yukon to Mexico. However, populations across the western U.S. began declining in the 1970s. Some",
     "descriptionShort": "Disruptions to Mule Deer migrations is one reason many populations have declined across the western U.S. since the 1970s.",
     "mapSource": "Western Migrations",
     "mapSourceLink1": "https://westernmigrations.net/",

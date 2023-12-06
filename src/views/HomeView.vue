@@ -21,6 +21,9 @@
   <br>
   <div class="section">
     <div class="flex-container" id="intro-section">
+      <div class="flex-half">
+        <img src="/images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
+      </div>
       <div class="flex-half text-pad">
         <p>
           The loss of America’s grasslands has led to alarming declines in the wildlife we all care about. If these iconic landscapes continue to disappear, we risk losing the animals that define our communities. These losses show that the places where people live are losing soil productivity and water, and are less able to withstand extreme heat and storms.
@@ -32,9 +35,6 @@
           The North American Grasslands Conservation Act will help reverse the decline of America's prairies, savannas, glades, and sagebrush – in our own backyards.
         </p>
       </div>
-      <div class="flex-half">
-        <img src="/images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
-      </div>
     </div>
   </div>
   <div class="section" id="scrolly-section">
@@ -45,13 +45,13 @@
   <div style="height: 600px;"></div>
   <div class="section">
     <div class="text-pad">
-      <h2>Regional collapse</h2>
-      <div  style="max-width: 600px">
+      <div style="max-width: 600px; margin: 0 auto; margin-bottom: 150px">
+        <h2>Regional collapse</h2>
         <p>
-          Across the continental U.S., grasslands have seen serious declines. In the middle of the country, the Central Grasslands, 2 million acres are lost on average each year.
+          Across the continental U.S., grasslands have seen serious declines. In the middle of the country, where most of our grasslands still exist, 2 million acres are lost on average each year.
       </p>
       <p>
-        Here is how much grasslands have they have disappeared over the past thirty years in other regions.
+        The below maps show how much grasslands have disappeared over the past thirty years in specific regions. This data comes from the Rangeland Analysis Platform, and excludes areas of cropland, development, and water.
       </p>
       <p style="font-weight: 600">
         Grassland animals are losing their homes.
