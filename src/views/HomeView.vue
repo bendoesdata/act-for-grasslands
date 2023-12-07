@@ -109,8 +109,8 @@
   <div id="species-section" class="section">
     <h2 style="margin-bottom: 50px; text-align: center;">Select a species to learn how it has been impacted by grasslands
       loss</h2>
-    <div class="flex-section">
-      <div v-for="(species, index) in immutableSpeciesList.slice(0, 4)" :key="index">
+    <div class="species-grid">
+      <div v-for="(species, index) in immutableSpeciesList.slice(0, 4)" :key="index" class="species-highlight-item">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -119,8 +119,8 @@
         
       </div>
     </div>
-    <div class="flex-section">
-      <div v-for="(species, index) in immutableSpeciesList.slice(4, 8)" :key="index">
+    <div class="species-grid">
+      <div v-for="(species, index) in immutableSpeciesList.slice(4, 8)" :key="index" class="species-highlight-item">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -128,8 +128,8 @@
         </div>
       </div>
     </div>
-    <div class="flex-section">
-      <div v-for="(species, index) in immutableSpeciesList.slice(8, 12)" :key="index">
+    <div class="species-grid">
+      <div v-for="(species, index) in immutableSpeciesList.slice(8, 12)" :key="index" class="species-highlight-item">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -137,8 +137,8 @@
         </div>
       </div>
     </div>
-    <div class="flex-section">
-      <div v-for="(species, index) in immutableSpeciesList.slice(12, 16)" :key="index">
+    <div class="species-grid">
+      <div v-for="(species, index) in immutableSpeciesList.slice(12, 16)" :key="index" class="species-highlight-item">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -571,6 +571,48 @@ export default {
   flex-wrap: wrap;
 }
 
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* 6 columns in the first and second rows */
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+/* make this div a circle using a high border radius and width of 200px */
+.species-circle {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: #EFEAD4;
+  margin: 0 auto;
+}
+
+@media (max-width: 850px) {
+  .species-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+    gap: 10px; /* Adjust the gap as needed */
+  }
+}
+
+@media (max-width: 600px) {
+  /* make this div a circle using a high border radius and width of 200px */
+.species-circle {
+  width: 150px;
+  height: 150px;
+}
+}
+
+.species-highlight-item {
+  text-align: center;
+}
+
 .flex-section-region-maps {
   display: flex;
   justify-content: space-evenly;
@@ -625,25 +667,6 @@ export default {
   border-radius: 5px;
   /* create a light drop shadow */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-/* make this div a circle using a high border radius and width of 200px */
-.species-circle {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  background-color: #EFEAD4;
-}
-/* make this div a circle using a high border radius and width of 200px */
-.species-circle {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  background-color: #EFEAD4;
 }
 
 
