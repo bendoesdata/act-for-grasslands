@@ -29,8 +29,8 @@ export default {
     const textBoxRefs = ref([]);
 
     onMounted(() => {
-        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false}).setView([39.0997, -94.5786], 5);
-        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false}).setView([39.0997, -94.5786], 5);
+        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], 5);
+        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], 5);
 
       let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -142,7 +142,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 600px; /* Adjust as needed */
+  height: 700px; /* Adjust as needed */
   transition: opacity 0s;/*  Adjust the duration as needed */
 }
 
