@@ -7,7 +7,10 @@
         <div ref="map2" id="scroll-map-2" class="leaflet-map"></div>
     </div>
     <div class="scroll-box"  v-for="(box, index) in textBoxes" :key="index" :ref="el => textBoxRefs[index] = el">
-        <div class="text-box">
+        <div v-if="index == 0" class="text-box invisible">
+          <h2></h2>
+        </div>
+        <div v-else class="text-box">
             <h2>{{ box.content }}</h2>
         </div>
     </div>
@@ -17,20 +20,30 @@
 <script>
 import { ref, onMounted } from 'vue';
 import L from 'leaflet';
+import { zoom } from 'd3';
 
 export default {
   setup() {
     const map1 = ref(null);
     const map2 = ref(null);
     const textBoxes = ref([
+      { content: '' },
       { content: 'Here is how grasslands in the U.S. looked in 1992.' },
       { content: 'Here is what remained in 2021.' }
     ]);
     const textBoxRefs = ref([]);
 
     onMounted(() => {
-        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], 5);
-        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], 5);
+      let zoomlevel;
+      if (window.innerWidth > 1250) {
+        zoomlevel = 5;
+      } else if (window.innerWidth > 800 && window.innerWidth <= 1250) {
+        zoomlevel = 4;
+      } else {
+        zoomlevel = 3;
+      } 
+        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], zoomlevel);
+        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], zoomlevel);
 
       let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -102,8 +115,8 @@ export default {
 
       // Add scroll event listener
       window.addEventListener('scroll', () => {
-        const secondTextBoxTop = textBoxRefs.value[0].getBoundingClientRect().top + 600;
-        if (secondTextBoxTop <= 0) {
+        const secondTextBoxTop = textBoxRefs.value[1].getBoundingClientRect().top + 600;
+        if (secondTextBoxTop <= 1) {
             map2.value.classList.remove('map-inactive');
             map2.value.classList.add('map2-active');
             map1.value.classList.add('map-inactive');
@@ -130,6 +143,9 @@ export default {
 </script>
 
 <style scoped>
+.invisible {
+  opacity: 0;
+}
 .map-container {
   position: sticky;
   top: 10%; /* This will make the map stick to the center of the viewport */

@@ -16,6 +16,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 a {
   font-weight: 500;
   color: #6a7935;

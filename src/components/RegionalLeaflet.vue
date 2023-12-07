@@ -1,7 +1,10 @@
 <template>
     <div @mousedown="handleMouseDown" 
     @mousemove="handleMouseMove" 
-    @mouseup="handleMouseUp" >
+    @mouseup="handleMouseUp"
+    @touchstart="handleMouseDown"
+    @touchmove="handleMouseMove"
+    @touchend="handleMouseUp" >
       <div :id="mapId" class="map-div" style="background-color: #252525;">
     <div class="map-year">{{ mapYear }}</div>
         
@@ -59,6 +62,9 @@
     }
   },
     mounted() {
+      // add even listener to listen for changes to window width
+      window.addEventListener('resize', this.resizeMap);
+
       // Initialize the Leaflet map
       this.map = L.map(this.mapId, {
         scrollWheelZoom: false,
@@ -80,7 +86,6 @@
 
       // check the width dimensions of the window, if they are greater than 800px then set the width of the map to 600px
       if (window.innerWidth > 800) {
-
         // get the div with map id and set style of width to 600px
         var mapDiv = document.getElementById(this.mapId);
         mapDiv.style.width = "600px";
@@ -103,6 +108,17 @@
       // this.map.on("moveend", this.handleCenterChange);
     },
     methods: {
+      resizeMap() {
+        var mapDiv = document.getElementById(this.mapId);
+        // check the width dimensions of the window, if they are greater than 800px then set the width of the map to 600px
+      if (window.innerWidth > 1250) {
+        mapDiv.style.width = "600px";
+      } else if (window.innerWidth <= 1250 && window.innerWidth > 950) {
+        mapDiv.style.width = "450px";
+      } else  {
+        mapDiv.style.width = "400px";
+      }
+      },
       handleMouseDown(event) {
       // User starts dragging (mouse button is pressed down)
       this.isDragging = true;
@@ -174,7 +190,7 @@
   z-index: 9999;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .map-year {
     display: block
   }

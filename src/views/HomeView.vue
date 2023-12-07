@@ -45,7 +45,7 @@
   <div style="height: 600px;"></div>
   <div class="section">
     <div class="text-pad">
-      <div style="max-width: 600px; margin: 0 auto; margin-bottom: 150px">
+      <div style="max-width: 600px; margin: 0 auto; margin-bottom: 100px">
         <h2>Regional collapse</h2>
         <p>
           Across the continental U.S., grasslands have seen serious declines. In the middle of the country, where most of our grasslands still exist, 2 million acres are lost on average each year.
@@ -395,6 +395,8 @@ export default {
     },
   },
   mounted() {
+    this.checkUrlAndScroll();
+
     this.speciesList = species;
 
     // initial viewport widwth check
@@ -415,6 +417,27 @@ export default {
     });
   },
   methods: {
+    checkUrlAndScroll() {
+      const hash = window.location.hash;
+      // Assuming your URL might look like: http://example.com/#species-section
+      if (hash === '#species-section') {
+        this.scrollToSection();
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const species = urlParams.get('species');
+      if (species) {
+        console.log('species pre-select')
+
+        this.selectSpeciesFromUrl(species)
+      }
+    },
+    scrollToSection() {
+      const section = document.getElementById('species-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
     updateMapZoom(center, zoom) {
       console.log(center, zoom);
       this.startingMapPosition.center = center;
@@ -451,13 +474,42 @@ export default {
       console.log('toggle')
       this.mobileSpeciesListIsOpen = !this.mobileSpeciesListIsOpen;
     },
+    selectSpeciesFromUrl(speciesName) {
+      // filter the allSpecies array to find the species that matches the selectedSpecies with the id key
+      this.selectedSpecies = this.allSpecies.find(
+        (species) => species.id === speciesName
+      );
+
+      // select the div that was clicked and then add class "highlight-circle" to it
+      // document.getElementById(e.target.id).classList.add("highlight-circle");
+
+      // get all divs with class name "species-circle" and remove the class "highlight-circle"
+      let speciesCircles = document.getElementsByClassName("species-circle");
+      for (let i = 0; i < speciesCircles.length; i++) {
+        speciesCircles[i].classList.remove("highlight-circle");
+      }
+
+      // find the div with the id that matches speciesName and add the class "highlight-circle"
+      document.getElementById('species-' + speciesName).classList.add("highlight-circle");
+
+      // scroll to the div with id "before-species-highlight" with duration of 1000ms
+      document
+        .getElementById("before-species-highlight")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+    },
     selectSpecies(e) {
       // remove the first 8 letters from the id
       // this will leave us with the species name
       // e.g. species-bobolink becomes bobolink
       let speciesID = e.target.id.slice(8);
 
-      console.log(speciesID, this.allSpecies);
+      // Update the URL without reloading the page to contain species name
+      const newUrl = `${window.location.pathname}?species=${encodeURIComponent(speciesID)}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
 
       // filter the allSpecies array to find the species that matches the selectedSpecies with the id key
       this.selectedSpecies = this.allSpecies.find(
@@ -679,8 +731,8 @@ export default {
 }
 
 #intro-section {
-  margin-top: 300px;
-  margin-bottom: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .title-container {
@@ -747,7 +799,7 @@ export default {
 
 #scrolly-section {
     margin-top: 100px;
-    margin-bottom: 300px;
+    margin-bottom: 200px;
   }
 
 
@@ -779,7 +831,7 @@ export default {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .region-map-titles.desktop {
     display: none
   }
