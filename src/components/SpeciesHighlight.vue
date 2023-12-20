@@ -45,7 +45,7 @@
 
   .species-map-container {
     
-    margin-top: 50px;
+    margin-top: 30px;
     justify-content: center;
     align-items: center;
   }

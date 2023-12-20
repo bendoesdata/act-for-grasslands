@@ -8,7 +8,7 @@
       >
         <span class="plus">+</span>
       </div>
-      <div class="accordion-title">View all references by species</div>
+      <div class="accordion-title">View all references</div>
     </div>
     <transition name="accordion-transition">
       <div class="accordion-content" v-show="isOpen">
@@ -17,6 +17,18 @@
             class="accordion-text flex-text"
             :class="{ 'fade-in': isOpen, 'fade-out': !isOpen }"
           >
+          <h2>National view and regional collapse</h2>
+        <div>
+          <p>
+          USDA Agricultural Research Service. Rangeland Analysis Platform. In: Rangeland Analysis Platform [Internet]. 2023 [cited 11 Dec 2023]. Available: https://rangelands.app/</p>
+          <p style="font-style: italic"> Data exclude areas of cropland, development, and water. Data use the historical satellite record to track vegetation loss in grasslands and rangelands and may not be suitable in forested areas.
+          </p>
+          <p>
+            World Wildlife Fund. 2023 Plowprint Report. In: World Wildlife Fund [Internet]. 25 Oct 2023 [cited 11 Dec 2023]. Available: https://www.worldwildlife.org/publications/2023-plowprint-report 
+          </p>
+          <br>
+        </div>
+            <h2>Species</h2>
             <b>Northern Bobwhite</b>
             <p>
               Brennan LA, Hernández F, Williford D. Conservation and management.

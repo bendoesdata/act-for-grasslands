@@ -11,28 +11,29 @@
       <p>Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this trend by protecting places vital to animals and people.</p>
       <div class="buttons">
         <!-- <v-btn class="primary-btn">Learn More</v-btn> -->
+        <a href="https://actforgrasslands.org/take-action/">
         <v-btn class="primary-btn">Act now</v-btn>
+        </a>
       </div>
     </div>
     <div v-if="!isMobile" class="right-content">
 
     </div>
   </div>
-  <br>
   <div class="section">
     <div class="flex-container" id="intro-section">
       <div class="flex-half">
-        <img src="/images/Mule-Deer/cbolt_07172017_DSC3017_Clay_Bolt.jpg" style="width: 100%" alt="">
+        <img src="/images/selected/Ce5RO8kSH94_unsplash_rod_m.jpg" style="width: 100%" alt="">
       </div>
       <div class="flex-half text-pad">
         <p>
           The loss of America’s grasslands has led to alarming declines in the wildlife we all care about. If these iconic landscapes continue to disappear, we risk losing the animals that define our communities. These losses show that the places where people live are losing soil productivity and water, and are less able to withstand extreme heat and storms.
         </p>
-        <p>
-          The slow collapse of this system is underway. 
+        <p style="font-weight: 800">
+          The collapse of this system is underway.
         </p>
         <p>
-          The North American Grasslands Conservation Act will help reverse the decline of America's prairies, savannas, glades, and sagebrush – in our own backyards.
+          The North American Grasslands Conservation Act will help save America's prairies, savannas, glades, and sagebrush – in our own backyards.
         </p>
       </div>
     </div>
@@ -42,18 +43,26 @@
     
     <!-- <leaflet-map mapId="leaflet-2022" :layerYear="2021" />  -->
   </div>
-  <div style="height: 600px;"></div>
+  <div style="height: 450px;"></div>
+  <div class="section">
+      <div style="margin: 0 auto; text-align: left;">
+        <p style="font-size: 14px; font-style: italic; ">
+        Satellite technology has been able to track the recent loss of grasslands, but over half of native grasslands were already lost in the past 100 years.
+        </p>
+      </div>
+      
+  </div>
   <div class="section">
     <div class="text-pad">
-      <div style="max-width: 600px; margin: 0 auto; margin-bottom: 100px">
+      <div style="max-width: 600px; margin: 0 auto; margin-bottom: 40px;">
         <h2>Regional collapse</h2>
         <p>
-          Across the continental U.S., grasslands have seen serious declines. In the middle of the country, where most of our grasslands still exist, 2 million acres are lost on average each year.
+          Across the continental U.S., grasslands have seen serious declines. In the middle of the country, where most of our grasslands still exist, <b>2 million acres are lost on average each year</b>.
       </p>
       <p>
-        The below maps show how much grasslands have disappeared over the past thirty years in specific regions. This data comes from the Rangeland Analysis Platform, and excludes areas of cropland, development, and water.
+        The maps below show how much grasslands have disappeared over the past 30 years in specific regions. These data exclude areas of cropland, development, and water (for more notes on the data, see References).
       </p>
-      <p style="font-weight: 600">
+      <p style="font-weight: 800">
         Grassland animals are losing their homes.
       </p>
       </div>
@@ -148,7 +157,6 @@
     </div>
     
   </div>
-  <div id="before-species-highlight"></div>
   <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesObject="selectedSpecies" />
   <br>
   <div class="section">
@@ -248,11 +256,13 @@
       <h2>By changing nothing, nothing changes.</h2>
       <br>
       <p>
-        Click here [possible link: https://actforgrasslands.org/take-action/] to call on Congress to restore disappearing grasslands by supporting a <a style="text-decoration: underline" href="https://actforgrasslands.org/about-the-grasslands-act/" target="_blank">North American Grasslands Conservation Act</a>.
+        Click below to call on Congress to restore disappearing grasslands by supporting a North American Grasslands Conservation Act.
       </p>
       <br>
       <div class="btn-right-container">
-        <v-btn class="primary-btn" style="text-align: center; width: 150px">ACT NOW</v-btn>
+        <a href="https://actforgrasslands.org/take-action/">
+          <v-btn class="primary-btn" style="text-align: center; width: 150px">ACT NOW</v-btn>
+        </a>
       </div>
       
       <ReferenceAccordion></ReferenceAccordion>
@@ -556,7 +566,7 @@ export default {
   color: #EFEAD4;
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 300px;
+  margin-top: 100px;
 }
 
 .flex-container {
@@ -677,6 +687,7 @@ export default {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: -40px
 }
 
 .region-map-item {
@@ -731,7 +742,7 @@ export default {
 }
 
 #intro-section {
-  margin-top: 100px;
+  margin-top: 30px;
   margin-bottom: 100px;
 }
 
@@ -917,10 +928,6 @@ export default {
 
   .flex-half {
     flex: 1 1 100%;
-  }
-
-  #intro-section {
-    flex-direction: column-reverse;
   }
 
   .text-pad {
