@@ -2,7 +2,7 @@
   <div>
   <div id="banner">
     <div id="mobile-header-image" v-if="isMobile">
-      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpeg" alt="">
+      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpg" alt="">
     </div>
     <div class="left-content">
       <div class="title-container">
@@ -29,7 +29,7 @@
           The loss of America’s grasslands has led to alarming declines in the wildlife we all care about. If these iconic landscapes continue to disappear, we risk losing the animals that define our communities. These losses show that the places where people live are losing soil productivity and water, and are less able to withstand extreme heat and storms.
         </p>
         <p>
-          The slow collapse of this system is underway. 
+          The collapse of this system is underway. 
         </p>
         <p>
           The North American Grasslands Conservation Act will help reverse the decline of America's prairies, savannas, glades, and sagebrush – in our own backyards.
