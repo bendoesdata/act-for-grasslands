@@ -49,7 +49,7 @@
           <div v-else-if="layerType == 'range'">
             <div class="legend-title">Species</div>
             <div style="margin-top: 5px">
-              <span class="circle-legend-before"></span> Maximum historical range
+              <span class="circle-legend-before"></span> Maximum known
             </div>
             <div><span class="circle-legend-after"></span> Current</div>
           </div>
@@ -85,7 +85,7 @@
             </div>
             <div v-else>
                 <br>
-                <div><span class="circle-legend-after"></span> Current range: 2000-2020</div>
+                <div><span class="circle-legend-before"></span> Current range: 2000-2020</div>
                 <div style="font-style: italic; margin-bottom: 0px">
                   Range maps created based on polygon detection maps using the Bumble Bees of North America database.
               </div>
@@ -341,7 +341,7 @@ export default {
           L.geoJSON(data, {
             style: function (feature) {
               return {
-                color: "#BBA38E", // Example color
+                color: "#bba38e", // Example color
                 weight: 2,
                 fillOpacity: 0.7,
               };
@@ -531,7 +531,8 @@ export default {
             style: function (feature) {
               return {
                 color: "#7f9694", // Example color
-                weight: 0,
+                weight: 0.5,
+                opacity: 0.8
               };
             },
           }).addTo(this.map);
@@ -887,7 +888,7 @@ export default {
   width: 10px;
   height: 10px;
   margin-right: 5px;
-  background-color: #7f9694;
+  background-color: #bba38e;
 }
 
 .circle-legend-after {
@@ -896,7 +897,8 @@ export default {
   width: 10px;
   height: 10px;
   margin-right: 5px;
-  background-color: #bba38e;
+  background-color: #7f9694;
+
 }
 
 .ebird-note {

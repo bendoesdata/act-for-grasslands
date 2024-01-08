@@ -51,6 +51,10 @@ p {
   margin-bottom: 20px;
 }
 
+b {
+  font-weight: 800;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -69,7 +73,9 @@ button {
 }
 
 .section {
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.1em;
   margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 60px;
