@@ -47,7 +47,7 @@
             <div class="ebird-note">Polygons reflect modeled trends and not actual bird locations.</div>
           </div>
           <div v-else-if="layerType == 'range'">
-            <div class="legend-title">Species range</div>
+            <div class="legend-title">Species</div>
             <div style="margin-top: 5px">
               <span class="circle-legend-before"></span> Maximum known
             </div>
@@ -506,7 +506,7 @@ export default {
           }).addTo(this.map);
 
           // Create a popup
-        var popup = L.popup()
+        var popup = L.popup({ offset: L.point(30, 20) })
             .setLatLng([44.5123, -111.2998]) // Approximate coordinates for Last Chance, Idaho
             .setContent("<p style='font-size: 14px'>This doe, known as 255, has made the longest recorded Mule Deer migration. Each year, she <b>negotiated an average of 171 fences</b>, along with roads, rivers, and mountains, as she journeyed between her summer range in the meadows of Greater Yellowstone and her winter home in the sagebrush steppe of the Red Desert of Wyoming.</p>")
             .openOn(this.map);

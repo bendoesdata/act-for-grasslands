@@ -2,7 +2,7 @@
   <div>
   <div id="banner">
     <div id="mobile-header-image" v-if="isMobile">
-      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpeg" alt="">
+      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpg" alt="">
     </div>
     <div class="left-content">
       <div class="title-container">
