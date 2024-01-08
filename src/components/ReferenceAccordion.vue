@@ -43,6 +43,11 @@
               2019 [cited 29 Aug 2023]. Available:
               https://www.mbr-pwrc.usgs.gov/
             </p>
+            <p>
+              eBird Status and Trends, data version: 2022.
+
+Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, C. Crowley, K. Dunham, A. Stillman, I. Davies, A. Rodewald, V. Ruiz-Gutierrez, C. Wood. 2023. eBird Status and Trends, Data Version: 2022; Released: 2023. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2022
+            </p>
             <p class="photo-cred">Photo by Chad Hutchinson/Macaulay Library</p>
             <b>Pronghorn</b>
             <p>

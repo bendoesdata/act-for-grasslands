@@ -598,7 +598,23 @@ export default {
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
 
-      // Load range GeoJSON for the current range
+        // Load range GeoJSON from an external file
+      fetch("/data/gpc-single-feature-historic.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          
+          // Add GeoJSON layer for historic range
+          L.geoJSON(data, {
+            style: function (feature) {
+              return {
+                color: "#7f9694", // Example color
+                weight: 2,
+              };
+            },
+          }).addTo(this.map);
+        });
+
+        // Load range GeoJSON for the current range
       fetch("/data/gpc-current.geojson")
         .then((response) => response.json())
         .then((data) => {
@@ -609,23 +625,7 @@ export default {
               return {
                 color: "#BBA38E", // Example color
                 weight: 2,
-                fillOpacity: 0.7,
-              };
-            },
-          }).addTo(this.map);
-        });
-
-        // Load range GeoJSON from an external file
-      fetch("/data/gpc-historic-only-tympanuchus-cupido.geojson")
-        .then((response) => response.json())
-        .then((data) => {
-          
-          // Add GeoJSON layer for historic range
-          L.geoJSON(data, {
-            style: function (feature) {
-              return {
-                color: "#7f9694", // Example color
-                weight: 2,
+                fillOpacity: 0.9,
               };
             },
           }).addTo(this.map);
@@ -794,6 +794,12 @@ export default {
   },
   mounted() {
     this.drawMap();
+
+    // check if this browser is Firefox, and if yes, turn the display of #zoom-msg to none
+    var isFirefox = typeof InstallTrigger !== "undefined";
+    if (isFirefox) {
+      document.getElementById("zoom-msg").style.display = "none";
+    }
   },
 
   unmounted() {

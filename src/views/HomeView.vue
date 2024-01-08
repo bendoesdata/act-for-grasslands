@@ -23,7 +23,7 @@
   <div class="section">
     <div class="flex-container" id="intro-section">
       <div class="flex-half">
-        <img src="/images/selected/Ce5RO8kSH94_unsplash_rod_m.jpg" style="width: 100%" alt="">
+        <img src="/images/selected/Ce5RO8kSH94_unsplash_rod_m.jpg" id="monarch-pic" alt="">
       </div>
       <div class="flex-half text-pad">
         <p>
@@ -47,7 +47,7 @@
   <div class="section">
       <div style="margin: 0 auto; text-align: left;">
         <p style="font-size: 14px; font-style: italic; ">
-        Satellite technology has been able to track the recent loss of grasslands, but over half of native grasslands were already lost in the past 100 years.
+          Satellite technology has been able to track the recent loss of grasslands, but over half of native grasslands were already lost decades before these images were available.
         </p>
       </div>
       
@@ -157,6 +157,7 @@
     </div>
     
   </div>
+  <div id="before-species-highlight"></div>
   <SpeciesHighlight class="section" v-if="selectedSpecies != null" :speciesObject="selectedSpecies" />
   <br>
   <div class="section">
@@ -325,12 +326,12 @@ export default {
         se: {
           updateSource: null,
           zoom: 6,
-          center: [33.61461929, -85.58349],
+          center: [33.0639241981, -83.7377929687],
         },
         mw: {
           updateSource: null,
           zoom: 6,
-          center: [45.5217438969, -90.37353515625],
+          center: [37.43997405227, -90.4614257812],
         },
         west: {
           updateSource: null,
@@ -558,7 +559,7 @@ export default {
 }
 
 #before-species-highlight {
-  height: 30px
+  height: 5px
 }
 
 #species-section {
@@ -653,6 +654,10 @@ export default {
   margin: 0 auto;
 }
 
+#monarch-pic {
+  width: 85%
+}
+
 @media (max-width: 850px) {
   .species-grid {
     grid-template-columns: repeat(
@@ -668,6 +673,10 @@ export default {
 .species-circle {
   width: 150px;
   height: 150px;
+}
+
+#monarch-pic {
+  width: 100%
 }
 }
 

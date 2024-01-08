@@ -12,7 +12,9 @@
         <div class="species-description" v-html="speciesObject.descriptionLong"></div>
         <br>
         <br>
+        <a href="https://actforgrasslands.org/take-action/">
         <v-btn class="primary-btn">Act now</v-btn>
+      </a>
       </div>
     </div>
     <div class="species-map-container">

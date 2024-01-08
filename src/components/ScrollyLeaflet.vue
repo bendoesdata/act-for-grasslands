@@ -115,7 +115,7 @@ export default {
 
       // Add scroll event listener
       window.addEventListener('scroll', () => {
-        const secondTextBoxTop = textBoxRefs.value[1].getBoundingClientRect().top + 600;
+        const secondTextBoxTop = textBoxRefs.value[1].getBoundingClientRect().top + 400;
         if (secondTextBoxTop <= 1) {
             map2.value.classList.remove('map-inactive');
             map2.value.classList.add('map2-active');
@@ -151,6 +151,7 @@ export default {
   top: 10%; /* This will make the map stick to the center of the viewport */
   z-index: 0;
   margin-bottom: 0px;
+  filter: hue-rotate(10deg) saturate(1) contrast(100%);
 }
 
 .leaflet-map {
@@ -179,6 +180,7 @@ export default {
     text-align: center;
     padding: 20px;
     margin: auto 0;
+    margin-top: 100px;
     /* border: 1px solid red; */
     /* center vertically */
     display: flex;
@@ -189,7 +191,7 @@ export default {
 .text-box {
   height: 100px; /* Adjust as needed */
   position:relative;
-  background: white;
+  background: rgba(255,255,255,0.9);
   text-align: center;
   padding: 20px;
   margin: auto 0;
