@@ -602,7 +602,7 @@ export default {
       // because there is no way to delineate diff sources for each
 
         // Load range GeoJSON from an external file
-      fetch("/data/gpc-single-feature-historic.geojson")
+      fetch("/data/gpc-dissolve-historic.geojson")
         .then((response) => response.json())
         .then((data) => {
           
