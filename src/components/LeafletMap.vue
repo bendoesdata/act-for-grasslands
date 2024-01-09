@@ -30,7 +30,10 @@
         </div>
         <div v-if="speciesLayerName != 'none'">
           <div v-if="layerType == 'trend'">
-            <div class="legend-title">Relative abundance</div>
+            <div class="legend-title">Relative abundance 
+              <span v-if="speciesLayerName == 'Northern Pintail'">(non-breeding)</span>
+              <span v-if="speciesLayerName == 'Mallard' || speciesLayerName == 'Bobolink'">(breeding)</span>
+            </div>
             <div class="legend-subtitle">Middle year of range, 2014</div>
             <img
               src="/images/legends/map-legends-02.png"
@@ -562,7 +565,7 @@ export default {
       // Load range GeoJSON from an external file
       // NOTE: the cornell-saggro-layer file has both historic and current range
       // but we use a more up to date current range on top of it instead of changing the color of this one dynamically
-      fetch("/data/cornell-saggro-layer.geojson")
+      fetch("/data/gsg-historic.geojson")
         .then((response) => response.json())
         .then((data) => {
           
