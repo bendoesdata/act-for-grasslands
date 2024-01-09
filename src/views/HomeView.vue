@@ -146,8 +146,8 @@
         </div>
       </div>
     </div>
-    <div class="species-grid">
-      <div v-for="(species, index) in immutableSpeciesList.slice(12, 16)" :key="index" class="species-highlight-item">
+    <div class="species-grid-last-row">
+      <div v-for="(species, index) in immutableSpeciesList.slice(12, 15)" :key="index" class="species-highlight-item">
         <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
@@ -251,7 +251,7 @@
       </div>
       <leaflet-map :layerYear="selectedYearForMap" mapId="interactive-map" :speciesLayerName="birdSelection"
         :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
-        :allowScrollZoom="false" @map-center-change="updateMapZoom" />
+        :allowScrollZoom="true" @map-center-change="updateMapZoom" />
     </div>
     <div class="section" style="max-width: 700px;">
       <h2>By changing nothing, nothing changes.</h2>
@@ -450,7 +450,6 @@ export default {
       }
     },
     updateMapZoom(center, zoom) {
-      console.log(center, zoom);
       this.startingMapPosition.center = center;
       this.startingMapPosition.zoom = zoom;
     },
@@ -638,6 +637,15 @@ export default {
   display: grid;
   grid-template-columns: repeat(
     4,
+    1fr
+  ); /* 6 columns in the first and second rows */
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+.species-grid-last-row {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
     1fr
   ); /* 6 columns in the first and second rows */
   gap: 20px; /* Adjust the gap as needed */
