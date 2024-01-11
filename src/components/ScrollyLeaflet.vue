@@ -151,7 +151,7 @@ export default {
   top: 10%; /* This will make the map stick to the center of the viewport */
   z-index: 0;
   margin-bottom: 0px;
-  filter: hue-rotate(10deg) saturate(1) contrast(100%);
+  filter: hue-rotate(0deg) saturate(0.8) contrast(110%);
 }
 
 .leaflet-map {
