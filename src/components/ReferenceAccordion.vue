@@ -44,9 +44,7 @@
               https://www.mbr-pwrc.usgs.gov/
             </p>
             <p>
-              eBird Status and Trends, data version: 2022.
-
-Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, C. Crowley, K. Dunham, A. Stillman, I. Davies, A. Rodewald, V. Ruiz-Gutierrez, C. Wood. 2023. eBird Status and Trends, Data Version: 2022; Released: 2023. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2022
+              eBird Status and Trends. Data version: 2021. Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, A. Rodewald, C. Wood, I. Davies, A. Spencer. 2022. eBird Status and Trends, Data Version: 2021; Released: 2022. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2021
             </p>
             <p class="photo-cred">Photo by Chad Hutchinson/Macaulay Library</p>
             <b>Pronghorn</b>
@@ -115,6 +113,9 @@ Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. H
               Available:
               https://www.fws.gov/media/waterfowl-population-status-2022
             </p>
+            <p>
+              eBird Status and Trends. Data version: 2021. Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, A. Rodewald, C. Wood, I. Davies, A. Spencer. 2022. eBird Status and Trends, Data Version: 2021; Released: 2022. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2021
+            </p>
             <p class="photo-cred">Photo by Matt Misewicz/Macaulay Library</p>
 
             <b>Ring-necked Pheasant</b>
@@ -129,6 +130,9 @@ Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. H
               Whitmore RW, Pruess KP, Gold RE. Insect food selection by
               2-week-old Ring-Necked Pheasant chicks. J Wildl Manage. 1986;50:
               223–228.
+            </p>
+            <p>
+              eBird Status and Trends. Data version: 2021. Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, A. Rodewald, C. Wood, I. Davies, A. Spencer. 2022. eBird Status and Trends, Data Version: 2021; Released: 2022. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2021
             </p>
             <p class="photo-cred">Photo by Rachel Bush</p>
 
@@ -154,6 +158,9 @@ Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. H
               North American Bird Conservation Initiative. The State of the
               Birds, United States of America, 2022. 2022. Available:
               https://www.stateofthebirds.org
+            </p>
+            <p>
+              eBird Status and Trends. Data version: 2021. Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, A. Rodewald, C. Wood, I. Davies, A. Spencer. 2022. eBird Status and Trends, Data Version: 2021; Released: 2022. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2021
             </p>
             <p class="photo-cred">Photo by Brad Imhoff/Macaulay Library</p>
 
@@ -183,6 +190,9 @@ Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. H
               2019 [cited 29 Aug 2023]. Available:
               https://www.mbr-pwrc.usgs.gov/
             </p>
+            <p>
+              eBird Status and Trends. Data version: 2021. Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, A. Rodewald, C. Wood, I. Davies, A. Spencer. 2022. eBird Status and Trends, Data Version: 2021; Released: 2022. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2021
+            </p>
             <p class="photo-cred">Photo by Ad Konings</p>
 
             <b>Greater Sage-Grouse</b>
@@ -206,6 +216,9 @@ Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. H
               Doherty KE, Ryba AJ, Stemler CL, Niemuth ND, Meeks WA.
               Conservation planning in an era of change: state of the U.S.
               Prairie Pothole region. Wildl Soc Bull. 2013. doi:10.1002/wsb.284
+            </p>
+            <p>
+              eBird Status and Trends. Data version: 2021. Fink, D., T. Auer, A. Johnston, M. Strimas-Mackey, S. Ligocki, O. Robinson, W. Hochachka, L. Jaromczyk, A. Rodewald, C. Wood, I. Davies, A. Spencer. 2022. eBird Status and Trends, Data Version: 2021; Released: 2022. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.2173/ebirdst.2021
             </p>
             <p class="photo-cred">Photo by Brad Imhoff/Macaulay Library</p>
 
@@ -341,7 +354,6 @@ export default {
 
 .accordion-content {
   margin-top: 10px;
-  overflow: hidden;
 }
 
 .accordion-text {
@@ -367,7 +379,6 @@ export default {
 .accordion-transition-enter,
 .accordion-transition-leave-to {
   height: 0;
-  overflow: hidden;
 }
 
 .species-circle-small {

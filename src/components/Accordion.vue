@@ -134,7 +134,7 @@ import { map } from 'leaflet';
   };
   </script>
   
-  <style>
+  <style scoped>
   .flex-container {
     display: flex;
     flex-wrap: wrap;
