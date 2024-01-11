@@ -52,9 +52,9 @@
           <div v-else-if="layerType == 'range'">
             <div class="legend-title">Species</div>
             <div style="margin-top: 5px">
-              <span class="circle-legend-before"></span> Maximum known
+              <span class="circle-legend-after"></span> Maximum known
             </div>
-            <div><span class="circle-legend-after"></span> Current</div>
+            <div><span class="circle-legend-before"></span> Current</div>
           </div>
           <div v-else-if="layerType == 'abundance'">
             
