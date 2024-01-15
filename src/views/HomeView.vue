@@ -359,7 +359,7 @@ export default {
       }
     },
     selectedSpecies() {
-      // console.log(this.selectedSpecies)
+      console.log(this.selectedSpecies)
       this.speciesForInteractiveMap = this.selectedSpecies.name;
 
       setTimeout(()=> {
@@ -474,8 +474,13 @@ export default {
     },
     updateSelectedSpecies(val) {
       this.speciesForInteractiveMap = val;
-      console.log(this.speciesForInteractiveMap);
+      
       this.birdSelection = this.speciesForInteractiveMap;
+
+      setTimeout(()=> {
+        // update the above species highlight by changing the map and highlighting the correct circle
+        this.selectSpeciesFromAccToggle(val);
+      }, 1000)
     },
     toggleLayerBox() {
       this.layerBoxIsOpen = !this.layerBoxIsOpen;
@@ -484,14 +489,31 @@ export default {
       console.log('toggle')
       this.mobileSpeciesListIsOpen = !this.mobileSpeciesListIsOpen;
     },
+    selectSpeciesFromAccToggle(speciesName) {
+      
+      // get all divs with class name "species-circle" and remove the class "highlight-circle"
+      let speciesCircles = document.getElementsByClassName("species-circle");
+      for (let i = 0; i < speciesCircles.length; i++) {
+        speciesCircles[i].classList.remove("highlight-circle");
+      }
+
+      // convert speciesName to all lower case and insert - between spaces
+      speciesName = speciesName.replace(/\s+/g, '-').toLowerCase();
+      console.log(speciesName)
+      // find the div with the id that matches speciesName and add the class "highlight-circle"
+      document.getElementById('species-' + speciesName).classList.add("highlight-circle");
+
+      // TODO: I think this line is causing a bug with toggle switches
+      // filter the allSpecies array to find the species that matches the selectedSpecies with the id key
+      // this.selectedSpecies = this.allSpecies.find(
+      //   (species) => species.id === speciesName
+      // );
+    },
     selectSpeciesFromUrl(speciesName) {
       // filter the allSpecies array to find the species that matches the selectedSpecies with the id key
       this.selectedSpecies = this.allSpecies.find(
         (species) => species.id === speciesName
       );
-
-      // select the div that was clicked and then add class "highlight-circle" to it
-      // document.getElementById(e.target.id).classList.add("highlight-circle");
 
       // get all divs with class name "species-circle" and remove the class "highlight-circle"
       let speciesCircles = document.getElementsByClassName("species-circle");
@@ -668,6 +690,14 @@ export default {
 
 @media (max-width: 850px) {
   .species-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    );
+    gap: 10px; /* Adjust the gap as needed */
+  }
+
+  .species-grid-last-row {
     grid-template-columns: repeat(
       2,
       1fr

@@ -617,6 +617,7 @@ export default {
           }).addTo(this.map);
         });
 
+
         // Load range GeoJSON for the current range
       fetch("/data/gpc-current.geojson")
         .then((response) => response.json())
@@ -628,7 +629,7 @@ export default {
               return {
                 color: "#BBA38E", // Example color
                 weight: 2,
-                fillOpacity: 0.9,
+                fillOpacity: 0.7,
               };
             },
           }).addTo(this.map);
@@ -666,16 +667,16 @@ export default {
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
-              if (feature.properties.Time == null) {
+              if (feature.properties.Time != null) {
                 return {
-                  color: "#7f9694", // Example color
+                  color: "#BBA38E", // current color
                   weight: 2,
+                  fillOpacity: 1
                 };
               } else {
                 return {
-                  color: "#BBA38E", // Example color
+                  color: "#7f9694", // Example color
                   weight: 2,
-                  fillOpacity: 0.7,
                 };
               }
             },
@@ -815,6 +816,7 @@ export default {
 /* Add any additional styles for your Leaflet map container here */
 .leaflet-map {
   height: 650px;
+  filter: hue-rotate(0deg) saturate(0.8) contrast(110%);
 }
 
 .hide-content {

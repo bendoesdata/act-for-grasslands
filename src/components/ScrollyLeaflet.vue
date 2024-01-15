@@ -173,7 +173,7 @@ export default {
 }
 
 .scroll-box {
-    height: 700px; /* Adjust as needed */
+    height: 800px; /* Adjust as needed */
     position:relative;
     z-index: 100;
     background: rgba(255,255,255,0);
