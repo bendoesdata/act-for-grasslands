@@ -816,7 +816,7 @@ export default {
 /* Add any additional styles for your Leaflet map container here */
 .leaflet-map {
   height: 650px;
-  filter: hue-rotate(0deg) saturate(0.8) contrast(110%);
+  filter: hue-rotate(0deg) saturate(0.8) contrast(105%);
 }
 
 .hide-content {
