@@ -68,10 +68,19 @@
       // Initialize the Leaflet map
       this.map = L.map(this.mapId, {
         scrollWheelZoom: false,
+        dragging: !L.Browser.mobile, // Disable one-finger dragging on mobile
         center: this.center, // Specify the initial center coordinates
         zoom: this.zoom, // Specify the initial zoom level
         layers: [], // Empty base layers
       });
+
+      if (L.Browser.mobile) {
+          // prevent single finger dragging on mobile
+          this.map.dragging.disable();
+      }
+
+      // enable touch zoom for mobile
+      this.map.touchZoom.enable();
       
   
       // Add an empty tile layer with an empty URL (no background)

@@ -42,9 +42,14 @@ export default {
       } else {
         zoomlevel = 3;
       } 
-        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], zoomlevel);
-        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false}).setView([38.0997, -96.1786], zoomlevel);
+        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false, dragging: !L.Browser.mobile}).setView([38.0997, -96.1786], zoomlevel);
+        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false, dragging: !L.Browser.mobile}).setView([38.0997, -96.1786], zoomlevel);
 
+        if (L.Browser.mobile) {
+          // prevent single finger dragging on mobile
+          this.map.dragging.disable();
+      }
+      
       let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
             subdomains: 'abcd',
