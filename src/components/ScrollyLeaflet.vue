@@ -155,7 +155,7 @@ export default {
 .map-container {
   position: sticky;
   top: 10%; /* This will make the map stick to the center of the viewport */
-  z-index: 0;
+  z-index: 1 !important;
   margin-bottom: 0px;
   filter: hue-rotate(0deg) saturate(0.8) contrast(105%);
 }
@@ -171,7 +171,7 @@ export default {
 
 .map2-active {
   opacity: 1;
-  z-index: 1; /* Ensure the second map is on top during the transition */
+  z-index: 2 !important; /* Ensure the second map is on top during the transition */
 }
 
 .map-inactive {
@@ -199,7 +199,7 @@ export default {
   position:relative;
   background: rgba(255,255,255,0.9);
   text-align: center;
-  z-index: 105;
+  z-index: 105 !important;
   padding: 20px;
   margin: auto 0;
 }
@@ -214,6 +214,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 110 !important;
   }
   .text-box h2 {
     font-size: 1.6rem
