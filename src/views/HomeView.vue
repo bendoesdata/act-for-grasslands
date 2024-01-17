@@ -888,6 +888,35 @@ export default {
   font-size: 24px
 }
 
+  /* media query between 800px and 1200px */
+  @media (min-width: 851px) and (max-width: 1200px) {
+  #title {
+    font-size: 4rem;
+  }
+}
+
+/* Media query for very wide screens */
+@media (min-width: 1450px) {
+  #banner {
+    height: 600px;
+  }
+
+
+  .left-content {
+  flex: 1 1 35%;
+  padding: 20px;
+  padding-left: 40px;
+  background-color: #EFEAD4;
+  color: #475026;
+  border-top-right-radius: 20% 200px; /* Adjust the second value to control the curve */
+  border-bottom-right-radius: 22% 300px; /* Adjust the second value to control the curve */
+  position: absolute; /* Set the left div to an absolute position */
+    z-index: 2; /* Ensure the left div is above the right div */
+    width: 50%;
+    min-height: 600px; /* Set the height you want for the right section */
+}
+}
+
 /* Media query for smaller screens */
 @media (max-width: 850px) {
   .region-map-titles.desktop {

@@ -277,6 +277,9 @@ export default {
         scrollWheelZoom: this.allowScrollZoom,
       }).setView(this.center, this.zoom);
 
+      // prevent default zoom w/o holding cmd
+      this.map.scrollWheelZoom.disable();
+
       let CartoDB_Positron = L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
         {
@@ -310,27 +313,20 @@ export default {
         }
       ).addTo(this.map);
 
+      var zoomOnScroll = (event)=> {
+          if (event.ctrlKey || event.metaKey) { // metaKey is for Cmd on Mac
+              this.map.scrollWheelZoom.enable();
+          } else {
+              this.map.scrollWheelZoom.disable();
+          }
+      };
+
+      document.addEventListener('keydown', zoomOnScroll);
+      document.addEventListener('keyup', zoomOnScroll);
+
       // Add event listeners
       this.map.on("zoomend", this.handleZoomChange);
       this.map.on("moveend", this.handleCenterChange);
-
-      if (!this.allowScrollZoom) {
-        // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
-        document
-          .getElementById(this.mapId)
-          .addEventListener("mousewheel", (e) => {
-            if (e.ctrlKey || e.metaKey) {
-              // Zoom when Cmd/Ctrl key is held down
-              const delta = e.wheelDeltaY || e.deltaY;
-              if (delta > 0) {
-                this.map.zoomIn();
-              } else {
-                this.map.zoomOut();
-              }
-              e.preventDefault();
-            }
-          });
-      }
     },
     drawBumbleBee() {
       
@@ -718,8 +714,31 @@ export default {
       this.$emit("map-center-change", this.localCenter, this.localZoomLevel);
     },
     handleZoomChange() {
-      this.localZoomLevel = this.map.getZoom();
+
+      if (this.allowScrollZoom) {
+        // Add custom event listener to handle scroll zoom when Cmd/Ctrl key is held down
+        document
+          .getElementById(this.mapId)
+          .addEventListener("mousewheel", (e) => {
+            
+            if (e.ctrlKey || e.metaKey) {
+              // Zoom when Cmd/Ctrl key is held down
+              const delta = e.wheelDeltaY || e.deltaY;
+              if (delta > 0) {
+                this.map.zoomIn();
+              } else {
+                this.map.zoomOut();
+              }
+              e.preventDefault();
+            }
+          });
+
+          this.localZoomLevel = this.map.getZoom();
       this.$emit("map-center-change", this.localCenter, this.localZoomLevel);
+      } else {
+        return;
+      }
+      
     },
     addBirdLayer(species) {
       console.log("GET SPECIES");
