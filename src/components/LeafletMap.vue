@@ -275,10 +275,19 @@ export default {
     drawMap() {
       this.map = L.map(this.mapId, {
         scrollWheelZoom: this.allowScrollZoom,
+        dragging: !L.Browser.mobile, // Disable one-finger dragging on mobile
       }).setView(this.center, this.zoom);
 
       // prevent default zoom w/o holding cmd
       this.map.scrollWheelZoom.disable();
+
+      if (L.Browser.mobile) {
+          // prevent single finger dragging on mobile
+          this.map.dragging.disable();
+      }
+
+      // enable touch zoom for mobile
+      this.map.touchZoom.enable();
 
       let CartoDB_Positron = L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",

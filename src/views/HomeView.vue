@@ -355,7 +355,7 @@ export default {
         this.mobileSpeciesListIsOpen = true;
         document.getElementById('select-species-acc-header').style.display = 'none';
       } else {
-        document.getElementById('select-species-acc-header').style.display = 'block';
+        document.getElementById('select-species-acc-header').style.display = 'flex';
       }
     },
     selectedSpecies() {
