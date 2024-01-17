@@ -42,14 +42,15 @@ export default {
       } else {
         zoomlevel = 3;
       } 
-        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false, dragging: !L.Browser.mobile}).setView([38.0997, -96.1786], zoomlevel);
-        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false, dragging: !L.Browser.mobile}).setView([38.0997, -96.1786], zoomlevel);
+        const leafletMap1 = L.map(map1.value,{scrollWheelZoom: false, dragging: false}).setView([38.0997, -96.1786], zoomlevel);
+        const leafletMap2 = L.map(map2.value,{scrollWheelZoom: false, dragging: false}).setView([38.0997, -96.1786], zoomlevel);
 
         if (L.Browser.mobile) {
           // prevent single finger dragging on mobile
-          this.map.dragging.disable();
+          leafletMap1.dragging.disable();
+          leafletMap2.dragging.disable();
       }
-      
+
       let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
             subdomains: 'abcd',
@@ -170,7 +171,7 @@ export default {
 
 .map2-active {
   opacity: 1;
-  z-index: 0; /* Ensure the second map is on top during the transition */
+  z-index: 1; /* Ensure the second map is on top during the transition */
 }
 
 .map-inactive {
@@ -198,6 +199,7 @@ export default {
   position:relative;
   background: rgba(255,255,255,0.9);
   text-align: center;
+  z-index: 105;
   padding: 20px;
   margin: auto 0;
 }
@@ -207,13 +209,12 @@ export default {
 @media (max-width: 800px) {
   .text-box {
     height: 180px; /* Adjust as needed */
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     /* center text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .text-box h2 {
     font-size: 1.6rem
   }
