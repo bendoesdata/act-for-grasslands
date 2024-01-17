@@ -928,6 +928,10 @@ export default {
     padding-bottom: 5px;
   }
 
+  .left-content {
+    padding-left: 20px;
+  }
+
   /* #left-map-panel {
     max-height: 400px;
     overflow-y: scroll;
