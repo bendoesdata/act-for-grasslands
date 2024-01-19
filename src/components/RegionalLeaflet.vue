@@ -53,7 +53,6 @@
       }
     },
     zoom(newZoom) {
-        console.log(newZoom)
       // Ensure that the map is initialized
       if (this.map && this.mapInitialized) {
             // udpate the maps zoom level
@@ -101,7 +100,7 @@
       } else {
         // get the div with map id and set style of width to 600px
         var mapDiv = document.getElementById(this.mapId);
-        mapDiv.style.width = "400px";
+        mapDiv.style.width = "380px";
       }
 
       // Set the flag to indicate that the map is initialized
@@ -125,7 +124,7 @@
       } else if (window.innerWidth <= 1250 && window.innerWidth > 950) {
         mapDiv.style.width = "450px";
       } else  {
-        mapDiv.style.width = "400px";
+        mapDiv.style.width = "380px";
       }
       },
       handleMouseDown(event) {
@@ -164,9 +163,6 @@
             console.log(msg.center)
             
             this.$emit("map-center-change", msg);
-            
-            
-            
         }
     }
   };
