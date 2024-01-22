@@ -209,7 +209,7 @@
                     <div class="layer-box-title flex-half" style="text-align: right;">Timespan</div>
                   </div>
                   <div class="flex-container layer-box-row">
-                  <div style="width: 250px">
+                  <div class="map-layer-dropdown">
                     <v-select
                   v-model="selectedBaseLayer"
                   :items="grassLayers"
@@ -225,6 +225,7 @@
                       color="primary"
                       variant="outlined"
                       style="text-align: right; float: right; position:absolute; right: 20px"
+                      class="toggle-btns"
                     >
                       <v-btn value="1992" rounded="5">1992</v-btn>
                       <v-btn value="2020" selected rounded="5">2021</v-btn>
@@ -925,8 +926,19 @@ export default {
 }
 }
 
+.map-layer-dropdown {
+  width: 250px
+}
+
 /* Media query for smaller screens */
 @media (max-width: 850px) {
+  .toggle-btns * {
+    font-size: 14px
+  }
+  .map-layer-dropdown {
+  width: 150px
+}
+
   .spacer-after-map {
     height: 10px
   }
@@ -967,7 +979,7 @@ export default {
   }
 
   #layer-box {
-    width: 250px;
+    width: 90%;
     left: 5%;
     bottom: 10%;
   }
