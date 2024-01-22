@@ -1,10 +1,12 @@
 <template>
   <div>
     <div v-if="windowWith > 800" class="map-container">
+      <div>
       <div ref="map1" id="scroll-map-1" class="leaflet-map">
         <div class="map-credit">Source: Rangeland Analysis Platform</div>
       </div>
       <div ref="map2" id="scroll-map-2" class="leaflet-map"></div>
+      </div>
     </div>
     <div v-else class="map-container-mobile">
       <img
@@ -224,7 +226,9 @@ export default {
   opacity: 0;
 }
 .map-container {
+  display: block;
   position: sticky;
+  position: -webkit-sticky;
   top: 10%; /* This will make the map stick to the center of the viewport */
   z-index: 1 !important;
   margin-bottom: 0px;
@@ -243,7 +247,7 @@ export default {
 
 .map2-active {
   opacity: 1;
-  z-index: 2 !important; /* Ensure the second map is on top during the transition */
+  z-index: 1 !important; /* Ensure the second map is on top during the transition */
 }
 
 .map-inactive {
@@ -257,6 +261,7 @@ export default {
   background: rgba(255, 255, 255, 0);
   text-align: center;
   padding: 20px;
+  will-change: transform;
   margin: auto 0;
   margin-top: 100px;
   /* border: 1px solid red; */
@@ -280,8 +285,9 @@ export default {
 @media (max-width: 800px) {
   .map-container-mobile {
   position: sticky;
+  position: -webkit-sticky;
   top: 10%;
-  z-index: 1 !important;
+  z-index: 0 !important;
 }
 
 .map-container-mobile img {
@@ -306,7 +312,7 @@ export default {
   }
 
   .scrolly-box {
-    height: 500px
+    height: 300px
   }
 }
 </style>
