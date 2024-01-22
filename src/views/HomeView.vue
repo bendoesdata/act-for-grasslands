@@ -43,7 +43,7 @@
     
     <!-- <leaflet-map mapId="leaflet-2022" :layerYear="2021" />  -->
   </div>
-  <div style="height: 450px;"></div>
+  <div class="spacer-after-map"></div>
   <div class="section">
       <div style="margin: 0 auto; text-align: left;">
         <p style="font-size: 14px; font-style: italic; ">
@@ -888,10 +888,18 @@ export default {
   font-size: 24px
 }
 
+.spacer-after-map {
+  height: 450px;
+}
+
   /* media query between 800px and 1200px */
   @media (min-width: 851px) and (max-width: 1200px) {
   #title {
     font-size: 4rem;
+  }
+
+  .spacer-after-map {
+    height: 200px
   }
 }
 
@@ -919,6 +927,10 @@ export default {
 
 /* Media query for smaller screens */
 @media (max-width: 850px) {
+  .spacer-after-map {
+    height: 10px
+  }
+
   .region-map-titles.desktop {
     display: none
   }
