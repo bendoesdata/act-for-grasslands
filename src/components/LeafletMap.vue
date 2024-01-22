@@ -12,6 +12,9 @@
       <div>
         <div @click="toggleLegendBox" id="toggle-legend">&minus; Minimize legend</div>
         <div id="legend-contents">
+          <div v-if="isMobile" style="font-size: 14px; font-weight: 600; margin-bottom: 10px">
+            {{ speciesLayerName }}
+          </div>
         <div v-if="layerName == 'pfg'">
           <div class="legend-title">Grasslands</div>
           <img
@@ -160,6 +163,7 @@ export default {
       localZoomLevel: null,
       localCenter: null,
       layerType: null,
+      isMobile: false,
       // species dictionary
       speciesDictionary: {
         "Burrowing Owl": "burowl3",
@@ -825,6 +829,14 @@ export default {
     },
   },
   mounted() {
+
+    // if window width is less than 800px set isMobile to true
+    if (window.innerWidth < 800) {
+      this.isMobile = true;
+    } else {
+      this.isMobile = false;
+    }
+
     this.drawMap();
 
     // check if this browser is Firefox, and if yes, turn the display of #zoom-msg to none
