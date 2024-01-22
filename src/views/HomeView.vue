@@ -995,7 +995,8 @@ export default {
   }
 
   .layer-box-title {
-    font-size: 12px
+    font-size: 12px;
+    text-decoration: underline;
   }
 
   #banner .left-content {
@@ -1059,12 +1060,12 @@ export default {
   
   .layer-box-icon.open {
     transform: rotate(180deg);
-    transform-origin: 50% 50%;
+    transform-origin: 50% 30%;
   }
 
   .layer-box-plus {
     font-size: 24px;
-    transform-origin: 50% 50%;
+    transform-origin: 50% 30%;
   }
 
   .layer-box-title {
