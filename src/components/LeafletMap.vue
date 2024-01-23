@@ -571,7 +571,8 @@ export default {
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
 
-      // Load range GeoJSON from an external file
+      
+        // Load range GeoJSON from an external file
       // NOTE: the cornell-saggro-layer file has both historic and current range
       // but we use a more up to date current range on top of it instead of changing the color of this one dynamically
       fetch("/data/gsg-historic.geojson")
@@ -588,7 +589,9 @@ export default {
             },
           }).addTo(this.map);
         });
-
+      
+      
+        setTimeout(()=>{
       // Load range GeoJSON for the current range
       fetch("/data/saggro-current.geojson")
         .then((response) => response.json())
@@ -605,28 +608,13 @@ export default {
             },
           }).addTo(this.map);
         });
+      },100)
     },
     drawGPC() {
       // for this one i need to load the current and historic in sep files
       // because there is no way to delineate diff sources for each
 
-        // Load range GeoJSON from an external file
-      fetch("/data/gpc-dissolve-historic.geojson")
-        .then((response) => response.json())
-        .then((data) => {
-          
-          // Add GeoJSON layer for historic range
-          L.geoJSON(data, {
-            style: function (feature) {
-              return {
-                color: "#7f9694", // Example color
-                weight: 2,
-              };
-            },
-          }).addTo(this.map);
-        });
-
-
+      setTimeout(()=> {
         // Load range GeoJSON for the current range
       fetch("/data/gpc-current.geojson")
         .then((response) => response.json())
@@ -639,6 +627,24 @@ export default {
                 color: "#BBA38E", // Example color
                 weight: 2,
                 fillOpacity: 0.7,
+              };
+            },
+          }).addTo(this.map);
+        });
+      },100)
+      
+
+        // Load range GeoJSON from an external file
+      fetch("/data/gpc-dissolve-historic.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          
+          // Add GeoJSON layer for historic range
+          L.geoJSON(data, {
+            style: function (feature) {
+              return {
+                color: "#7f9694", // Example color
+                weight: 2,
               };
             },
           }).addTo(this.map);
@@ -676,21 +682,47 @@ export default {
           // Add GeoJSON layer to the map once the file is loaded
           L.geoJSON(data, {
             style: function (feature) {
-              if (feature.properties.Time != null) {
-                return {
-                  color: "#BBA38E", // current color
-                  weight: 2,
-                  fillOpacity: 1
-                };
-              } else {
+              if (feature.properties.Time == null) {
                 return {
                   color: "#7f9694", // Example color
                   weight: 2,
                 };
+              } else {
+                return {
+                  weight: 0,
+                  fillOpacity: 0
+                }
               }
             },
           }).addTo(this.map);
         });
+
+        setTimeout(()=> {
+          // Load range GeoJSON from an external file
+        // THIS TIME DRAW CURRENT RANGE
+      fetch("/data/elk-historic-current.geojson")
+        .then((response) => response.json())
+        .then((data) => {
+          // Add GeoJSON layer to the map once the file is loaded
+          L.geoJSON(data, {
+            style: function (feature) {
+              if (feature.properties.Time != null) {
+                return {
+                  color: "#BBA38E", // current color
+                  weight: 2,
+                  fillOpacity: 0.7,
+                };
+              } else {
+                return {
+                  weight: 0,
+                  fillOpacity: 0
+                }
+              }
+            },
+          }).addTo(this.map);
+        });
+        },100)
+        
     },
     drawPronghorn() {
       // Load range GeoJSON from an external file
