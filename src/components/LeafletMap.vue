@@ -53,7 +53,7 @@
             <div class="ebird-note">Polygons reflect modeled trends and not actual bird locations.</div>
           </div>
           <div v-else-if="layerType == 'range'">
-            <div class="legend-title">Species</div>
+            <div class="legend-title">Species range</div>
             <div style="margin-top: 5px">
               <span class="circle-legend-after"></span> Maximum known
             </div>
