@@ -8,7 +8,7 @@
       >
         <span class="plus">+</span>
       </div>
-      <div class="accordion-title">View all references</div>
+      <div class="accordion-title">View all references and credits</div>
     </div>
     <transition name="accordion-transition">
       <div class="accordion-content" v-show="isOpen">
