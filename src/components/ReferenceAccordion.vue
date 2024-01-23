@@ -72,6 +72,8 @@
             </p>
             <p class="photo-cred">Photo by Rod M.</p>
 
+            <p class="photo-cred">Xerces Society for Invertebrate Conservation https://www.xerces.org/monarchs</p>
+
             <b>Greater Prairie-Chicken</b>
             <p>
               Johnson JA, Schroeder MA, Robb LA. Behavior. In: Greater
@@ -229,6 +231,8 @@
               2015 Mar.
             </p>
             <p class="photo-cred">Photo by Clay Bolt</p>
+
+            <p class="photo-cred">Xerces Society for Invertebrate Conservation https://www.xerces.org/bumblebees</p>
 
             <b>Mule Deer</b>
             <p>
