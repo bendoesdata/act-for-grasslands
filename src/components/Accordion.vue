@@ -1,6 +1,6 @@
 <template>
     <div :id="'accordion-'+accId" class="accordion">
-      <div class="accordion-header" @click="toggleAccordion">
+      <div class="accordion-header" @click="toggleAccordion" role="button">
         <div class="accordion-icon" :class="{ 'open': isOpen }" :style="{ transform: rotateTransform }">
           <span class="plus">+</span>
         </div>
@@ -25,7 +25,7 @@
               <a v-else :href="species.mapSourceLink1" target="_blank" style="text-decoration: underline;">{{ species.mapSource }}</a>
             </div>
             </div>
-          <v-switch @click="sendSpeciesSelection" :model-value="switchState" label="Display on map"></v-switch>
+          <v-switch role="button" @click="sendSpeciesSelection" :model-value="switchState" label="Display on map"></v-switch>
         </div>
       </transition>
     </div>
