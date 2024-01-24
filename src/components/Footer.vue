@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
       <div class="footer-content">
-        <p class="footer-text">Map for Grasslands was co-created by the <a href="https://www.birds.cornell.edu/conservation-media/" target="_blank">Center for Conservation Media</a> at the Cornell Lab of Ornithology and the coalition members of <a href="https://actforgrasslands.org/" target="_blank">Act for Grasslands</a>. ©2024</p>
+        <p class="footer-text">Map for Grasslands was co-created by the <a href="https://www.birds.cornell.edu/conservation-media/" aria-label="link text - new window" target="_blank">Center for Conservation Media</a> at the Cornell Lab of Ornithology and the coalition members of <a href="https://actforgrasslands.org/" aria-label="link text - new window" target="_blank">Act for Grasslands</a>. ©2024</p>
       </div>
     </footer>
   </template>

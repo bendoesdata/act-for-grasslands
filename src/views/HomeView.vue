@@ -245,7 +245,7 @@
                 </div>
               </div>
               <br>
-              <div style="font-size: 12px">Vegetation layer source: <a style="text-decoration: underline;" href="https://rangelands.app/" target="_blank">Rangeland Analysis Platform (1988-2022)</a></div>
+              <div style="font-size: 12px">Vegetation layer source: <a style="text-decoration: underline;" href="https://rangelands.app/" target="_blank" aria-label="link text - new window">Rangeland Analysis Platform (1988-2022)</a></div>
             </div>
           </transition>
         </div>

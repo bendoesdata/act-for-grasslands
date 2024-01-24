@@ -19,10 +19,10 @@
                 {{ species.mapSource }}
               </span>
               <span v-else-if="doubleSource">
-                <a :href="species.mapSourceLink1" target="_blank" style="text-decoration: underline;">{{ splitSource(species.mapSource)[0] }}</a>,
-                <a :href="species.mapSourceLink2" target="_blank" style="text-decoration: underline;">{{ splitSource(species.mapSource)[1] }}</a>
+                <a :href="species.mapSourceLink1" target="_blank" aria-label="link text - new window" style="text-decoration: underline;">{{ splitSource(species.mapSource)[0] }}</a>,
+                <a :href="species.mapSourceLink2" target="_blank" aria-label="link text - new window" style="text-decoration: underline;">{{ splitSource(species.mapSource)[1] }}</a>
               </span>
-              <a v-else :href="species.mapSourceLink1" target="_blank" style="text-decoration: underline;">{{ species.mapSource }}</a>
+              <a v-else :href="species.mapSourceLink1" target="_blank" aria-label="link text - new window" style="text-decoration: underline;">{{ species.mapSource }}</a>
             </div>
             </div>
           <v-switch role="button" @click="sendSpeciesSelection" :model-value="switchState" label="Display on map"></v-switch>
