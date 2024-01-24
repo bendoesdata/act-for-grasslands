@@ -360,7 +360,7 @@ export default {
       }
     },
     selectedSpecies() {
-      console.log(this.selectedSpecies)
+      
       this.speciesForInteractiveMap = this.selectedSpecies.name;
 
       setTimeout(()=> {
@@ -439,8 +439,6 @@ export default {
       const urlParams = new URLSearchParams(window.location.search);
       const species = urlParams.get('species');
       if (species) {
-        console.log('species pre-select')
-
         this.selectSpeciesFromUrl(species)
       }
     },
@@ -487,7 +485,6 @@ export default {
       this.layerBoxIsOpen = !this.layerBoxIsOpen;
     },
     toggleSpeciesList() {
-      console.log('toggle')
       this.mobileSpeciesListIsOpen = !this.mobileSpeciesListIsOpen;
     },
     selectSpeciesFromAccToggle(speciesName) {
@@ -500,7 +497,7 @@ export default {
 
       // convert speciesName to all lower case and insert - between spaces
       speciesName = speciesName.replace(/\s+/g, '-').toLowerCase();
-      console.log(speciesName)
+      
       // find the div with the id that matches speciesName and add the class "highlight-circle"
       document.getElementById('species-' + speciesName).classList.add("highlight-circle");
 

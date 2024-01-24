@@ -199,7 +199,7 @@ export default {
       this.drawMap();
       
       if (this.speciesLayerName == "Southern Plains Bumble Bee") {
-        console.log('switch on')
+        
         // turn the display of #loading-msg to block
         document.getElementById("loading-msg").style.display = "block";
 
@@ -786,7 +786,7 @@ export default {
       
     },
     addBirdLayer(species) {
-      console.log("GET SPECIES");
+      
       // Define a custom style function for the polygon
 
       // turn the display of #loading-msg to block
@@ -821,17 +821,17 @@ export default {
 
       // Fetch the GeoJSON file
       function getData() {
-        console.log("GET DATA");
+        
         // create fp variable and store filepath for burowl3.geojson in the public folder under data
         let fp = `/data/${currentSpecies}.geojson`;
 
         fetch(fp)
           .then(function (response) {
-            console.log("DATA GOT");
+            
             return response.json();
           })
           .then(function (data) {
-            console.log("DATA READY");
+            
             data.features.forEach(function (state) {
               state.active = true;
 
@@ -850,7 +850,6 @@ export default {
                 },
               }).addTo(map);
             });
-            console.log("data plotted");
 
             // turn the display of #loading-msg to none
             document.getElementById("loading-msg").style.display = "none";

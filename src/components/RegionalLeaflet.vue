@@ -45,7 +45,7 @@
     },
     watch: {
     center(newCenter) {
-        console.log('received from', this.updateSource, newCenter)
+        
       // Ensure that the map is initialized
       if (this.map && this.mapInitialized) {
             // Update the map's center with the new value from the prop
@@ -135,19 +135,19 @@
       // User is moving the mouse
       if (this.isDragging) {
         // Here, you can handle the dragging
-        console.log("Dragging over the div");
+        
       }
     },
     handleMouseUp(event) {
       // User releases the mouse button
       if (this.isDragging) {
         this.isDragging = false;
-        console.log("Drag ended");
+        
         this.handleCenterChange();
       }
     },
         handleCenterChange() {
-            console.log('moved by ', this.updateSource)
+            
             let msg = {}
             msg.center = this.map.getCenter();
             
@@ -160,7 +160,7 @@
             // if (this.updateSource == this.mapId) {
             //     return;
             // }
-            console.log(msg.center)
+            
             
             this.$emit("map-center-change", msg);
         }

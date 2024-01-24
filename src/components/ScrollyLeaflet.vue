@@ -79,7 +79,7 @@ export default {
           mobileMap2.classList.add("map2-active");
           mobileMap1.classList.add("map-inactive");
         } else {
-          console.log("show first map");
+          
           mobileMap2.classList.remove("map2-active");
           mobileMap2.classList.add("map-inactive");
           mobileMap1.classList.remove("map-inactive");
@@ -202,7 +202,6 @@ export default {
           map2.value.classList.add("map2-active");
           map1.value.classList.add("map-inactive");
         } else {
-          console.log("show first map");
           map2.value.classList.remove("map2-active");
           map2.value.classList.add("map-inactive");
           map1.value.classList.remove("map-inactive");

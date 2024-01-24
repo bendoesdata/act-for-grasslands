@@ -32,9 +32,6 @@
         required: true
       }
     },
-    mounted() {
-      console.log(this.speciesObject)
-    },
     computed: {
       isMobile() {
         return window.innerWidth < 900;
