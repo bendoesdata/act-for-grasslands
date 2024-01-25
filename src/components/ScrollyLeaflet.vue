@@ -71,7 +71,7 @@ export default {
         
         const secondTextBoxTop =
           textBoxRefs.value[0].getBoundingClientRect().top + 400;
-          console.log(secondTextBoxTop)
+          
         if (secondTextBoxTop <= 0) {
           mobileMap2.classList.remove("map-inactive");
           mobileMap2.classList.add("map2-active");
