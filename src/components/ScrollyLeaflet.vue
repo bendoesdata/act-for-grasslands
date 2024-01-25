@@ -204,6 +204,11 @@ export default {
           map1.value.classList.remove("map-inactive");
         }
       });
+
+      setTimeout(()=>{
+        window.dispatchEvent(new Event('resize'));
+      }, 500)
+      
     });
 
     return {

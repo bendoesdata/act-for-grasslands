@@ -897,7 +897,8 @@ export default {
   }
 
   .spacer-after-map {
-    height: 200px
+    height: 450px;
+
   }
 }
 
@@ -937,7 +938,8 @@ export default {
 }
 
   .spacer-after-map {
-    height: 10px
+    height: 60px;
+    margin-bottom: 50px
   }
 
   .region-map-titles.desktop {
@@ -959,7 +961,7 @@ export default {
   } */
 
   #scrolly-section {
-    padding: 0px
+    padding: 0px;
   }
 
   #species-list-content {
