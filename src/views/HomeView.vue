@@ -2,7 +2,7 @@
   <div>
   <div id="banner">
     <div id="mobile-header-image" v-if="isMobile">
-      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpg" alt="">
+      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.webp" alt="">
     </div>
     <div class="left-content">
       <div class="title-container">
@@ -23,7 +23,7 @@
   <div class="section">
     <div class="flex-container" id="intro-section">
       <div class="flex-half">
-        <img src="/images/selected/Ce5RO8kSH94_unsplash_rod_m.jpg" id="monarch-pic" alt="">
+        <img src="/images/Monarch-Butterfly/Ce5RO8kSH94_unsplash_rod_m.webp" id="monarch-pic" alt="">
       </div>
       <div class="flex-half text-pad">
         <p>
@@ -873,7 +873,7 @@ export default {
   margin-left: 35%;
   min-height: 500px;
   /* Set the height you want for the right section */
-  background-image: url('/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.jpeg');
+  background-image: url('/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.webp');
   background-repeat: repeat-x;
   background-size: cover;
   z-index: 1;

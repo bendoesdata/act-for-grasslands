@@ -7,9 +7,9 @@
   "resolved" "https://registry.npmjs.org/@babel/parser/-/parser-7.22.7.tgz"
   "version" "7.22.7"
 
-"@esbuild/darwin-arm64@0.18.17":
-  "integrity" "sha512-M9uJ9VSB1oli2BE/dJs3zVr9kcCBBsE883prage1NWz6pBS++1oNn/7soPNS3+1DGj0FrkSvnED4Bmlu1VAE9g=="
-  "resolved" "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.18.17.tgz"
+"@esbuild/darwin-x64@0.18.17":
+  "integrity" "sha512-XDre+J5YeIJDMfp3n0279DFNrGCXlxOuGsWIkRb1NThMZ0BsrWXoTg23Jer7fEXQ9Ye5QjrvXpxnhzl3bHtk0g=="
+  "resolved" "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.18.17.tgz"
   "version" "0.18.17"
 
 "@jridgewell/sourcemap-codec@^1.4.15":
@@ -116,7 +116,7 @@
     "@vue/shared" "3.3.4"
     "csstype" "^3.1.1"
 
-"@vue/server-renderer@^3.0.6", "@vue/server-renderer@3.3.4":
+"@vue/server-renderer@3.3.4":
   "integrity" "sha512-Q6jDDzR23ViIb67v+vM1Dqntu+HUexQcsWKhhQa4ARVzxOY2HbC7QRW/ggkDBd5BU+uM1sV6XOAP0b216o34JQ=="
   "resolved" "https://registry.npmjs.org/@vue/server-renderer/-/server-renderer-3.3.4.tgz"
   "version" "3.3.4"
@@ -740,9 +740,9 @@
   "version" "0.14.5"
 
 "vue-meta@^3.0.0-alpha.2":
-  "integrity" "sha512-mLDB/vGjn2Q58IFKs5Dtp/STWZ0sEbkdM67u+YXuMreK5EjNHnqhcylQb+xn50pwxCdQD98nGgJlEXkh16Hqug=="
-  "resolved" "https://registry.npmjs.org/vue-meta/-/vue-meta-3.0.0-alpha.2.tgz"
-  "version" "3.0.0-alpha.2"
+  "integrity" "sha512-rYeIGkhm1gKBcReEkPHiV6LV2Y6BZTMGTkGw1mQIZTxfFcVJL0srLZsL1zAmLeTGxMrlDYylMQEVSYRkDnwz3A=="
+  "resolved" "https://registry.npmjs.org/vue-meta/-/vue-meta-3.0.0-alpha.10.tgz"
+  "version" "3.0.0-alpha.10"
 
 "vue-router@^4.0.13":
   "integrity" "sha512-LmXrC+BkDRLak+d5xTMgUYraT3Nj0H/vCbP+7usGvIl9Viqd1UP6AsP0i69pSbn9O0dXK/xCdp4yPw21HqV9Jw=="

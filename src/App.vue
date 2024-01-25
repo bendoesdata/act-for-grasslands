@@ -25,6 +25,21 @@
 </template>
 <!-- <HelloWorld msg="Vite + Vue" /> -->
 
+<script>
+  export default {
+    name: 'App',
+    metaInfo: {
+      // if no subcomponents specify a metaInfo.title, this title will be used
+      title: 'Map for Grasslands',
+      // all titles will be injected into this template
+      titleTemplate: 'Map for Grasslands'
+    },
+    created () {
+            document.title = "Map for Grasslands";
+        }
+  }
+</script>
+
 <style scoped>
 
 #site-title {

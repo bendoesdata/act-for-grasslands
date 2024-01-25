@@ -25,7 +25,7 @@
               <a v-else :href="species.mapSourceLink1" target="_blank" aria-label="link text - new window" style="text-decoration: underline;">{{ species.mapSource }}</a>
             </div>
             </div>
-          <v-switch role="button" @click="sendSpeciesSelection" :model-value="switchState" label="Display on map"></v-switch>
+          <v-switch role="switch" aria-checked="false" @click="sendSpeciesSelection" :model-value="switchState" style="color: #262c13;" label="Display on map"></v-switch>
         </div>
       </transition>
     </div>
