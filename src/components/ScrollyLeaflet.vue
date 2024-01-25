@@ -68,10 +68,11 @@ export default {
 
         // Add scroll event listener
       window.addEventListener("scroll", () => {
+        
         const secondTextBoxTop =
           textBoxRefs.value[0].getBoundingClientRect().top + 400;
           console.log(secondTextBoxTop)
-        if (secondTextBoxTop == 0) {
+        if (secondTextBoxTop <= 0) {
           mobileMap2.classList.remove("map-inactive");
           mobileMap2.classList.add("map2-active");
           mobileMap1.classList.add("map-inactive");
