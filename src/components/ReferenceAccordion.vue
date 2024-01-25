@@ -70,9 +70,8 @@
               monitoring demonstrates dramatic declines of monarch butterflies
               in western North America. Biol Conserv. 2017;214: 343–346.
             </p>
+            <p>Xerces Society for Invertebrate Conservation https://www.xerces.org/monarchs</p>
             <p class="photo-cred">Photo by Rod M.</p>
-
-            <p class="photo-cred">Xerces Society for Invertebrate Conservation https://www.xerces.org/monarchs</p>
 
             <b>Greater Prairie-Chicken</b>
             <p>
@@ -230,9 +229,9 @@
               IUCN assessments for North American Bombus spp. Xerces Society;
               2015 Mar.
             </p>
-            <p class="photo-cred">Photo by Clay Bolt</p>
+            <p>Xerces Society for Invertebrate Conservation https://www.xerces.org/bumblebees</p>
 
-            <p class="photo-cred">Xerces Society for Invertebrate Conservation https://www.xerces.org/bumblebees</p>
+            <p class="photo-cred">Photo by Clay Bolt</p>
 
             <b>Mule Deer</b>
             <p>
