@@ -10,12 +10,12 @@
     </div>
     <div v-else class="map-container-mobile">
       <img
-        src="/images/mobile-scrolly-map-1.png"
+        src="/images/static-scrolly-map-1.png"
         alt="Map of grasslands coverage in the United States in 1992."
         id="mobile-map-1"
       />
       <img
-        src="/images/mobile-scrolly-map-2.png"
+        src="/images/static-scrolly-map-2.png"
         alt="Map of grasslands coverage in the United States in 2021."
         id="mobile-map-2"
       />
@@ -26,10 +26,7 @@
       :key="index"
       :ref="(el) => (textBoxRefs[index] = el)"
     >
-      <div v-if="index == 0" class="text-box invisible">
-        <h2></h2>
-      </div>
-      <div v-else class="text-box">
+      <div class="text-box">
         <h2>{{ box.content }}</h2>
       </div>
     </div>
@@ -47,7 +44,6 @@ export default {
     const map2 = ref(null);
     let isMobile = false;
     const textBoxes = ref([
-      { content: "" },
       { content: "Here is how grasslands in the U.S. looked in 1992." },
       { content: "Here is what remained in 2021." },
     ]);
@@ -73,8 +69,9 @@ export default {
         // Add scroll event listener
       window.addEventListener("scroll", () => {
         const secondTextBoxTop =
-          textBoxRefs.value[1].getBoundingClientRect().top + 400;
-        if (secondTextBoxTop <= 1) {
+          textBoxRefs.value[0].getBoundingClientRect().top + 400;
+          console.log(secondTextBoxTop)
+        if (secondTextBoxTop == 0) {
           mobileMap2.classList.remove("map-inactive");
           mobileMap2.classList.add("map2-active");
           mobileMap1.classList.add("map-inactive");
@@ -196,8 +193,8 @@ export default {
       // Add scroll event listener
       window.addEventListener("scroll", () => {
         const secondTextBoxTop =
-          textBoxRefs.value[1].getBoundingClientRect().top + 400;
-        if (secondTextBoxTop <= 1) {
+          textBoxRefs.value[0].getBoundingClientRect().top + 400;
+        if (secondTextBoxTop <= 0) {
           map2.value.classList.remove("map-inactive");
           map2.value.classList.add("map2-active");
           map1.value.classList.add("map-inactive");
@@ -226,12 +223,16 @@ export default {
 }
 .map-container {
   display: block;
-  position: sticky;
-  position: -webkit-sticky;
+  position: sticky !important;
+  position: -webkit-sticky !important;
   top: 10%; /* This will make the map stick to the center of the viewport */
   z-index: 1 !important;
   margin-bottom: 0px;
   filter: hue-rotate(0deg) saturate(0.8) contrast(105%);
+}
+
+#scroll-map-1 {
+  position: absolute !important;
 }
 
 
