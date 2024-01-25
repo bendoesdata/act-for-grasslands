@@ -4,7 +4,7 @@
   
     <div class="container" id="species-highlight-description">
       <div class="left">
-        <img :src="'../'+speciesObject.photoFile" alt="Left Image" :style="{ width: isMobile ? '100%' : 'auto' }">
+        <img :src="'../'+speciesObject.photoFile" :alt="speciesObject.altText" :style="{ width: isMobile ? '100%' : 'auto' }">
       </div>
       <div class="right">
       <div class="right">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="species-map-container">
-      <img :src="'../images/trend-maps/'+speciesObject.id+'.png'" alt="">
+      <img :src="'../images/trend-maps/'+speciesObject.id+'.png'" :alt="`Image of a map showing species trend data for `+speciesObject.name">
     </div>
   </div>
   </div>

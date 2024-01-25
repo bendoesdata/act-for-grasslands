@@ -9,7 +9,7 @@
       <transition name="accordion-transition">
         <div class="accordion-content" v-show="isOpen">
           <div class="flex-container">
-            <div :style="{ backgroundImage: 'url(' + species.photoFile + ')' }" class="flex-icon species-circle-small"></div>
+            <div :title="species.altText" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }" class="flex-icon species-circle-small"></div>
             <div class="accordion-text flex-text" :class="{ 'fade-in': isOpen, 'fade-out': !isOpen }" v-html="species.descriptionShort"></div>
           </div>
           

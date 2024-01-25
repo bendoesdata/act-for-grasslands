@@ -10,7 +10,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/norbob/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; Birds of the World",
-    "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
+    "textSources__link": "https://www.mbr-pwrc.usgs.gov/",
+    "altText": "Photograph of a Northern bobwhite in mid-call."
   },
   {
     "name": "Pronghorn",
@@ -23,7 +24,8 @@
     "mapSourceLink1": "",
     "mapSourceLink2": "",
     "textSources__name": "Ungulate Migrations of the Western United States, vol. 1 (2020)",
-    "textSources__link": "https://pubs.er.usgs.gov/publication/sir20205101"
+    "textSources__link": "https://pubs.er.usgs.gov/publication/sir20205101",
+    "altText": "Photograph of a Pronghorn in a grassy field."
   },
   {
     "name": "Monarch Butterfly",
@@ -36,7 +38,8 @@
     "mapSourceLink1": "https://www.nature.com/articles/srep23265",
     "mapSourceLink2": "https://www.westernmonarchcount.org/wp-content/uploads/2014/11/Western-monarch-PVA_Schultz-et-al.-2017.pdf",
     "textSources__name": "Semmens et al. (2016); Schultz et al. (2017); Butterfly Icon by Bonnie Beach from Noun Project (CC BY 3.0)",
-    "textSources__link": "https://www.nature.com/articles/srep23265"
+    "textSources__link": "https://www.nature.com/articles/srep23265",
+    "altText": "Photograph of a Monarch butterfly on pink flowers."
   },
   {
     "name": "Greater Prairie-Chicken",
@@ -49,7 +52,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/grpchi/range-map",
     "mapSourceLink2": "http://datazone.birdlife.org/species/factsheet/greater-prairie-chicken-tympanuchus-cupido",
     "textSources__name": "Birds of the World; Lautenbach et al. (2017)",
-    "textSources__link": "https://birdsoftheworld.org/bow/species/grpchi/cur/introduction"
+    "textSources__link": "https://birdsoftheworld.org/bow/species/grpchi/cur/introduction",
+    "altText": "Photograph of a Greater Prairie-Chicken in a field."
   },
   {
     "name": "Rio Grande Cutthroat Trout",
@@ -62,7 +66,8 @@
     "mapSourceLink1": "https://www.tu.org/science/science-engagement/science-synthesis/state-of-the-trout/",
     "mapSourceLink2": "",
     "textSources__name": "Western Native Trout’s Rio Grande Cutthroat Trout Status Report (2016)",
-    "textSources__link": "https://westernnativetrout.org/wp-content/uploads/2018/03/RGCT_WesternNativeTroutStatusReport_UpdatedMay2016.pdf"
+    "textSources__link": "https://westernnativetrout.org/wp-content/uploads/2018/03/RGCT_WesternNativeTroutStatusReport_UpdatedMay2016.pdf",
+    "altText": "Photograph of a Rio Grande Cutthroat Trout in a stream."
   },
   {
     "name": "Northern Pintail",
@@ -75,7 +80,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/norpin/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "USFWS Waterfowl Population Status (2022); Birds of the World",
-    "textSources__link": "https://www.fws.gov/media/waterfowl-population-status-2022"
+    "textSources__link": "https://www.fws.gov/media/waterfowl-population-status-2022",
+    "altText": "Photograph of a Northern Pintail mid-flight."
   },
   {
     "name": "Ring-necked Pheasant",
@@ -88,7 +94,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/rinphe/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; Birds of the World",
-    "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
+    "textSources__link": "https://www.mbr-pwrc.usgs.gov/",
+    "altText": "Photograph of a Ring-necked Pheasant in a grassy field."
   },
   {
     "name": "Elk",
@@ -101,7 +108,8 @@
     "mapSourceLink1": "",
     "mapSourceLink2": "",
     "textSources__name": "Ungulate Migrations of the Western United States, vol. 1 (2020)",
-    "textSources__link": "https://pubs.er.usgs.gov/publication/sir20205101"
+    "textSources__link": "https://pubs.er.usgs.gov/publication/sir20205101",
+    "altText": "Photograph of an Elk with large antlers in a grassy field."
   },
   {
     "name": "Bobolink",
@@ -114,7 +122,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/boboli/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; State of the Birds (2022)",
-    "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
+    "textSources__link": "https://www.mbr-pwrc.usgs.gov/",
+    "altText": "Photograph of a Bobolink in a grassy field next to a dandelion."
   },
   {
     "name": "Scaled Quail",
@@ -127,7 +136,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/scaqua/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Breeding Bird Survey; Western Quail Management Plan (2009)",
-    "textSources__link": "https://www.mbr-pwrc.usgs.gov/"
+    "textSources__link": "https://www.mbr-pwrc.usgs.gov/",
+    "altText": "Photograph of a Scaled Quail perching on a rock."
   },
   {
     "name": "Greater Sage-Grouse",
@@ -140,7 +150,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/saggro/trends-map?showAllTrends=true",
     "mapSourceLink2": "https://birdsoftheworld.org/bow/species/saggro/cur/introduction",
     "textSources__name": "Birds of the World",
-    "textSources__link": "https://birdsoftheworld.org/bow/species/saggro/cur/introduction"
+    "textSources__link": "https://birdsoftheworld.org/bow/species/saggro/cur/introduction",
+    "altText": "Photograph of a Greater Sage-Grouse staight on, with impressive feathers."
   },
   {
     "name": "Mallard",
@@ -153,7 +164,8 @@
     "mapSourceLink1": "https://science.ebird.org/en/status-and-trends/species/mallar3/trends-map?showAllTrends=true",
     "mapSourceLink2": "",
     "textSources__name": "Birds of the World; Doherty et al. (2013)",
-    "textSources__link": "https://birdsoftheworld.org/bow/species/mallar3/cur/introduction"
+    "textSources__link": "https://birdsoftheworld.org/bow/species/mallar3/cur/introduction",
+    "altText": "Photograph of a Mallard swimming on calm waters in a pond."
   },
   {
     "name": "Southern Plains Bumble Bee",
@@ -166,7 +178,8 @@
     "mapSourceLink1": "https://www.leifrichardson.org/bbna.html",
     "mapSourceLink2": "",
     "textSources__name": "IUCN Assessments for North American Bombus spp. (2014); Bumble Bee Icon by Beth Lewis from Noun Project (CC BY 3.0)",
-    "textSources__link": "https://xerces.org/sites/default/files/publications/14-065.pdf"
+    "textSources__link": "https://xerces.org/sites/default/files/publications/14-065.pdf",
+    "altText": "Photograph of a southern plains bumble bee perched on top of a flower."
   },
   {
     "name": "Mule Deer",
@@ -179,7 +192,8 @@
     "mapSourceLink1": "https://westernmigrations.net/",
     "mapSourceLink2": "",
     "textSources__name": "Ungulate Migrations of the Western United States, vol. 1 (2020)",
-    "textSources__link": "https://pubs.er.usgs.gov/publication/sir20205101"
+    "textSources__link": "https://pubs.er.usgs.gov/publication/sir20205101",
+    "altText": "Photograph of a mother mule deer with a smaller doe in a grassland."
   },
   {
     "name": "Regal Fritillary",
@@ -192,6 +206,7 @@
     "mapSourceLink1": "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.114908/Argynnis_idalia",
     "mapSourceLink2": "",
     "textSources__name": "Regal Fritillary (Speyeria idalia Drury): A Technical Conservation Assessment (2007)",
-    "textSources__link": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5206808.pdf"
+    "textSources__link": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5206808.pdf",
+    "altText": "Photograph of a regal fritillary butterfly perched on top of a purple coneflower."
   }
 ]

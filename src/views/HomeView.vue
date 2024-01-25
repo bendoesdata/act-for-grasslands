@@ -2,30 +2,30 @@
   <div>
   <div id="banner">
     <div id="mobile-header-image" v-if="isMobile">
-      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.webp" alt="">
+      <img src="/images/Northern-Bobwhite/489539801_ML_Andrew_Simon.webp" alt="Image of a northern bobwhite in a field of grass, looking off into the distance.">
     </div>
     <div class="left-content">
       <div class="title-container">
-        <h1 id="title">PROTECT OUR GRASSLANDS</h1>
+        <h1 id="title" class=" fade-in-on-load-1">PROTECT OUR GRASSLANDS</h1>
       </div>
-      <p>Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this trend by protecting places vital to animals and people.</p>
-      <div class="buttons">
+      <p class=" fade-in-on-load-2">Grasslands and their wildlife are vanishing. The North American Grasslands Conservation Act works to reverse this trend by protecting places vital to animals and people.</p>
+      <div class="buttons  fade-in-on-load-2">
         <!-- <v-btn class="primary-btn">Learn More</v-btn> -->
         <a href="https://actforgrasslands.org/take-action/">
         <v-btn class="primary-btn">Act now</v-btn>
         </a>
       </div>
     </div>
-    <div v-if="!isMobile" class="right-content">
+    <div v-if="!isMobile" class="right-content" title="Image of a northern bobwhite in a field of grass, looking off into the distance.">
 
     </div>
   </div>
   <div class="section">
     <div class="flex-container" id="intro-section">
       <div class="flex-half">
-        <img src="/images/Monarch-Butterfly/Ce5RO8kSH94_unsplash_rod_m.webp" id="monarch-pic" alt="">
+        <img class="fade-in-on-load-3" src="/images/Monarch-Butterfly/Ce5RO8kSH94_unsplash_rod_m.webp" id="monarch-pic" alt="Image of a monarch butterfly on a leaf.">
       </div>
-      <div class="flex-half text-pad">
+      <div class="flex-half text-pad fade-in-on-load-3">
         <p>
           The loss of America’s grasslands has led to alarming declines in the wildlife we all care about. If these iconic landscapes continue to disappear, we risk losing the animals that define our communities. These losses show that the places where people live are losing soil productivity and water, and are less able to withstand extreme heat and storms.
         </p>
@@ -77,39 +77,39 @@
         </div>
       </div>
       <h3 class="regional-titles">Southeast</h3>
-      <div class="flex-section-region-maps">
+      <div class="flex-section-region-maps" title="The following section shows two maps side by side, one from 1992 and one from 2021. Comparing the two maps, you can see that 1992 maps have much more green representing grasslands compared to the 2021 map which has large sections of white. This section includes maps in the Southeastern U.S.">
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map1" mapYear="1992" :updateSource="regionalMapPositions.se.updateSource" :center="regionalMapPositions.se.center" :zoom="regionalMapPositions.se.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in Southeastern U.S. in 1992." mapId="map1" mapYear="1992" :updateSource="regionalMapPositions.se.updateSource" :center="regionalMapPositions.se.center" :zoom="regionalMapPositions.se.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map2" mapYear="2021" :updateSource="regionalMapPositions.se.updateSource" :center="regionalMapPositions.se.center" :zoom="regionalMapPositions.se.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in Southeastern U.S. in 2021" mapId="map2" mapYear="2021" :updateSource="regionalMapPositions.se.updateSource" :center="regionalMapPositions.se.center" :zoom="regionalMapPositions.se.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
       <h3 class="regional-titles">Midwest</h3>
-      <div class="flex-section-region-maps">
+      <div class="flex-section-region-maps" title="The following section shows two maps side by side, one from 1992 and one from 2021. Comparing the two maps, you can see that 1992 maps have much more green representing grasslands compared to the 2021 map which has large sections of white. This section includes maps in the Midwest of the U.S.">
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map3" mapYear="1992" :updateSource="regionalMapPositions.mw.updateSource" :center="regionalMapPositions.mw.center" :zoom="regionalMapPositions.mw.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in the Midwest of the U.S. in 1992. " mapId="map3" mapYear="1992" :updateSource="regionalMapPositions.mw.updateSource" :center="regionalMapPositions.mw.center" :zoom="regionalMapPositions.mw.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map4" mapYear="2021" :updateSource="regionalMapPositions.mw.updateSource" :center="regionalMapPositions.mw.center" :zoom="regionalMapPositions.mw.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in the Midwest of the U.S. in 2021" mapId="map4" mapYear="2021" :updateSource="regionalMapPositions.mw.updateSource" :center="regionalMapPositions.mw.center" :zoom="regionalMapPositions.mw.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
       <h3 class="regional-titles">West</h3>
-      <div class="flex-section-region-maps">
+      <div class="flex-section-region-maps" title="The following section shows two maps side by side, one from 1992 and one from 2021. Comparing the two maps, you can see that 1992 maps have much more green representing grasslands compared to the 2021 map which has large sections of white. This section includes maps in the Western U.S.">
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map5" mapYear="1992" :updateSource="regionalMapPositions.west.updateSource" :center="regionalMapPositions.west.center" :zoom="regionalMapPositions.west.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in the Western U.S. in 1992." mapId="map5" mapYear="1992" :updateSource="regionalMapPositions.west.updateSource" :center="regionalMapPositions.west.center" :zoom="regionalMapPositions.west.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map6" mapYear="2021" :updateSource="regionalMapPositions.west.updateSource" :center="regionalMapPositions.west.center" :zoom="regionalMapPositions.west.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in the Western U.S. in 2021." mapId="map6" mapYear="2021" :updateSource="regionalMapPositions.west.updateSource" :center="regionalMapPositions.west.center" :zoom="regionalMapPositions.west.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
       <h3 class="regional-titles">Northeast</h3>
-      <div class="flex-section-region-maps">
+      <div class="flex-section-region-maps" title="The following section shows two maps side by side, one from 1992 and one from 2021. Comparing the two maps, you can see that 1992 maps have much more green representing grasslands compared to the 2021 map which has large sections of white. This section includes maps in the Northeastern U.S.">
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map7" mapYear="1992" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" :zoom="regionalMapPositions.ne.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in the Northeastern U.S. in 1992." mapId="map7" mapYear="1992" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" :zoom="regionalMapPositions.ne.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
         <div class="region-map-item">
-          <RegionalLeaflet mapId="map8" mapYear="2021" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" :zoom="regionalMapPositions.ne.zoom" @map-center-change="updateRegionalMapPos" />
+          <RegionalLeaflet role="application" aria-label="Interactive map showing grasslands coverage in the Northeastern U.S. in 2021." mapId="map8" mapYear="2021" :updateSource="regionalMapPositions.ne.updateSource" :center="regionalMapPositions.ne.center" :zoom="regionalMapPositions.ne.zoom" @map-center-change="updateRegionalMapPos" />
         </div>
       </div>
   </div>
@@ -120,7 +120,7 @@
       loss</h2>
     <div class="species-grid">
       <div v-for="(species, index) in immutableSpeciesList.slice(0, 4)" :key="index" class="species-highlight-item">
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
+        <div @click="selectSpecies" :title="species.altText" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
           <p>{{ species.name }}</p>
@@ -130,7 +130,7 @@
     </div>
     <div class="species-grid">
       <div v-for="(species, index) in immutableSpeciesList.slice(4, 8)" :key="index" class="species-highlight-item">
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
+        <div @click="selectSpecies" :title="species.altText" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
           <p>{{ species.name }}</p>
@@ -139,7 +139,7 @@
     </div>
     <div class="species-grid">
       <div v-for="(species, index) in immutableSpeciesList.slice(8, 12)" :key="index" class="species-highlight-item">
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
+        <div @click="selectSpecies" :title="species.altText" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
           <p>{{ species.name }}</p>
@@ -148,7 +148,7 @@
     </div>
     <div class="species-grid-last-row">
       <div v-for="(species, index) in immutableSpeciesList.slice(12, 15)" :key="index" class="species-highlight-item">
-        <div @click="selectSpecies" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
+        <div @click="selectSpecies" :title="species.altText" :style="{ backgroundImage: 'url(' + species.photoFile + ')' }"
           :id="'species-' + species.id" class="species-circle"></div>
         <div class="species-title">
           <p>{{ species.name }}</p>
@@ -1127,6 +1127,30 @@ export default {
   justify-content: center;
   margin-bottom: 5px
 }
+
+.fade-in-on-load-1 {
+  opacity: 0; /* Initial state */
+  animation: fadeInAnimation ease 1s; /* Animation name, timing function, duration */
+  animation-fill-mode: forwards; /* Keeps the state of the last animation frame after the animation completes */
+}
+
+.fade-in-on-load-2 {
+  opacity: 0; /* Initial state */
+  animation: fadeInAnimation ease 2s; /* Animation name, timing function, duration */
+  animation-fill-mode: forwards; /* Keeps the state of the last animation frame after the animation completes */
+}
+
+.fade-in-on-load-3 {
+  opacity: 0; /* Initial state */
+  animation: fadeInAnimation ease 3s; /* Animation name, timing function, duration */
+  animation-fill-mode: forwards; /* Keeps the state of the last animation frame after the animation completes */
+}
+
+@keyframes fadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 
 </style>
   
