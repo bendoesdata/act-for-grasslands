@@ -294,6 +294,7 @@ export default {
   position: -webkit-sticky;
   top: 10%;
   z-index: 0 !important;
+  top: 30%; /* This will make the map stick to the center of the viewport */
 }
 
 .map-container-mobile img {

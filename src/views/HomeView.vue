@@ -251,7 +251,7 @@
         </div>
       </div>
       <leaflet-map :layerYear="selectedYearForMap" mapId="interactive-map" :speciesLayerName="birdSelection"
-        :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="startingMapPosition.zoom" 
+        :layerName="selectedBaseLayer" :center="startingMapPosition.center" :zoom="zoomStartPointCheck()" 
         :allowScrollZoom="true" @map-center-change="updateMapZoom" />
     </div>
     <div class="section" style="max-width: 700px;">
@@ -429,6 +429,16 @@ export default {
     });
   },
   methods: {
+    zoomStartPointCheck() {
+      let val;
+      if (this.isMobile) {
+        val = 3
+      } else {
+        val = 4
+      }
+
+      return val;
+    },
     checkUrlAndScroll() {
       const hash = window.location.hash;
       // Assuming your URL might look like: http://example.com/#species-section
@@ -891,13 +901,13 @@ export default {
 }
 
   /* media query between 800px and 1200px */
-  @media (min-width: 851px) and (max-width: 1200px) {
+  @media (min-width: 801px) and (max-width: 1200px) {
   #title {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 
   .spacer-after-map {
-    height: 450px;
+    height: 480px;
 
   }
 }
@@ -929,7 +939,7 @@ export default {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 850px) {
+@media (max-width: 800px) {
   .toggle-btns * {
     font-size: 14px
   }
@@ -938,7 +948,7 @@ export default {
 }
 
   .spacer-after-map {
-    height: 60px;
+    height: 50px;
     margin-bottom: 50px
   }
 

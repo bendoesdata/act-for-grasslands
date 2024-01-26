@@ -179,6 +179,15 @@ export default {
       },
     };
   },
+  computed: {
+    minMapZoom() {
+      if (this.isMobile) {
+        return 2;
+      } else {
+        return 4;
+      }
+    }
+  },
   watch: {
     layerName() {
       this.map.remove();
@@ -299,7 +308,7 @@ export default {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
           subdomains: "abcd",
-          minZoom: 4,
+          minZoom: this.minMapZoom,
           maxZoom: 20,
         }
       ).addTo(this.map);
@@ -308,7 +317,7 @@ export default {
         let tileLayer = L.tileLayer(
           `https://storage.googleapis.com/rap-tiles-cover-v3/masked/${this.layerName}/${this.layerYear}/{z}/{x}/{y}.png`,
           {
-            minZoom: 4,
+            minZoom: this.minMapZoom,
             maxZoom: 20,
             opacity: 1,
           }
@@ -321,7 +330,7 @@ export default {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
           subdomains: "abcd",
-          minZoom: 4,
+          minZoom: this.minMapZoom,
           maxZoom: 20,
         }
       ).addTo(this.map);
