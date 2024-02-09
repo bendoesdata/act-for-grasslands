@@ -113,7 +113,7 @@ export default {
       ).addTo(leafletMap1);
 
       let tileLayer = L.tileLayer(
-        `https://storage.googleapis.com/rap-tiles-cover-v3/masked/${"pfg"}/${"1992"}/{z}/{x}/{y}.png`,
+        `https://storage.googleapis.com/usda-rap-tiles-cover-v3/masked/${"pfg"}/${"1992"}/{z}/{x}/{y}.png`,
         {
           maxZoom: 18,
           opacity: 1,
@@ -142,7 +142,7 @@ export default {
 
       // rap tiles won't let me get year 2022 for some reason
       let tileLayer2 = L.tileLayer(
-        `https://storage.googleapis.com/rap-tiles-cover-v3/masked/${"pfg"}/${"2021"}/{z}/{x}/{y}.png`,
+        `https://storage.googleapis.com/usda-rap-tiles-cover-v3/masked/${"pfg"}/${"2021"}/{z}/{x}/{y}.png`,
         {
           maxZoom: 18,
           opacity: 1,

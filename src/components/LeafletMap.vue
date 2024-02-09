@@ -315,7 +315,7 @@ export default {
 
       if (!this.layerName != "none") {
         let tileLayer = L.tileLayer(
-          `https://storage.googleapis.com/rap-tiles-cover-v3/masked/${this.layerName}/${this.layerYear}/{z}/{x}/{y}.png`,
+          `https://storage.googleapis.com/usda-rap-tiles-cover-v3/masked/${this.layerName}/${this.layerYear}/{z}/{x}/{y}.png`,
           {
             minZoom: this.minMapZoom,
             maxZoom: 20,

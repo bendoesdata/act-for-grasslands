@@ -86,7 +86,7 @@
       L.tileLayer('', { attribution: '' }).addTo(this.map);
   
       // Add a custom layer using the provided URL
-      L.tileLayer(`https://storage.googleapis.com/rap-tiles-cover-v3/masked/pfg/${this.mapYear}/{z}/{x}/{y}.png`, {
+      L.tileLayer(`https://storage.googleapis.com/usda-rap-tiles-cover-v3/masked/pfg/${this.mapYear}/{z}/{x}/{y}.png`, {
         minZoom: 0, // Minimum zoom level
         maxZoom: 18, // Maximum zoom level
         padding: 0.8 // Padding around the map (in tiles) to retain when the map is zoomed in
