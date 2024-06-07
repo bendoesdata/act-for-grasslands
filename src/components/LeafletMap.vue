@@ -625,7 +625,7 @@ export default {
 
       setTimeout(()=> {
         // Load range GeoJSON for the current range
-      fetch("/data/gpc-current.geojson")
+      fetch("/data/gpc-update-20240607.geojson")
         .then((response) => response.json())
         .then((data) => {
           
